@@ -1,0 +1,4 @@
+#name : map(...)
+#key: map
+# --
+map(${1:value},${2:fromLow},${3:fromHigh},${4:toLow},${5:toHigh})

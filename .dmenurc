@@ -1,0 +1,4 @@
+#!/bin/sh
+# aur/dmenu-vertical-xft required for xft fonts
+
+/usr/bin/dmenu -i -x 0 -y 17 -nb #3f3f3f -nf #dcdccc -sb #dcdccc -sf #3f3f3f

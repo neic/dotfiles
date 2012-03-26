@@ -1,0 +1,10 @@
+#name : Bare minimum
+#key: exa
+# --
+void setup() {
+  $0 
+}
+
+void loop() {
+    
+}

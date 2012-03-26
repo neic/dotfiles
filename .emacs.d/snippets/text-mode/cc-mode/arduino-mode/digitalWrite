@@ -1,0 +1,4 @@
+#name : digitalWrite(...)
+#key: dw
+# --
+digitalWrite(${1:pinNumber},${2:LOW});

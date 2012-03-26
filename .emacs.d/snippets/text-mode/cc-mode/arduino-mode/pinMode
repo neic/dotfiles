@@ -1,0 +1,4 @@
+#name : pinMode(...)
+#key: pin
+# --
+pinMode(${1:pinNumber},${2:OUTPUT});

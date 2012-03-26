@@ -1,0 +1,17 @@
+Config { font = "xft:DejaVu Sans Mono:pixelsize=12"
+       , bgColor = "#3f3f3f"
+       , fgColor = "#dcdccc"
+       , position = TopW L 100
+       , lowerOnStart = True
+       , commands = [ Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    , Run Network "eth0" ["-L","50","-H","2000","-l","#7f9f7f","-n","#f0dfaf","-h","#9c6363","-t","eth0 <rx> <tx>"] 10
+                    , Run Network "wlan0" ["-L","50","-H","2000","-l","#7f9f7f","-n","#f0dfaf","-h","#9c6363","-t","wlan0 <rx> <tx>"] 10
+                    , Run Cpu ["-L","15","-H","80","-l","#7f9f7f","-n","#f0dfaf","-h","#9c6363","-p","3","-t","CPU<total>"] 10
+                    , Run Memory ["-L","20","-H","80","-l","#7f9f7f","-n","#f0dfaf","-h","#9c6363","-p","3","-t","Mem<usedratio>"] 10
+       	 	    , Run StdinReader
+                    , Run CommandReader "~/.xmonad/batt" "batt"
+       	 	    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %batt% | %cpu% %memory% | %eth0% %wlan0% | %date% "
+       }

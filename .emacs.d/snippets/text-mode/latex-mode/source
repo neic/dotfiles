@@ -1,0 +1,5 @@
+# contributor: Mathias Dannesbo <neic@neic.dk>
+# name: \sourceatright{}
+# key: source
+# --
+\sourceatright{$1}$0

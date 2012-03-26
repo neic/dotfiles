@@ -1,0 +1,5 @@
+# contributor: Mathias Dannesbo <neic@neic.dk>
+# name: \si{}
+# key: si
+# --
+\si{${1:unit}}$0
