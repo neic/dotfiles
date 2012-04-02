@@ -1,7 +1,7 @@
 ;;; ema-ui.el -- UI optimizations and tweaks.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2012-03-24 02:02:52 (neic)>
+;; Time-stamp: <2012-04-02 22:26:23 (neic)>
 ;;
 ;; Inspired by prelude-ui.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)

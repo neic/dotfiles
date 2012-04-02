@@ -1,7 +1,7 @@
 ;;; ema-packages.el -- ELPA packages
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2012-03-24 01:58:24 (neic)>
+;; Time-stamp: <2012-04-02 22:07:38 (neic)>
 ;;
 ;; Inspired by prelude-packages.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -17,7 +17,7 @@
   (package-refresh-contents))
 
 (defvar prelude-packages
-  '(auctex yasnippet)
+  '(auctex solarized-theme yasnippet zenburn-theme)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p prelude-packages)
