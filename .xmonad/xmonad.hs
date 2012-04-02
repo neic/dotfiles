@@ -40,8 +40,8 @@ main = do
 
         -- alsa volume controls
         , ((0, xF86AudioMute), spawn "amixer -q set PCM toggle")
-        , ((0, xF86AudioRaiseVolume), spawn "amixer -q set PCM 2+")
-        , ((0, xF86AudioLowerVolume), spawn "amixer -q set PCM 2-")
+        , ((0, xF86AudioRaiseVolume), spawn "amixer -q set PCM 5+")
+        , ((0, xF86AudioLowerVolume), spawn "amixer -q set PCM 5-")
 
         -- cmus controls
         , ((0, xF86AudioPlay), spawn "cmus-remote -u")
