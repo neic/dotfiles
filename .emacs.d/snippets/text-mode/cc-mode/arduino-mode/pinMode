@@ -1,4 +1,5 @@
-#name : pinMode(...)
-#key: pin
+# contributor: Mathias Dannesbo <neic@neic.dk>
+# name : pinMode(...)
+# key: pin
 # --
-pinMode(${1:pinNumber},${2:OUTPUT});
+pinMode(${1:pinNumber},${2:$$(yas/choose-value '("OUTPUT" "INPUT"))});
