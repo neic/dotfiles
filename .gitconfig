@@ -1,3 +1,10 @@
 [user]
 	name = Mathias Dannesbo
 	email = neic@neic.dk
+[alias]
+	c = commit
+	a = add
+	p = push
+	d = diff
+	co = checkout
+	pl = pull
