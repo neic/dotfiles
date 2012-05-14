@@ -12,6 +12,7 @@ alias up='sudo pacman -Syu'
 alias wi='wicd-curses'
 alias clear='echo "Use C-l to clear"'
 alias exit='echo "Use C-d to exit"'
+alias alock='alock -auth pam -bg blank'
 
 alias gs='git status'
 
