@@ -1,0 +1,10 @@
+# contributor: Mathias Dannesbo <neic@neic.dk>
+# name: figure
+# key: figure
+# --
+\begin{figure}[htbp]
+  %\centering
+  \includegraphics[width=0.8\textwidth]{$0}
+  %\caption[]{}
+  %\label{fig:}
+\end{figure}
