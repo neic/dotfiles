@@ -1,7 +1,7 @@
 ;;; ema-editor.el -- Core editor enhancement.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2012-03-24 01:56:27 (neic)>
+;; Time-stamp: <2012-04-16 15:15:07 (neic)>
 ;;
 ;; Inspired by prelude-editor.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -43,6 +43,8 @@
 (electric-pair-mode t)
 (electric-indent-mode t)
 (electric-layout-mode t)
+
+(add-hook 'org-mode-hook (lambda() (electric-indent-mode nil))) ;; Disable electric-indent-mode for org-mode
 
 ;; meaningful names for buffers with the same name
 (require 'uniquify)
