@@ -5,12 +5,17 @@
 \begin{table}[htbp]
   %\caption[]{}
   %\centering
-  \begin{tabular}{${1:alignment: e.g. lSSS}
-  \toprule
-  ${2:column names}
-  \midrule
-  $0
-  \buttomrule
-  \end{tabular}
-  %\label{tab:}
+  %\begin{threeparttable}
+    \begin{tabular}{${1:alignment: e.g. lSSS}}
+      \toprule
+      ${2:column names}
+      \midrule
+      $0
+      \bottomrule
+    \end{tabular}
+    %\begin{tablenotes}
+    %\end{tablenotes}
+  %\end{threeparttable}
+  %\legend{}
+  % \label{tab:}
 \end{table}
