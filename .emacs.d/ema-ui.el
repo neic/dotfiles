@@ -1,12 +1,10 @@
 ;;; ema-ui.el -- UI optimizations and tweaks.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2012-04-02 22:26:23 (neic)>
+;; Time-stamp: <2012-05-13 23:55:16 (neic)>
 ;;
 ;; Inspired by prelude-ui.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
-
-(set-face-attribute 'default nil :height 80)
 
 ;; the toolbar and menu is just a waste of valuable screen estate
 (tool-bar-mode -1)
