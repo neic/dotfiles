@@ -8,3 +8,5 @@
 	d = diff
 	co = checkout
 	pl = pull
+[color]
+	ui = always
