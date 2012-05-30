@@ -1,7 +1,7 @@
 ;;; ema-latex.el -- LaTeX setup
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2012-03-24 01:57:07 (neic)>
+;; Time-stamp: <2012-05-29 12:07:15 (neic)>
 ;;
 ;; Inspired by prelude-latex.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -34,5 +34,9 @@
   '(add-to-list 'TeX-command-list
      		'("XeLaTeX" "xelatex -interaction=nonstopmode %s"
 		  TeX-run-command t t :help "Run xelatex") t))
+
+;; calc for single line LaTeX math
+(setq calc-embedded-open-formula "^")
+(setq calc-embedded-close-formula "\\\\?\\\\?\n")
 
 (provide 'ema-latex)
