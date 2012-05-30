@@ -3,8 +3,8 @@
 # key: figure
 # --
 \begin{figure}[htbp]
-  %\centering
+  \centering
   \includegraphics[width=0.8\textwidth]{$0}
-  %\caption[]{}
+  %\caption{}
   %\label{fig:}
 \end{figure}
