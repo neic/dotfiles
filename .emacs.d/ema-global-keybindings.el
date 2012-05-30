@@ -107,7 +107,7 @@
 
 (global-set-key (kbd "H-q") "ℚ") ;; Blackboard Q
 (global-set-key (kbd "H-w") "∆")
-(global-set-key (kbd "H-e") "∃") ;; Logic: there exists \exists
+(global-set-key (kbd "H-e") "∃") ;; Logic: there exists [\exists]
 (global-set-key (kbd "H-r") "ℝ") ;; Blackboard R
 (global-set-key (kbd "H-t") "⊤") ;; True
 (global-set-key (kbd "H-y") "⊂") ;; Set theory: subset
@@ -116,7 +116,7 @@
 (global-set-key (kbd "H-o") "⊃") ;; Set theory: superset
 (global-set-key (kbd "H-p") "ℙ") ;; Blackboard P
 (global-set-key (kbd "H-å") "∖") ;; Set theory: complement
-(global-set-key (kbd "H-a") "∀") ;; Logic: for all \forall
+(global-set-key (kbd "H-a") "∀") ;; Logic: for all [\forall]
 (global-set-key (kbd "H-s") "")
 (global-set-key (kbd "H-d") "")
 (global-set-key (kbd "H-f") "⊥") ;; False
@@ -128,25 +128,25 @@
 (global-set-key (kbd "H-æ") "")
 (global-set-key (kbd "H-ø") "")
 (global-set-key (kbd "H-z") "ℤ") ;; Blackboard 
-(global-set-key (kbd "H-x") (kbd "C-x 8 x"));; Multiplication
+(global-set-key (kbd "H-x") (kbd "C-x 8 x")) ;; Multiplication ×
 (global-set-key (kbd "H-c") "ℂ") ;; Blackbord C
 (global-set-key (kbd "H-v") "")
 (global-set-key (kbd "H-b") "")
 (global-set-key (kbd "H-n") "ℕ") ;; Blackboard N
 (global-set-key (kbd "H-m") "")
 (global-set-key (kbd "H-,") "")
-(global-set-key (kbd "H-.") "…") ;; Ellipsis
+(global-set-key (kbd "H-.") "…") ;; Ellipsis [\dots]
 (global-set-key (kbd "H--") "")
 
 (global-set-key (kbd "H-Q") "")
 (global-set-key (kbd "H-W") "")
-(global-set-key (kbd "H-E") "")
+(global-set-key (kbd "H-E") "∅") ;; Set theory: empty set [\emptyset \varnothing]
 (global-set-key (kbd "H-R") "")
 (global-set-key (kbd "H-T") "")
 (global-set-key (kbd "H-Y") "")
-(global-set-key (kbd "H-U") "⊆") ;; Set theory subset
-(global-set-key (kbd "H-I") "⊇") ;; Set theory superset
-(global-set-key (kbd "H-O") "")
+(global-set-key (kbd "H-U") "⊆") ;; Set theory: subset
+(global-set-key (kbd "H-I") "⊇") ;; Set theory: superset
+(global-set-key (kbd "H-O") "∈") ;; Set theory: membership
 (global-set-key (kbd "H-P") "")
 (global-set-key (kbd "H-Å") "")
 (global-set-key (kbd "H-A") "")
