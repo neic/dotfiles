@@ -7,6 +7,7 @@
 PS1='[\u@\h \W]\$ '
 
 alias ls='ls --color=auto'
+alias ll='ls -l --color=auto'
 alias cle='sudo pacman -Rs $(pacman -Qqtd); sudo pacman -Sc'
 alias up='sudo pacman -Syu'
 alias wi='wicd-curses'
