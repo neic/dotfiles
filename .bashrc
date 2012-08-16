@@ -21,3 +21,13 @@ bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
 export EDITOR="/usr/bin/emacsclient -t"
+
+#function savevm {
+#    RUNNINGVMS="vboxmanage list runningvms"
+#    RUNNINGVMS="$echo $RUNNINGVMS | grep -o -P '(?<=[{]).*(?=[}])' "
+#    if $RUNNINGVMS; then
+#        for i in $RUNNINGVMS; do
+#            echo "$i"
+#      done
+#   fi
+#}
