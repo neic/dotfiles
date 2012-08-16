@@ -1,8 +1,8 @@
 ###########################################
-#  .zshrc -- zsh startup script           #
+#  .zshrc -- zsh resource file            #
 #                                         #
 # Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2012-08-16 15:08:16 (neic)>#
+# Time-stamp: <2012-08-17 00:40:17 (neic)>#
 #                                         #
 # Is sourced if interactive.              #
 ###########################################
@@ -49,23 +49,24 @@ alias up='sudo pacman -Syu'
 alias wi='wicd-curses'
 alias clear='echo "Use C-l to clear"'
 alias exit='echo "Use C-d to exit"'
-alias alock='alock -auth pam -bg blank'
 
 alias gs='git status'
 
 #------------------------------
 # Power management
 #------------------------------
-#function savevm {
-#    RUNNINGVMS="vboxmanage list runningvms"
-#    RUNNINGVMS="$echo $RUNNINGVMS | grep -o -P '(?<=[{]).*(?=[}])' "
-#    if $RUNNINGVMS; then
-#        for i in $RUNNINGVMS; do
-#            echo "$i"
-#      done
-#   fi
-#}
 
+function savevm {
+    RUNNINGVMS=("${(@f)$(vboxmanage list runningvms | grep -o -P '(?<=[{]).*(?=[}])')}")
+    if [ -n '$RUNNINGVMS' ]; then
+        for VM in $RUNNINGVMS; do
+            vboxmanage controlvm $VM savestate
+        done
+   fi
+}
+
+alias lock='alock -auth pam -bg blank'
+alias suspend='lock & sudo pm-suspend'
 
 #------------------------------
 # Prompt
