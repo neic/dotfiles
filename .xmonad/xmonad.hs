@@ -19,7 +19,7 @@ xF86AudioPrev = 0x1008ff16
 main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ defaultConfig
-    	{ workspaces = ["1","2","3","4","5","6","7","8","9:Musik"]
+    	{ workspaces = ["1","2","3","4","5","6","7","8","9"]
         , manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = smartBorders $ avoidStruts $  layoutHook defaultConfig
         , modMask = mod4Mask
@@ -36,7 +36,7 @@ main = do
                   , ppTitle = xmobarColor "#bfebbf" "" . shorten 50
                   }
         } `additionalKeys`
-        [ ((mod4Mask, xK_p),    spawn "exe=`dmenu | yeganesh` && eval \"exec $exe\"")
+        [ ((mod4Mask, xK_p),    spawn "exe=`dmenu` && eval \"exec $exe\"")
 
         -- alsa volume controls
         , ((0, xF86AudioMute), spawn "amixer -q set PCM toggle")
