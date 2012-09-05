@@ -3,6 +3,8 @@
 # key: plot
 # --
 % \begin{figure}[hbp]
+% \centering
+% \caption{}
 \begin{tikzpicture}
 \begin{axis}[
 % height=10cm,
@@ -22,4 +24,5 @@ grid=major,
 % \addplot[red] gnuplot[raw gnuplot] {set parametric; plot[t=-2*pi:2*pi] -3 + 5*cos(t), 3 + 2*sin(t)};
 \end{axis}
 \end{tikzpicture}
+% \label{fig:}
 % \end{figure}
