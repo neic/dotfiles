@@ -227,6 +227,19 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey,           }, "e", function () awful.util.spawn("emacsclient -c") end),
     awful.key({ modkey,           }, "c", function () awful.util.spawn("firefox") end),
+    -- Audio
+    awful.key({                   }, "XF86AudioMute", function () awful.util.spawn("amixer -q set Master toggle") end),
+    awful.key({                   }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -q set Master 5-") end),
+    awful.key({                   }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -q set Master 5+") end),
+    awful.key({                   }, "XF86AudioPlay", function () awful.util.spawn("cmus-remote -u") end),
+    awful.key({                   }, "XF86AudioStop", function () awful.util.spawn("cmus-remote -s") end),
+    awful.key({                   }, "XF86AudioNext", function () awful.util.spawn("cmus-remote -n") end),
+    awful.key({                   }, "XF86AudioPrev", function () awful.util.spawn("cmus-remote -r") end),
+
+    --Power management
+    awful.key({                   }, "XF86ScreenSaver", function () awful.util.spawn("alock -auth pam -bg blank") end),
+    awful.key({                   }, "XF86Sleep", function () awful.util.spawn_with_shell("alock -auth pam -bg blank & sudo pm-suspend") end),
+
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
