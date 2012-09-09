@@ -4,5 +4,7 @@ xrdb -merge ~/.Xresources
 # xmonad & wmpid=$!
 awesome & wmpid=$!
 emacs --daemon &
+sleep 10
+xmodmap ~/.Xmodmap &
 wait $wmpid
 

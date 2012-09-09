@@ -1,0 +1,13 @@
+keysym Alt_L = Meta_L
+clear Mod1
+add Mod1 = Meta_L
+
+keysym Menu = Alt_L
+clear Mod3
+add Mod3 = Alt_L
+
+clear Mod4
+add Mod4 = Super_L
+
+clear Mod2
+add Mod2 = Hyper_L
