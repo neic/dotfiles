@@ -36,6 +36,7 @@
                                   (interactive)
                                   (message "Arrow key navigation is disabled. Use C-f instead.")))
 
+;; ### Alt ###
 (global-set-key (kbd "A-a") "α") ;; alpha
 (global-set-key (kbd "A-b") "β") ;; beta
 (global-set-key (kbd "A-c") "ξ") ;; xi
@@ -62,7 +63,7 @@
 (global-set-key (kbd "A-x") "χ") ;; chi
 (global-set-key (kbd "A-y") "ψ") ;; psi
 (global-set-key (kbd "A-z") "ζ") ;; zeta
-
+;; Alt shift
 (global-set-key (kbd "A-A") "Α") ;; Alpha
 (global-set-key (kbd "A-B") "Β") ;; Beta
 (global-set-key (kbd "A-C") "Ξ") ;; Xi
@@ -84,14 +85,14 @@
 (global-set-key (kbd "A-S") "Σ") ;; Sigma
 (global-set-key (kbd "A-T") "Τ") ;; Tau
 (global-set-key (kbd "A-U") "Υ") ;; Upsilon
-(global-set-key (kbd "A-V") "") 
+;;(global-set-key (kbd "A-V") "") 
 (global-set-key (kbd "A-W") "Ω") ;; Omega
 (global-set-key (kbd "A-X") "Χ") ;; Chi
 (global-set-key (kbd "A-Y") "Ψ") ;; Psi
-(global-set-key (kbd "A-Z") "Ζ")
+(global-set-key (kbd "A-Z") "Ζ") ;; Zeta
 
-
-
+;; ### Hyper ###
+;; Number row
 (global-set-key (kbd "H-½") "")
 (global-set-key (kbd "H-1") "")
 (global-set-key (kbd "H-2") "")
@@ -104,7 +105,7 @@
 (global-set-key (kbd "H-9") "⟩") ;; Angle bracket right
 (global-set-key (kbd "H-0") "≈")
 (global-set-key (kbd "H-+") "")
-
+;; Upper row
 (global-set-key (kbd "H-q") "ℚ") ;; Blackboard Q
 (global-set-key (kbd "H-w") "∆")
 (global-set-key (kbd "H-e") "∃") ;; Logic: there exists [\exists]
@@ -116,6 +117,7 @@
 (global-set-key (kbd "H-o") "⊃") ;; Set theory: superset
 (global-set-key (kbd "H-p") "ℙ") ;; Blackboard P
 (global-set-key (kbd "H-å") "∖") ;; Set theory: complement
+;; Home row
 (global-set-key (kbd "H-a") "∀") ;; Logic: for all [\forall]
 (global-set-key (kbd "H-s") "")
 (global-set-key (kbd "H-d") "")
@@ -127,7 +129,9 @@
 (global-set-key (kbd "H-l") "")
 (global-set-key (kbd "H-æ") "")
 (global-set-key (kbd "H-ø") "")
-(global-set-key (kbd "H-z") "ℤ") ;; Blackboard 
+;; Lower row
+(global-set-key (kbd "H-<") "≤") ;; Less than or equal to [\leq]
+(global-set-key (kbd "H-z") "ℤ") ;; Blackboard Z
 (global-set-key (kbd "H-x") (kbd "C-x 8 x")) ;; Multiplication ×
 (global-set-key (kbd "H-c") "ℂ") ;; Blackbord C
 (global-set-key (kbd "H-v") "")
@@ -137,7 +141,7 @@
 (global-set-key (kbd "H-,") "")
 (global-set-key (kbd "H-.") "…") ;; Ellipsis [\dots]
 (global-set-key (kbd "H--") "")
-
+;; Upper row shift
 (global-set-key (kbd "H-Q") "")
 (global-set-key (kbd "H-W") "")
 (global-set-key (kbd "H-E") "∅") ;; Set theory: empty set [\emptyset \varnothing]
@@ -149,6 +153,7 @@
 (global-set-key (kbd "H-O") "∈") ;; Set theory: membership
 (global-set-key (kbd "H-P") "")
 (global-set-key (kbd "H-Å") "")
+;; Home row shift
 (global-set-key (kbd "H-A") "")
 (global-set-key (kbd "H-S") "")
 (global-set-key (kbd "H-D") "")
@@ -160,6 +165,8 @@
 (global-set-key (kbd "H-L") "")
 (global-set-key (kbd "H-Æ") "")
 (global-set-key (kbd "H-Ø") "")
+;; Lower row shift
+(global-set-key (kbd "H->") "≥") ;; Greater than or equal to [\geq]
 (global-set-key (kbd "H-Z") "")
 (global-set-key (kbd "H-X") "")
 (global-set-key (kbd "H-C") "")
@@ -170,6 +177,5 @@
 (global-set-key (kbd "H-;") "")
 (global-set-key (kbd "H-:") "")
 (global-set-key (kbd "H-_") "")
-
 
 (provide 'ema-global-keybindings)
