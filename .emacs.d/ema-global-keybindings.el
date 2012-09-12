@@ -103,8 +103,8 @@
 (global-set-key (kbd "H-7") "")
 (global-set-key (kbd "H-8") "⟨") ;; Angle bracket left
 (global-set-key (kbd "H-9") "⟩") ;; Angle bracket right
-(global-set-key (kbd "H-0") "≈")
-(global-set-key (kbd "H-+") "")
+(global-set-key (kbd "H-0") "≈") ;; Approximately equal [\approx]
+(global-set-key (kbd "H-+") "≠") ;; Not equal [\neq]
 ;; Upper row
 (global-set-key (kbd "H-q") "ℚ") ;; Blackboard Q
 (global-set-key (kbd "H-w") "∆")
@@ -141,6 +141,19 @@
 (global-set-key (kbd "H-,") "")
 (global-set-key (kbd "H-.") "…") ;; Ellipsis [\dots]
 (global-set-key (kbd "H--") "")
+;; Number row shift
+(global-set-key (kbd "H-§") "")
+(global-set-key (kbd "H-!") "")
+;;(global-set-key (kbd "H-"") "")
+(global-set-key (kbd "H-#") "")
+(global-set-key (kbd "H-¤") "")
+(global-set-key (kbd "H-%") "")
+(global-set-key (kbd "H-&") "")
+(global-set-key (kbd "H-/") "")
+(global-set-key (kbd "H-(") "")
+(global-set-key (kbd "H-)") "")
+(global-set-key (kbd "H-=") "")
+(global-set-key (kbd "H-?") "")
 ;; Upper row shift
 (global-set-key (kbd "H-Q") "")
 (global-set-key (kbd "H-W") "")
