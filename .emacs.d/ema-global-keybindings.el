@@ -120,7 +120,7 @@
 ;; Home row
 (global-set-key (kbd "H-a") "∀") ;; Logic: for all [\forall]
 (global-set-key (kbd "H-s") "")
-(global-set-key (kbd "H-d") "")
+(global-set-key (kbd "H-d") "∂") ;; Partial derivative [\partial]
 (global-set-key (kbd "H-f") "⊥") ;; False
 (global-set-key (kbd "H-g") "")
 (global-set-key (kbd "H-h") "ℍ") ;; Blackboard H
