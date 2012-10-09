@@ -1,7 +1,7 @@
 ;;; ema-editor.el -- Core editor enhancement.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2012-10-09 23:01:29 (neic)>
+;; Time-stamp: <2012-10-09 23:03:45 (neic)>
 ;;
 ;; Inspired by prelude-editor.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -139,6 +139,12 @@
 (add-hook 'java-mode-hook 'ajc-java-complete-mode)
 (add-hook 'find-file-hook 'ajc-4-jsp-find-file-hook)
 
+;; eclim
+(add-to-list 'load-path (expand-file-name "/usr/source/emacs/site-lisp/eclim/"))
+(require 'eclim)
+(setq eclim-auto-save t)
+(global-eclim-mode)
+(require 'eclimd)
 
 ;; tramp, for sudo access
 (require 'tramp)
