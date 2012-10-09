@@ -22,6 +22,11 @@
 ;; toggle menu-bar visibility
 (global-set-key (kbd "<f12>") 'menu-bar-mode)
 
+;; Kill ring menu
+(global-set-key (kbd "C-c y") '(lambda ()
+                                 (interactive)
+                                 (popup-menu 'yank-menu)))
+
 ;; real Emacs hackers don't use the arrow keys
 (global-set-key (kbd "<up>") (lambda ()
                                (interactive)

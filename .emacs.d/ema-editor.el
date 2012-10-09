@@ -1,7 +1,7 @@
 ;;; ema-editor.el -- Core editor enhancement.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2012-10-09 23:52:02 (neic)>
+;; Time-stamp: <2012-10-10 00:19:49 (neic)>
 ;;
 ;; Inspired by prelude-editor.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -27,24 +27,13 @@
 ;; revert buffers automatically when underlying files are changed externally
 (global-auto-revert-mode t)
 
-;; hippie expand is dabbrev expand on steroids
-(setq hippie-expand-try-functions-list '(try-expand-dabbrev
-                                         try-expand-dabbrev-all-buffers
-                                         try-expand-dabbrev-from-kill
-                                         try-complete-file-name-partially
-                                         try-complete-file-name
-                                         try-expand-all-abbrevs
-                                         try-expand-list
-                                         try-expand-line
-                                         try-complete-lisp-symbol-partially
-                                         try-complete-lisp-symbol))
-
-;; smart indenting and pairing for all
+;; smart pairing
 (electric-pair-mode t)
-(electric-indent-mode t)
-(electric-layout-mode t)
 
-(add-hook 'org-mode-hook (lambda() (electric-indent-mode nil))) ;; Disable electric-indent-mode for org-mode
+;; show-paren-mode: subtle highlighting of matching parens
+(show-paren-mode t)
+(setq show-paren-delay 0)
+(setq show-paren-style 'parenthesis)
 
 ;; meaningful names for buffers with the same name
 (require 'uniquify)
@@ -68,15 +57,6 @@
       time-stamp-format "%04y-%02m-%02d %02H:%02M:%02S (%u)") ; date format
 (add-hook 'write-file-hooks 'time-stamp) ; update when saving
 
-;; use shift + arrow keys to switch between visible buffers
-(when (fboundp 'windmove-default-keybindings)
-  (windmove-default-keybindings))
-
-;; show-paren-mode: subtle highlighting of matching parens
-(show-paren-mode t)
-(setq show-paren-delay 0)
-(setq show-paren-style 'parenthesis)
-
 ;; ido-mode
 (ido-mode t)
  (setq ido-enable-preix t
@@ -87,10 +67,6 @@
 ;; auto-completion in minibuffer
 (icomplete-mode +1)
 (set-default 'imenu-auto-rescan t)
-
-;; Kill ring menu
-(global-set-key "\C-cy" '(lambda ()
-    (interactive) (popup-menu 'yank-menu)))
 
 ;; flyspell-mode
 (setq ispell-program-name "aspell" ; use aspell instead of ispell
