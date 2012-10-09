@@ -1,7 +1,7 @@
 ;;; ema-editor.el -- Core editor enhancement.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2012-09-24 14:26:19 (neic)>
+;; Time-stamp: <2012-10-09 20:45:43 (neic)>
 ;;
 ;; Inspired by prelude-editor.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -119,17 +119,17 @@
 
 ;; Yasnippet
 (require 'yasnippet)
-(yas/initialize)
 (yas/load-directory (concat ema-dir "snippets/"))
+(yas/global-mode 1)
 ;; yasnippet and org-mode [tab] workaround
-(defun yas/org-very-safe-expand ()
-  (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
-(add-hook 'org-mode-hook
-	  (lambda ()
-	    (make-variable-buffer-local 'yas/trigger-key)
-	    (setq yas/trigger-key [tab])
-	    (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
-	    (define-key yas/keymap [tab] 'yas/next-field)))
+;; (defun yas/org-very-safe-expand ()
+;;   (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
+;; (add-hook 'org-mode-hook
+;; 	  (lambda ()
+;; 	    (make-variable-buffer-local 'yas/trigger-key)
+;; 	    (setq yas/trigger-key [tab])
+;; 	    (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
+;; 	    (define-key yas/keymap [tab] 'yas/next-field)))
 
 ;; tramp, for sudo access
 (require 'tramp)
