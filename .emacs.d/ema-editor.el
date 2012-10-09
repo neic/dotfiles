@@ -1,7 +1,7 @@
 ;;; ema-editor.el -- Core editor enhancement.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2012-04-16 15:15:07 (neic)>
+;; Time-stamp: <2012-09-24 14:26:19 (neic)>
 ;;
 ;; Inspired by prelude-editor.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -88,7 +88,9 @@
 (icomplete-mode +1)
 (set-default 'imenu-auto-rescan t)
 
-
+;; Kill ring menu
+(global-set-key "\C-cy" '(lambda ()
+    (interactive) (popup-menu 'yank-menu)))
 
 ;; flyspell-mode
 (setq ispell-program-name "aspell" ; use aspell instead of ispell
