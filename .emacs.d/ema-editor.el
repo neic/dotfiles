@@ -1,7 +1,7 @@
 ;;; ema-editor.el -- Core editor enhancement.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2012-10-09 20:45:43 (neic)>
+;; Time-stamp: <2012-10-09 21:01:28 (neic)>
 ;;
 ;; Inspired by prelude-editor.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -115,7 +115,9 @@
 (add-hook 'message-mode-hook 'ema-turn-on-flyspell)
 (add-hook 'text-mode-hook 'ema-turn-on-flyspell)
 
-
+;; Auto complete
+(require 'auto-complete-config)
+(ac-config-default)
 
 ;; Yasnippet
 (require 'yasnippet)
