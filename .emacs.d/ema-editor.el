@@ -1,7 +1,7 @@
 ;;; ema-editor.el -- Core editor enhancement.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2012-10-09 23:03:45 (neic)>
+;; Time-stamp: <2012-10-09 23:52:02 (neic)>
 ;;
 ;; Inspired by prelude-editor.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -121,20 +121,11 @@
 
 ;; Yasnippet
 (require 'yasnippet)
-(yas/load-directory (concat ema-dir "snippets/"))
-(yas/global-mode 1)
-;; yasnippet and org-mode [tab] workaround
-;; (defun yas/org-very-safe-expand ()
-;;   (let ((yas/fallback-behavior 'return-nil)) (yas/expand)))
-;; (add-hook 'org-mode-hook
-;; 	  (lambda ()
-;; 	    (make-variable-buffer-local 'yas/trigger-key)
-;; 	    (setq yas/trigger-key [tab])
-;; 	    (add-to-list 'org-tab-first-hook 'yas/org-very-safe-expand)
-;; 	    (define-key yas/keymap [tab] 'yas/next-field)))
+(yas-load-directory (concat ema-dir "snippets/"))
+(yas-global-mode 1)
 
 ;; ajc-java-complete
-(add-to-list 'load-path "~/.emacs.d/plugins/ajc-java-complete/")
+(add-to-list 'load-path (concat ema-dir "plugins/ajc-java-complete/"))
 (require 'ajc-java-complete-config)
 (add-hook 'java-mode-hook 'ajc-java-complete-mode)
 (add-hook 'find-file-hook 'ajc-4-jsp-find-file-hook)
