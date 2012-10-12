@@ -60,10 +60,10 @@
 (global-set-key (kbd "A-p") "π") ;; pi
 (global-set-key (kbd "A-q") "θ") ;; theta
 (global-set-key (kbd "A-r") "ρ") ;; roh
-(global-set-key (kbd "A-s") "ς") ;; sigma
+(global-set-key (kbd "A-s") "σ") ;; sigma
 (global-set-key (kbd "A-t") "τ") ;; tau
 (global-set-key (kbd "A-u") "υ") ;; upsilon
-(global-set-key (kbd "A-v") "σ") ;; sigma
+(global-set-key (kbd "A-v") "ς") ;; sigma (word-final)
 (global-set-key (kbd "A-w") "ω") ;; omega
 (global-set-key (kbd "A-x") "χ") ;; chi
 (global-set-key (kbd "A-y") "ψ") ;; psi
