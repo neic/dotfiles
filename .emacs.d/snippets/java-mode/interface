@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# contributor: Mathias Dannesbo <neic@neic.dk> 
+# name : interface
+# key : interface
+# --
+public interface ${1:`(file-name-sans-extension (buffer-name))`} {
+    $0
+}
