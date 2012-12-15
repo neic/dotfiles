@@ -190,7 +190,7 @@
 (global-set-key (kbd "H-C") "")
 (global-set-key (kbd "H-V") "")
 (global-set-key (kbd "H-B") "")
-(global-set-key (kbd "H-N") "")
+(global-set-key (kbd "H-N") "∇") ;; Nabla/del [\nabla]
 (global-set-key (kbd "H-M") "")
 (global-set-key (kbd "H-;") "")
 (global-set-key (kbd "H-:") "")
