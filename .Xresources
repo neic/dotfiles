@@ -1,0 +1,87 @@
+! Zenburn
+
+#define Z_fg           	#dcdccc
+#define Z_fg01         	#656555
+#define Z_bg01         	#2b2b2b
+#define Z_bg005	        #383838
+#define Z_bg           	#3f3f3f
+#define Z_bg1           #4f4f4f
+#define Z_bg2           #5f5f5f
+#define Z_bg3           #6f6f6f
+#define Z_red1          #dca3a3
+#define Z_red	        #cc9393
+#define Z_red01	        #bc8383
+#define Z_red02	        #ac7373
+#define Z_red03	        #9c6363
+#define Z_red04         #8c5353
+#define Z_orange	#dfaf8f
+#define Z_yellow	#f0dfaf
+#define Z_yellow01	#e0cf9f
+#define Z_yellow02	#d0bf8f
+#define Z_green01	#5f7f5f
+#define Z_green	        #7f9f7f
+#define Z_green1	#8fb28f
+#define Z_green2	#9fc59f
+#define Z_green3	#afd8af
+#define Z_green4	#bfebbf
+#define Z_cyan	        #93e0e3
+#define Z_blue1        	#94bff3
+#define Z_blue	        #8cd0d3
+#define Z_blue01	#7cb8bb
+#define Z_blue02	#6ca0a3
+#define Z_blue03	#5c888b
+#define Z_blue04	#4c7073
+#define Z_blue05	#366060
+#define Z_magenta	#dc8cc3
+
+!*fading:                       50
+!*fadeColor:                    Z_bg01
+URxvt*font:                     xft:Dejavu Sans Mono:pixelsize=12
+URxvt*scrollBar:                false
+URxvt.keysym.C-1: command:\033]50;xft: DejaVu Sans Mono:pixelsize=9:dpi=96\007\033]711;xft: DejaVu Sans Mono:pixelsize=9:style=Bold:dpi=96\007
+URxvt.keysym.C-2: command:\033]50;xft: DejaVu Sans Mono:pixelsize=10:dpi=96\007\033]711;xft: DejaVu Sans Mono:pixelsize=10:style=Bold:dpi=96\007
+URxvt.keysym.C-3: command:\033]50;xft: DejaVu Sans Mono:pixelsize=12:dpi=96\007\033]711;xft: DejaVu Sans Mono:pixelsize=12:style=Bold:dpi=96\007
+URxvt.keysym.C-4: command:\033]50;xft: DejaVu Sans Mono:pixelsize14:dpi=96\007\033]711;xft: DejaVu Sans Mono:pixelsize=14:style=Bold:dpi=96\007
+
+URxvt*background:               Z_bg
+URxvt*foreground:               Z_fg
+
+! Black
+URxvt*color0:                   Z_bg01
+! Light_black/darkgray
+URxvt*color8:                   Z_bg3
+
+! Red
+URxvt*color1:                   Z_red
+! Light_red
+URxvt*color9:                   Z_red1
+
+! Green
+URxvt*color2:                   Z_green
+! Light_green
+URxvt*color10:                  Z_green2
+
+! Yellow
+URxvt*color3:                   Z_orange
+! Light_yellow/brown
+URxvt*color11:                  Z_yellow
+
+! Blue
+URxvt*color4:                   Z_blue
+! Light_blue
+URxvt*color12:                  Z_blue1
+
+! Magenta/purple
+URxvt*color5:                   Z_magenta
+! Light_magenta/pink
+URxvt*color13:                  Z_magenta
+
+! Cyan
+URxvt*color6:                   Z_cyan
+! Light_Cyan
+URxvt*color14:                  Z_cyan
+
+! White
+URxvt*color7:                   Z_fg
+! Light_white/light gray
+URxvt*color15:                  Z_fg01
