@@ -2,7 +2,7 @@
 #  .zshrc -- zsh resource file            #
 #                                         #
 # Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2012-08-17 00:40:17 (neic)>#
+# Time-stamp: <2012-12-18 00:06:45 (neic)>#
 #                                         #
 # Is sourced if interactive.              #
 ###########################################
@@ -78,7 +78,7 @@ colors
 setopt prompt_subst
 
 # make some aliases for the colours: (coud use normal escap.seq's too)
-for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
+for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE GREY; do
     eval PR_$color='%{$fg[${(L)color}]%}'
 done
 PR_NO_COLOR="%{$terminfo[sgr0]%}"
@@ -98,9 +98,11 @@ if [[ -n "$SSH_CLIENT" || -n "$SSH2_CLIENT" ]]; then
 else
     eval PR_HOST='${PR_GREEN}%M${PR_NO_COLOR}' # no SSH
 fi
+ 
+eval PR_RET='%(?..${PR_RED}%?${PR_NO_COLOR} )'
 
 # set the prompt
-PS1=$'${PR_CYAN}[${PR_USER}${PR_CYAN}@${PR_HOST}${PR_CYAN}][${PR_BLUE}%~${PR_CYAN}]${PR_USER_OP} '
+PS1=$'${PR_RET}${PR_CYAN}[${PR_USER}${PR_CYAN}@${PR_HOST}${PR_CYAN}][${PR_BLUE}%~${PR_CYAN}]${PR_USER_OP} '
 PS2=$'%_>'
 
 #------------------------------
