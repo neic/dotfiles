@@ -2,12 +2,13 @@
 #  .zshrc -- zsh resource file            #
 #                                         #
 # Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2012-12-18 00:06:45 (neic)>#
+# Time-stamp: <2012-12-29 19:27:53 (neic)>#
 #                                         #
 # Is sourced if interactive.              #
 ###########################################
 
 export EDITOR="/usr/bin/emacsclient -t"
+set noclobber
 
 #------------------------------
 # History stuff
