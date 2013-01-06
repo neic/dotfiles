@@ -106,6 +106,8 @@ eval PR_RET='%(?..${PR_RED}%?${PR_NO_COLOR} )'
 PS1=$'${PR_RET}${PR_CYAN}[${PR_USER}${PR_CYAN}@${PR_HOST}${PR_CYAN}][${PR_BLUE}%~${PR_CYAN}]${PR_USER_OP} '
 PS2=$'%_>'
 
+RPROMPT='$(date +%T)'
+
 #------------------------------
 # Window title
 #------------------------------
