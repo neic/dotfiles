@@ -2,7 +2,7 @@
 #  .zshrc -- zsh resource file            #
 #                                         #
 # Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2012-12-29 19:27:53 (neic)>#
+# Time-stamp: <2013-05-27 12:51:39 (neic)>#
 #                                         #
 # Is sourced if interactive.              #
 ###########################################
@@ -43,8 +43,7 @@ bindkey "^[[B" history-beginning-search-forward
 # Aliases
 #------------------------------
 
-alias ls='ls --color=auto'
-alias ll='ls -l --color=auto'
+alias ll='ls -l'
 alias cle='sudo pacman -Rs $(pacman -Qqtd); sudo pacman -Sc'
 alias up='sudo pacman -Syu'
 alias wi='wicd-curses'
