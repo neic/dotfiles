@@ -6,6 +6,7 @@
 (setq custom-file "~/.emacs.d/custom.el")
 
 (require 'ema-packages)
+(require 'ema-osx)
 (require 'ema-editor)
 (require 'ema-ui)
 (require 'ema-latex)
