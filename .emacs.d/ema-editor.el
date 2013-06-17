@@ -1,7 +1,7 @@
 ;;; ema-editor.el -- Core editor enhancement.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2013-05-12 13:48:30 (neic)>
+;; Time-stamp: <2013-06-17 15:09:29 (neic)>
 ;;
 ;; Inspired by prelude-editor.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -117,6 +117,9 @@
   (if (or arg (not buffer-file-name))
       (find-file (concat "/sudo:root@localhost:" (ido-read-file-name "File: ")))
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+
+;; Petite Chez Scheme
+(setq scheme-program-name "petite")
 
 (defun iwb ()
   "indent whole buffer"
