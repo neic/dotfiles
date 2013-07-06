@@ -106,10 +106,10 @@
 (global-set-key (kbd "H-5") "")
 (global-set-key (kbd "H-6") "")
 (global-set-key (kbd "H-7") "")
-(global-set-key (kbd "H-8") "⟨") ;; Angle bracket left
-(global-set-key (kbd "H-9") "⟩") ;; Angle bracket right
-(global-set-key (kbd "H-0") "≈") ;; Approximately equal [\approx]
-(global-set-key (kbd "H-+") "≠") ;; Not equal [\neq]
+(global-set-key (kbd "H-8") "")
+(global-set-key (kbd "H-9") "")
+(global-set-key (kbd "H-0") "")
+(global-set-key (kbd "H-+") "")
 ;; Upper row
 (global-set-key (kbd "H-q") "ℚ") ;; Blackboard Q
 (global-set-key (kbd "H-w") "∆")
@@ -121,7 +121,8 @@
 (global-set-key (kbd "H-i") "∈") ;; Set theory: membership [\in]
 (global-set-key (kbd "H-o") "⊃") ;; Set theory: superset [\supset]
 (global-set-key (kbd "H-p") "ℙ") ;; Blackboard P
-(global-set-key (kbd "H-å") "∖") ;; Set theory: complement [allmost \setminus]
+(global-set-key (kbd "H-[") "⟨") ;; Angle bracket left
+(global-set-key (kbd "H-]") "⟩") ;; Angle bracket right
 ;; Home row
 (global-set-key (kbd "H-a") "∀") ;; Logic: for all [\forall]
 (global-set-key (kbd "H-s") "")
@@ -135,16 +136,16 @@
 (global-set-key (kbd "H-æ") "")
 (global-set-key (kbd "H-ø") "")
 ;; Lower row
-(global-set-key (kbd "H-<") "≤") ;; Less than or equal to [\leq]
+(global-set-key (kbd "H-<") "")
 (global-set-key (kbd "H-z") "ℤ") ;; Blackboard Z
 (global-set-key (kbd "H-x") (kbd "C-x 8 x")) ;; Multiplication ×
 (global-set-key (kbd "H-c") "ℂ") ;; Blackbord C
 (global-set-key (kbd "H-v") "")
 (global-set-key (kbd "H-b") "")
 (global-set-key (kbd "H-n") "ℕ") ;; Blackboard N
-(global-set-key (kbd "H-m") "")
+(global-set-key (kbd "H-m") "∖") ;; Set theory: complement [allmost \setminus]
 (global-set-key (kbd "H-,") "")
-(global-set-key (kbd "H-.") "…") ;; Ellipsis [\dots]
+(global-set-key (kbd "H-.") "")
 (global-set-key (kbd "H--") "")
 ;; Number row shift
 (global-set-key (kbd "H-§") "")
@@ -184,7 +185,7 @@
 (global-set-key (kbd "H-Æ") "")
 (global-set-key (kbd "H-Ø") "")
 ;; Lower row shift
-(global-set-key (kbd "H->") "≥") ;; Greater than or equal to [\geq]
+(global-set-key (kbd "H->") "")
 (global-set-key (kbd "H-Z") "")
 (global-set-key (kbd "H-X") "")
 (global-set-key (kbd "H-C") "")
