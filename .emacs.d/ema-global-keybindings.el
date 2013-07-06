@@ -116,8 +116,8 @@
 (global-set-key (kbd "H-e") "∃") ;; Logic: there exists [\exists]
 (global-set-key (kbd "H-r") "ℝ") ;; Blackboard R
 (global-set-key (kbd "H-t") "⊤") ;; True
-(global-set-key (kbd "H-y") "⊂") ;; Set theory: subset [\subset]
-(global-set-key (kbd "H-u") "∪") ;; Set theory: union [\cup]
+(global-set-key (kbd "H-y") "⊂") ;; Set theory: subset [\subset] (U+2282)
+(global-set-key (kbd "H-u") "∪") ;; Set theory: union [\cup] (U+222A, not ⋃ U+22C3)
 (global-set-key (kbd "H-i") "∈") ;; Set theory: membership [\in]
 (global-set-key (kbd "H-o") "⊃") ;; Set theory: superset [\supset]
 (global-set-key (kbd "H-p") "ℙ") ;; Blackboard P
@@ -167,7 +167,7 @@
 (global-set-key (kbd "H-R") "")
 (global-set-key (kbd "H-T") "")
 (global-set-key (kbd "H-Y") "⊆") ;; Set theory: subset [\subseteq]
-(global-set-key (kbd "H-U") "∩") ;; Set theory: intersection [\cap]
+(global-set-key (kbd "H-U") "∩") ;; Set theory: intersection [\cap] (not ⋂ U+22C2)
 (global-set-key (kbd "H-I") "∉") ;; Set theory: non-membership [\notin]
 (global-set-key (kbd "H-O") "⊇") ;; Set theory: superset [\supseteq]
 (global-set-key (kbd "H-P") "")
