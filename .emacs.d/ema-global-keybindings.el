@@ -173,7 +173,7 @@
 (global-set-key (kbd "H-P") "")
 (global-set-key (kbd "H-Å") "")
 ;; Home row shift
-(global-set-key (kbd "H-A") "")
+(global-set-key (kbd "H-A") "∧") ;; Logical and, conjunction (U+2227, not ⋀ U+22C0)
 (global-set-key (kbd "H-S") "")
 (global-set-key (kbd "H-D") "")
 (global-set-key (kbd "H-F") "")
@@ -189,9 +189,9 @@
 (global-set-key (kbd "H-Z") "")
 (global-set-key (kbd "H-X") "")
 (global-set-key (kbd "H-C") "")
-(global-set-key (kbd "H-V") "")
+(global-set-key (kbd "H-V") "∨") ;; Logical or, disjunction (U+2228, not ⋁ U+22C1)
 (global-set-key (kbd "H-B") "")
-(global-set-key (kbd "H-N") "∇") ;; Nabla/del [\nabla]
+(global-set-key (kbd "H-N") "¬") ;; Logical not, negation (U+00AC)
 (global-set-key (kbd "H-M") "")
 (global-set-key (kbd "H-;") "")
 (global-set-key (kbd "H-:") "")
