@@ -8,6 +8,7 @@
 ###########################################
 
 export EDITOR="/usr/bin/emacsclient -t"
+export PATH=/usr/local/bin:${PATH}
 set noclobber
 
 #------------------------------
