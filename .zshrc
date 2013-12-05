@@ -2,7 +2,7 @@
 #  .zshrc -- zsh resource file            #
 #                                         #
 # Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2013-05-27 12:51:39 (neic)>#
+# Time-stamp: <2013-11-11 22:55:23 (neic)>#
 #                                         #
 # Is sourced if interactive.              #
 ###########################################
@@ -19,10 +19,12 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 #-----------------------------
-# Dircolors
+# Colors
 #-----------------------------
 LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
 export LS_COLORS
+
+export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 
 #------------------------------
 # Completion
