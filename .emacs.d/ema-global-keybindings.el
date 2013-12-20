@@ -41,6 +41,9 @@
                                   (interactive)
                                   (message "Arrow key navigation is disabled. Use C-f instead.")))
 
+;; Indent whole buffer
+(global-set-key (kbd "<C-tab>") 'iwb)
+
 ;; ### Alt ###
 (global-set-key (kbd "A-a") "α") ;; alpha
 (global-set-key (kbd "A-b") "β") ;; beta
@@ -90,7 +93,7 @@
 (global-set-key (kbd "A-S") "Σ") ;; Sigma
 (global-set-key (kbd "A-T") "Τ") ;; Tau
 (global-set-key (kbd "A-U") "Υ") ;; Upsilon
-;;(global-set-key (kbd "A-V") "") 
+;;(global-set-key (kbd "A-V") "")
 (global-set-key (kbd "A-W") "Ω") ;; Omega
 (global-set-key (kbd "A-X") "Χ") ;; Chi
 (global-set-key (kbd "A-Y") "Ψ") ;; Psi
@@ -136,7 +139,7 @@
 (global-set-key (kbd "H-æ") "")
 (global-set-key (kbd "H-ø") "")
 ;; Lower row
-(global-set-key (kbd "H-<") "")
+(global-set-key (kbd "H-<") "←")
 (global-set-key (kbd "H-z") "ℤ") ;; Blackboard Z
 (global-set-key (kbd "H-x") (kbd "C-x 8 x")) ;; Multiplication ×
 (global-set-key (kbd "H-c") "ℂ") ;; Blackbord C
@@ -175,7 +178,7 @@
 ;; Home row shift
 (global-set-key (kbd "H-A") "∧") ;; Logical and, conjunction (U+2227, not ⋀ U+22C0)
 (global-set-key (kbd "H-S") "")
-(global-set-key (kbd "H-D") "")
+(global-set-key (kbd "H-D") "⊢") ;; Logical inference
 (global-set-key (kbd "H-F") "")
 (global-set-key (kbd "H-G") "")
 (global-set-key (kbd "H-H") "")
@@ -185,7 +188,7 @@
 (global-set-key (kbd "H-Æ") "")
 (global-set-key (kbd "H-Ø") "")
 ;; Lower row shift
-(global-set-key (kbd "H->") "")
+(global-set-key (kbd "H->") "→")
 (global-set-key (kbd "H-Z") "")
 (global-set-key (kbd "H-X") "")
 (global-set-key (kbd "H-C") "")
