@@ -245,7 +245,7 @@ globalkeys = awful.util.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey,           }, "e", function () awful.util.spawn("emacsclient -c") end),
-    awful.key({ modkey,           }, "c", function () awful.util.spawn("firefox") end),
+    awful.key({ modkey,           }, "c", function () awful.util.spawn("chromium") end),
     -- Audio
     awful.key({                   }, "XF86AudioMute", function () awful.util.spawn("amixer -q set Master toggle") end),
     awful.key({                   }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -q set Master 5-") end),
