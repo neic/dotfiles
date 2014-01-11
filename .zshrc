@@ -2,7 +2,7 @@
 #  .zshrc -- zsh resource file            #
 #                                         #
 # Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2013-12-27 21:54:23 (neic)>#
+# Time-stamp: <2014-01-12 00:08:51 (neic)>#
 #                                         #
 # Is sourced if interactive.              #
 ###########################################
@@ -211,51 +211,83 @@ function savevm {
         for VM in $RUNNINGVMS; do
             vboxmanage controlvm $VM savestate
         done
-   fi
+    fi
 }
 
 alias lock='alock -auth pam -bg blank'
 alias suspend='lock & sudo pm-suspend'
+
+#-----------------------------
+# Colors
+#-----------------------------
+
+if autoload colors && colors 2>/dev/null ; then
+    BLUE="%{${fg[blue]}%}"
+    RED="%{${fg_bold[red]}%}"
+    GREEN="%{${fg[green]}%}"
+    CYAN="%{${fg[cyan]}%}"
+    MAGENTA="%{${fg[magenta]}%}"
+    YELLOW="%{${fg[yellow]}%}"
+    WHITE="%{${fg[white]}%}"
+    NO_COLOR="%{${reset_color}%}"
+else
+    BLUE=$'%{\e[1;34m%}'
+    RED=$'%{\e[1;31m%}'
+    GREEN=$'%{\e[1;32m%}'
+    CYAN=$'%{\e[1;36m%}'
+    WHITE=$'%{\e[1;37m%}'
+    MAGENTA=$'%{\e[1;35m%}'
+    YELLOW=$'%{\e[1;33m%}'
+    NO_COLOR=$'%{\e[0m%}'
+fi
+
+#LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
+export LS_COLORS
+
+export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 
 #------------------------------
 # Prompt
 #------------------------------
 
 # load some modules
-autoload -U colors zsh/terminfo # Used in the colour alias below
-colors
+autoload -U zsh/terminfo # Used in the colour alias below
 setopt prompt_subst
 
 # make some aliases for the colours: (coud use normal escap.seq's too)
-for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE GREY; do
-    eval PR_$color='%{$fg[${(L)color}]%}'
-done
-PR_NO_COLOR="%{$terminfo[sgr0]%}"
 
 # Check the UID
 if [[ $UID -ge 1000 ]]; then # normal user
-    eval PR_USER='${PR_GREEN}%n${PR_NO_COLOR}'
-    eval PR_USER_OP='${PR_GREEN}%#${PR_NO_COLOR}'
+    eval PR_USER='${GREEN}%n${NO_COLOR}'
+    eval PR_USER_OP='${GREEN}%#${NO_COLOR}'
 elif [[ $UID -eq 0 ]]; then # root
-    eval PR_USER='${PR_RED}%n${PR_NO_COLOR}'
-    eval PR_USER_OP='${PR_RED}%#${PR_NO_COLOR}'
+    eval PR_USER='${RED}%n${NO_COLOR}'
+    eval PR_USER_OP='${RED}%#${NO_COLOR}'
 fi
 
 # Check if we are on SSH or not
 if [[ -n "$SSH_CLIENT" || -n "$SSH2_CLIENT" ]]; then
-    eval PR_HOST='${PR_YELLOW}%M${PR_NO_COLOR}' #SSH
+    eval PR_HOST='${YELLOW}%M${NO_COLOR}' #SSH
 else
-    eval PR_HOST='${PR_GREEN}%M${PR_NO_COLOR}' # no SSH
+    eval PR_HOST='${GREEN}%M${NO_COLOR}' # no SSH
 fi
- 
-eval PR_RET='%(?..${PR_RED}%?${PR_NO_COLOR} )'
+
+eval PR_RET='%(?..${RED}%?${NO_COLOR} )'
 
 # set the prompt
-PS1=$'${PR_RET}${PR_CYAN}[${PR_USER}${PR_CYAN}@${PR_HOST}${PR_CYAN}][${PR_BLUE}%~${PR_CYAN}]${PR_USER_OP} '
-PS2=$'%_>'
-
-RPROMPT='$(date +%T)'
-
+case $TERM in
+    "dumb")
+        PS1="> "
+        ;;
+    termite|*xterm*|rxvt|rxvt-unicode|rxvt-256color|rxvt-unicode-256color|(dt|k|E)term)
+    PS1=$'${PR_RET}${CYAN}[${PR_USER}${CYAN}@${PR_HOST}${CYAN}][${BLUE}%~${CYAN}]${PR_USER_OP} '
+    PS2=$'%_>'
+    RPROMPT='$(date +%T)'
+    ;;
+    *)
+        PS1="> "
+        ;;
+esac
 #------------------------------
 # Window title
 #------------------------------
