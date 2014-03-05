@@ -27,6 +27,12 @@
                                  (interactive)
                                  (popup-menu 'yank-menu)))
 
+;; Replace Buffer List with ibuffer
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+;; Indent whole buffer
+(global-set-key (kbd "<C-tab>") 'iwb)
+
 ;; real Emacs hackers don't use the arrow keys
 (global-set-key (kbd "<up>") (lambda ()
                                (interactive)
@@ -40,9 +46,6 @@
 (global-set-key (kbd "<right>") (lambda ()
                                   (interactive)
                                   (message "Arrow key navigation is disabled. Use C-f instead.")))
-
-;; Indent whole buffer
-(global-set-key (kbd "<C-tab>") 'iwb)
 
 ;; ### Alt ###
 (global-set-key (kbd "A-a") "α") ;; alpha
