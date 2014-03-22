@@ -1,10 +1,15 @@
-*
+/*
 !.*
 
+.emacs.d/elpa
+.gitignore-boilerplates
 .java_base.tag
+.Thrash
 .zcompdump
 
 ### Various history files
+.emacs.d/ac-comphist.dat
+.emacs.d/savehist
 .bash_history
 .histfile
 .ido.last
