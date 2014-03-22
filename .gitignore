@@ -1,0 +1,59 @@
+*
+!.*
+
+.java_base.tag
+.zcompdump
+
+### Various history files
+.bash_history
+.histfile
+.ido.last
+.lesshst
+.sh_history
+
+### This i gernerated with gibo Emacs OSX >> .gitignore
+
+### https://raw.github.com/github/gitignore/master/Global/Emacs.gitignore
+
+# -*- mode: gitignore; -*-
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Org-mode
+.org-id-locations
+*_archive
+
+# flymake-mode
+*_flymake.*
+
+# eshell files
+/eshell/history
+/eshell/lastdir
+
+# elpa packages
+/elpa/
+
+
+### https://raw.github.com/github/gitignore/master/Global/OSX.gitignore
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must ends with two \r.
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+
