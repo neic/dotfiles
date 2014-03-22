@@ -1,7 +1,7 @@
 ;;; ema-latex.el -- LaTeX setup
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2014-03-22 15:57:55 (neic)>
+;; Time-stamp: <2014-03-22 15:58:44 (neic)>
 ;;
 ;; Inspired by prelude-latex.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -38,6 +38,9 @@
 ;; Warning: Make sure you know what code you are executing
 (setq safe-local-variable-values '((TeX-engine . xelatex_sh)
                                    (TeX-engine . luatex_sh)))
+
+;; use electric sub and superscript
+(setq TeX-electric-sub-and-superscript t)
 
 ;; calc for single line LaTeX math
 (setq calc-embedded-open-formula "^")
