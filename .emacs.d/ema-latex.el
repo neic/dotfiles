@@ -1,7 +1,7 @@
 ;;; ema-latex.el -- LaTeX setup
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2013-06-04 18:59:31 (neic)>
+;; Time-stamp: <2014-03-22 15:55:08 (neic)>
 ;;
 ;; Inspired by prelude-latex.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -12,14 +12,15 @@
 
 (setq-default TeX-master nil)
 
-;; use pdflatex
+;; generate pdfs
 (setq TeX-PDF-mode t)
 
-;;autosave before compiling
+;; autosave before compiling
 (setq TeX-save-query nil)
 
-;; use evince as pdf viewer
-;;(setq TeX-view-program-selection '((output-pdf "evince")))
+;; make the OS decide what viewer to use
+(setq TeX-view-program-list '(("open" "open %s.pdf")))
+(setq TeX-view-program-selection '((output-pdf "open")))
 
 ;; use fold-mode
 (add-hook 'LaTeX-mode-hook (lambda ()
