@@ -1,6 +1,8 @@
 /*
 !.*
 
+.ssh
+!.ssh/config
 .emacs.d/elpa
 .gitignore-boilerplates
 .java_base.tag
