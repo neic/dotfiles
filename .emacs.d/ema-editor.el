@@ -1,7 +1,7 @@
 ;;; ema-editor.el -- Core editor enhancement.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2013-06-17 15:09:29 (neic)>
+;; Time-stamp: <2014-03-22 14:59:08 (neic)>
 ;;
 ;; Inspired by prelude-editor.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -101,7 +101,7 @@
 (yas-global-mode 1)
 
 ;; ajc-java-complete
-(add-to-list 'load-path (concat ema-dir "plugins/ajc-java-complete/"))
+(add-to-list 'load-path (concat ema-dir "plugins/ajc/"))
 (require 'ajc-java-complete-config)
 (add-hook 'java-mode-hook 'ajc-java-complete-mode)
 (add-hook 'find-file-hook 'ajc-4-jsp-find-file-hook)
