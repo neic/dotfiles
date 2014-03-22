@@ -3,7 +3,7 @@
 # key: figure
 # --
 \begin{figure}[htbp]
-  \centering
+  \centerfloat
   \includegraphics[width=0.8\textwidth]{$0}
   %\caption{}
   %\label{fig:}

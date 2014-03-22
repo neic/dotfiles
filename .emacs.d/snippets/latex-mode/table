@@ -3,9 +3,9 @@
 # key: table
 # --
 \begin{table}[htbp]
-  %\caption[]{}
-  %\centering
+  %\centerfloat
   %\begin{threeparttable}
+  %\caption[]{}
     \begin{tabular}{${1:alignment: e.g. lSSS}}
       \toprule
       ${2:column names}
@@ -15,7 +15,6 @@
     \end{tabular}
     %\begin{tablenotes}
     %\end{tablenotes}
-  %\end{threeparttable}
-  %\legend{}
   % \label{tab:}
+  %\end{threeparttable}
 \end{table}

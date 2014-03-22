@@ -2,8 +2,8 @@
 # name: PGF plot
 # key: plot
 # --
-% \begin{figure}[hbp]
-% \centering
+\begin{figure}[hbp]
+  \centerfloat
 % \caption{}
 \begin{tikzpicture}
 \begin{axis}[
@@ -25,4 +25,4 @@ grid=major,
 \end{axis}
 \end{tikzpicture}
 % \label{fig:}
-% \end{figure}
+\end{figure}
