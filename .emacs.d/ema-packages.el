@@ -1,7 +1,7 @@
 ;;; ema-packages.el -- ELPA packages
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2014-02-26 13:37:53 (neic)>
+;; Time-stamp: <2014-04-26 00:37:31 (neic)>
 ;;
 ;; Inspired by prelude-packages.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -16,7 +16,16 @@
   (package-refresh-contents))
 
 (defvar prelude-packages
-  '(auctex auto-complete solarized-theme yasnippet zenburn-theme exec-path-from-shell git-gutter)
+  '(auctex
+    mediawiki
+    go-mode
+    yasnippet
+    auto-complete
+    auto-complete-auctex
+    openwith
+    git-gutter
+    exec-path-from-shell
+    zenburn-theme)
   "A list of packages to ensure are installed at launch.")
 
 (dolist (p prelude-packages)
