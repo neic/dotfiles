@@ -1,7 +1,7 @@
 ;;; ema-editor.el -- Core editor enhancement.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2014-03-22 18:29:23 (neic)>
+;; Time-stamp: <2014-04-10 16:06:00 (neic)>
 ;;
 ;; Inspired by prelude-editor.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -67,6 +67,21 @@
 ;; auto-completion in minibuffer
 (icomplete-mode +1)
 (set-default 'imenu-auto-rescan t)
+
+;; ibuffer groups
+(setq ibuffer-saved-filter-groups
+      (quote (("default"
+               ("dired" (mode . dired-mode))
+               ("erc"   (mode . erc-mode))
+               ("java"  (mode . java-mode))
+               ("latex" (or
+                         (mode . tex-mode)
+                         (mode . latex-mode)))
+               ("emacs" (or
+                         (name . "^\\*scratch\\*$")
+                         (name . "^\\*Messages\\*$")
+                         (name . "^\\*Completions\\*$")))
+               ))))
 
 ;; flyspell-mode
 (setq ispell-program-name "aspell" ; use aspell instead of ispell
