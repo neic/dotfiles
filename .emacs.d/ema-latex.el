@@ -1,7 +1,7 @@
 ;;; ema-latex.el -- LaTeX setup
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2014-03-22 15:58:44 (neic)>
+;; Time-stamp: <2014-03-31 02:45:16 (neic)>
 ;;
 ;; Inspired by prelude-latex.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -24,7 +24,11 @@
 
 ;; add -shell-escape engine variants
 (setq TeX-engine-alist
-      '((xetex_sh "XeTeX shell escape"
+      '((default_sh "Default shell escape"
+          (concat TeX-command " -shell-escape")
+          (concat LaTeX-command  " -shell-escape")
+          ConTeXt-engine)
+        (xetex_sh "XeTeX shell escape"
                   "xetex -file-line-error -shell-escape"
                   "xelatex -file-line-error -shell-escape"
                   "xetex")
@@ -36,7 +40,8 @@
 
 ;; and make the corresponding local variable safe.
 ;; Warning: Make sure you know what code you are executing
-(setq safe-local-variable-values '((TeX-engine . xelatex_sh)
+(setq safe-local-variable-values '((TeX-engine . default_sh)
+                                   (TeX-engine . xelatex_sh)
                                    (TeX-engine . luatex_sh)))
 
 ;; use electric sub and superscript
