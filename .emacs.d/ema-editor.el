@@ -88,7 +88,7 @@
       ispell-extra-args '("--sug-mode=ultra"))
 (autoload 'flyspell-mode "flyspell" "On-the-fly spelling checker." t)
 
-(let ((langs '("english" "dansk")))
+(let ((langs '("en" "da")))
   (setq lang-ring (make-ring (length langs)))
   (dolist (elem langs) (ring-insert lang-ring elem)))
 
