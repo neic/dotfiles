@@ -1,7 +1,7 @@
 ;;; ema-ui.el -- UI optimizations and tweaks.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2014-03-22 14:56:28 (neic)>
+;; Time-stamp: <2014-05-07 00:28:16 (neic)>
 ;;
 ;; Inspired by prelude-ui.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -14,11 +14,6 @@
 
 ;; disable startup screen
 (setq inhibit-startup-screen t)
-
-;; nice scrolling
-(setq scroll-margin 0
-      scroll-conservatively 100000
-      scroll-preserve-screen-position 1)
 
 ;; bigger face
 (set-face-attribute 'default nil :height 140)
