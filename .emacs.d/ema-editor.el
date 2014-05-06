@@ -1,7 +1,7 @@
 ;;; ema-editor.el -- Core editor enhancement.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2014-05-07 00:17:30 (neic)>
+;; Time-stamp: <2014-05-07 00:18:07 (neic)>
 ;;
 ;; Inspired by prelude-editor.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -155,5 +155,9 @@
 
 ;; Hide annoying messages in ERC
 (setq erc-hide-list '("JOIN" "PART" "QUIT"))
+
+;; Dired
+(setq openwith-associations '(("\\.pdf\\'" "open" (file))))
+(openwith-mode t)
 
 (provide 'ema-editor)
