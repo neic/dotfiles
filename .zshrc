@@ -2,13 +2,15 @@
 #  .zshrc -- zsh resource file            #
 #                                         #
 # Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2014-01-12 00:08:51 (neic)>#
+# Time-stamp: <2014-05-07 00:10:27 (neic)>#
 #                                         #
 # Is sourced if interactive.              #
 ###########################################
 
-export EDITOR="/usr/bin/emacsclient -t"
-export PATH=/usr/local/bin:${PATH}
+export EDITOR="emacsclient"
+export GOPATH=$HOME/Documents/go
+export PATH=/usr/local/bin:${PATH}:$GOPATH/bin
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home"
 set noclobber
 
 #------------------------------
@@ -200,6 +202,9 @@ alias clear='echo "Use C-l to clear"'
 alias exit='echo "Use C-d to exit"'
 
 alias gs='git status'
+
+alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
+alias emacsclient='open -a /Applications/Emacs.app "$@"'
 
 #------------------------------
 # Power management
