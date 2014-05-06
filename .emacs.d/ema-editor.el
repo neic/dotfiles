@@ -1,7 +1,7 @@
 ;;; ema-editor.el -- Core editor enhancement.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2014-04-10 16:06:00 (neic)>
+;; Time-stamp: <2014-05-07 00:17:30 (neic)>
 ;;
 ;; Inspired by prelude-editor.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -152,5 +152,8 @@
   (delete-trailing-whitespace)
   (indent-region (point-min) (point-max) nil)
   (untabify (point-min) (point-max)))
+
+;; Hide annoying messages in ERC
+(setq erc-hide-list '("JOIN" "PART" "QUIT"))
 
 (provide 'ema-editor)
