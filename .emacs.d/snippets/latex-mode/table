@@ -3,9 +3,10 @@
 # key: table
 # --
 \begin{table}[htbp]
-  %\centerfloat
+  \centerfloat
+  %\caption[]{} \label{tab:}
   %\begin{threeparttable}
-  %\caption[]{}
+    \lining
     \begin{tabular}{${1:alignment: e.g. lSSS}}
       \toprule
       ${2:column names}
@@ -15,6 +16,5 @@
     \end{tabular}
     %\begin{tablenotes}
     %\end{tablenotes}
-  % \label{tab:}
   %\end{threeparttable}
 \end{table}
