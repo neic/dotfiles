@@ -2,7 +2,7 @@
 #  .zshrc -- zsh resource file            #
 #                                         #
 # Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2014-06-08 16:51:44 (neic)>#
+# Time-stamp: <2014-06-08 16:53:59 (neic)>#
 #                                         #
 # Is sourced if interactive.              #
 ###########################################
@@ -325,7 +325,7 @@ case $TERM in
     "dumb")
         PS1="> "
         ;;
-    termite|*xterm*|rxvt|rxvt-unicode|rxvt-256color|rxvt-unicode-256color|(dt|k|E)term)
+    termite|*xterm*|rxvt|rxvt-unicode|rxvt-256color|rxvt-unicode-256color|screen|(dt|k|E)term)
     PS1=$'${PR_RET}${CYAN}[${PR_USER}${CYAN}@${PR_HOST}${CYAN}][${BLUE}%~${CYAN}]${PR_USER_OP} '
     PS2=$'%_>'
     RPROMPT='$(date +%T)'
