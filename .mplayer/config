@@ -1,8 +1,0 @@
-# Write your default config options here!
-vo=vdpau
-vc=ffmpeg12vdpau,ffwmv3vdpau,ffvc1vdpau,ffh264vdpau,ffodivxvdpau,
-ao=alsa
-cache=1000000
-cache-min=1
-msgcolor=yes
-nolirc=yes
