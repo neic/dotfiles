@@ -2,12 +2,12 @@
 #  .zshrc -- zsh resource file            #
 #                                         #
 # Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2014-05-07 00:10:27 (neic)>#
+# Time-stamp: <2014-06-08 16:37:37 (neic)>#
 #                                         #
 # Is sourced if interactive.              #
 ###########################################
 
-export EDITOR="emacsclient"
+export EDITOR="emacsclient -nw -a nano"
 export GOPATH=$HOME/Documents/go
 export PATH=/usr/local/bin:${PATH}:$GOPATH/bin
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home"
@@ -195,17 +195,61 @@ bindkey "^[[B" history-beginning-search-forward
 #------------------------------
 
 alias ll='ls -l'
-alias cle='sudo pacman -Rs $(pacman -Qqtd); sudo pacman -Sc'
-alias up='sudo pacman -Syu'
-alias wi='wicd-curses'
 alias clear='echo "Use C-l to clear"'
 alias exit='echo "Use C-d to exit"'
 
 alias gs='git status'
 
-alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
-alias emacsclient='open -a /Applications/Emacs.app "$@"'
+cle () {
+    if [ $(uname) = "Darwin" ]; then
+        print "Cleaning homebrew software"
+        brew cleanup
+    elif [ $(uname) = "Linux" ]; then
+        print "Cleaning software from apt-get"
+        sudo apt-get autoremove
+        sudo apt-get autoclean
+    else
+        print "Cleaning failed: OS is not OSX or debian-based"
+    fi
+}
 
+up () {
+    if [ $(uname) = "Darwin" ]; then
+        print "Updating OSX and App Store software"
+        softwareupdate -ia
+        print "Updating homebrew software"
+        brew update
+        brew upgrade
+    elif [ $(uname) = "Linux" ]; then
+        print "Updating software from apt-get"
+        sudo apt-get update
+        sudo apt-get upgrade
+    else
+        print "Updating failed: OS is not OSX or debian-based"
+    fi
+
+    if [ $+commands[tlmgr] ]; then
+        print "Updating TeX Live"
+        sudo tlmgr update --self
+        sudo tlmgr update --all
+    fi
+}
+
+emacs () {
+    if [ $(uname) = "Darwin" ]; then
+        /Applications/Emacs.app/Contents/MacOS/Emacs "$@"
+    else
+        emacs
+    fi
+}
+
+ec () {
+    if [ $(uname) = "Darwin" ]; then
+        open -a /Applications/Emacs.app "$@"
+    else
+        emacsclient
+    fi
+}
 #------------------------------
 # Power management
 #------------------------------
@@ -218,9 +262,6 @@ function savevm {
         done
     fi
 }
-
-alias lock='alock -auth pam -bg blank'
-alias suspend='lock & sudo pm-suspend'
 
 #-----------------------------
 # Colors
