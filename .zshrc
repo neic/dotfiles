@@ -2,7 +2,7 @@
 #  .zshrc -- zsh resource file            #
 #                                         #
 # Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2014-06-08 16:37:37 (neic)>#
+# Time-stamp: <2014-06-08 16:51:44 (neic)>#
 #                                         #
 # Is sourced if interactive.              #
 ###########################################
@@ -239,7 +239,7 @@ emacs () {
     if [ $(uname) = "Darwin" ]; then
         /Applications/Emacs.app/Contents/MacOS/Emacs "$@"
     else
-        emacs
+        command emacs
     fi
 }
 
