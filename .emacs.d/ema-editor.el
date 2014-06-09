@@ -1,7 +1,7 @@
 ;;; ema-editor.el -- Core editor enhancement.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2014-05-07 00:18:07 (neic)>
+;; Time-stamp: <2014-06-10 00:46:41 (neic)>
 ;;
 ;; Inspired by prelude-editor.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -128,6 +128,13 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+;; go-mode
+(add-hook 'go-mode-hook
+          (lambda ()
+            (setq-default)
+            (setq tab-width 4)
+            (setq indent-tabs-mode t)))
+
 ;; tramp, for sudo access
 (require 'tramp)
 ;; keep in mind known issues with zsh - see emacs wiki
@@ -151,7 +158,8 @@
   (interactive)
   (delete-trailing-whitespace)
   (indent-region (point-min) (point-max) nil)
-  (untabify (point-min) (point-max)))
+  (if (not indent-tabs-mode)
+      (untabify (point-min) (point-max))))
 
 ;; Hide annoying messages in ERC
 (setq erc-hide-list '("JOIN" "PART" "QUIT"))
