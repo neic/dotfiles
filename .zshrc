@@ -2,7 +2,7 @@
 #  .zshrc -- zsh resource file            #
 #                                         #
 # Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2014-06-08 16:53:59 (neic)>#
+# Time-stamp: <2014-06-16 15:34:38 (neic)>#
 #                                         #
 # Is sourced if interactive.              #
 ###########################################
@@ -216,7 +216,7 @@ cle () {
 up () {
     if [ $(uname) = "Darwin" ]; then
         print "Updating OSX and App Store software"
-        softwareupdate -ia
+        sudo softwareupdate -ia
         print "Updating homebrew software"
         brew update
         brew upgrade
