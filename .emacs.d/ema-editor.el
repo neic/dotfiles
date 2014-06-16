@@ -147,6 +147,9 @@
       (find-file (concat "/sudo:root@localhost:" (ido-read-file-name "File: ")))
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 
+;; edit as sudo over ssh
+(set-default 'tramp-default-proxies-alist (quote ((".*" "\\`root\\'" "/ssh:%h:"))))
+
 ;; git gutter everywhere
 (global-git-gutter-mode +1)
 
