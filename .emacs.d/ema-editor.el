@@ -1,15 +1,16 @@
 ;;; ema-editor.el -- Core editor enhancement.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2014-06-10 00:46:41 (neic)>
+;; Time-stamp: <2014-06-16 15:56:39 (neic)>
 ;;
 ;; Inspired by prelude-editor.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
 
 (setq user-mail-address "neic@neic.dk")
 
-;; Death to the tabs!
+;; White space control
 (setq-default indent-tabs-mode nil)
+(setq-default show-trailing-whitespace t)
 
 ;; delete the selection with a keypress
 (delete-selection-mode t)
