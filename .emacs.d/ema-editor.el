@@ -60,10 +60,10 @@
 
 ;; ido-mode
 (ido-mode t)
- (setq ido-enable-preix t
-       ido-create-new-buffer 'always
-       ido-max-prospects 10
-       ido-default-file-method 'selected-window)
+(setq ido-enable-preix t
+      ido-create-new-buffer 'always
+      ido-max-prospects 10
+      ido-default-file-method 'selected-window)
 
 ;; auto-completion in minibuffer
 (icomplete-mode +1)
@@ -100,9 +100,9 @@
     (ispell-change-dictionary lang)))
 
 (defun ema-turn-on-flyspell ()
-   "Force flyspell-mode on using a positive argument.  For use in hooks."
-   (interactive)
-   (flyspell-mode 1))
+  "Force flyspell-mode on using a positive argument.  For use in hooks."
+  (interactive)
+  (flyspell-mode 1))
 
 (add-hook 'message-mode-hook 'ema-turn-on-flyspell)
 (add-hook 'text-mode-hook 'ema-turn-on-flyspell)
@@ -122,9 +122,10 @@
 (add-hook 'java-mode-hook 'ajc-java-complete-mode)
 (add-hook 'find-file-hook 'ajc-4-jsp-find-file-hook)
 
+;; markdown mode
 (add-to-list 'load-path (concat ema-dir "plugins/markdown-mode/"))
 (autoload 'markdown-mode "markdown-mode"
-   "Major mode for editing Markdown files" t)
+  "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))

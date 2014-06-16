@@ -1,7 +1,7 @@
 ;;; ema-ui.el -- UI optimizations and tweaks.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2014-05-07 00:28:16 (neic)>
+;; Time-stamp: <2014-06-16 16:01:34 (neic)>
 ;;
 ;; Inspired by prelude-ui.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -19,9 +19,9 @@
 (set-face-attribute 'default nil :height 140)
 
 ;; mode line settings
-(line-number-mode t)                    
-(column-number-mode t)                  
-(size-indication-mode t)                
+(line-number-mode t)
+(column-number-mode t)
+(size-indication-mode t)
 
 ;; enable y/n answers
 (fset 'yes-or-no-p 'y-or-n-p)

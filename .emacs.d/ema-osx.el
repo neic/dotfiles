@@ -1,12 +1,12 @@
 ;;; ema-osx.el -- OSX specific changes
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2013-06-17 15:13:14 (neic)>
+;; Time-stamp: <2014-06-16 16:00:46 (neic)>
 ;;
 
-(when (eq system-type 'darwin) 
+(when (eq system-type 'darwin)
 
-  ;; Load PATH from shell 
+  ;; Load PATH from shell
   (exec-path-from-shell-initialize)
 
   ;; Bind option to ALT and command to META
@@ -23,7 +23,6 @@
     '(progn
        (define-key flyspell-mouse-map [down-mouse-3] #'flyspell-correct-word)
        (define-key flyspell-mouse-map [mouse-3] #'undefined)))
-
-)
+  )
 
 (provide 'ema-osx)
