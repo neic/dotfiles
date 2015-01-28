@@ -1,7 +1,7 @@
 ;;; ema-packages.el -- ELPA packages
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2014-04-26 00:37:31 (neic)>
+;; Time-stamp: <2014-11-27 10:34:15 (neic)>
 ;;
 ;; Inspired by prelude-packages.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -19,9 +19,14 @@
   '(auctex
     mediawiki
     go-mode
+    anaconda-mode
     yasnippet
-    auto-complete
-    auto-complete-auctex
+;;    auto-complete
+;;    auto-complete-auctex
+    company
+    company-auctex
+    company-go
+    company-anaconda
     openwith
     git-gutter
     exec-path-from-shell

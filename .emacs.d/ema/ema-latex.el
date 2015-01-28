@@ -1,7 +1,7 @@
 ;;; ema-latex.el -- LaTeX setup
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2014-03-31 02:45:16 (neic)>
+;; Time-stamp: <2014-11-03 18:16:31 (neic)>
 ;;
 ;; Inspired by prelude-latex.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -50,5 +50,8 @@
 ;; calc for single line LaTeX math
 (setq calc-embedded-open-formula "^")
 (setq calc-embedded-close-formula "\\\\?\\\\?\n")
+
+;; use company for auto completion
+;;(company-auctex-init)
 
 (provide 'ema-latex)
