@@ -2,7 +2,7 @@
 #  .zshrc -- zsh resource file            #
 #                                         #
 # Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2015-01-28 10:50:49 (neic)>#
+# Time-stamp: <2015-01-28 10:52:09 (neic)>#
 #                                         #
 # Is sourced if interactive.              #
 ###########################################
@@ -221,6 +221,8 @@ cle () {
     if [ $(uname) = "Darwin" ]; then
         print "Cleaning homebrew software"
         brew cleanup
+        print "Cleaning homebrew cask software"
+        brew cask cleanup
     elif [ $(uname) = "Linux" ]; then
         print "Cleaning software from apt-get"
         sudo apt-get autoremove
@@ -237,6 +239,8 @@ up () {
         print "Updating homebrew software"
         brew update
         brew upgrade
+        print "Updating homebrew cask repo"
+        brew cask update
     elif [ $(uname) = "Linux" ]; then
         print "Updating software from apt-get"
         sudo apt-get update
