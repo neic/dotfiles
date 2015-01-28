@@ -2,7 +2,7 @@
 #  .zshrc -- zsh resource file            #
 #                                         #
 # Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2015-01-28 10:52:09 (neic)>#
+# Time-stamp: <2015-01-28 10:53:01 (neic)>#
 #                                         #
 # Is sourced if interactive.              #
 ###########################################
@@ -274,18 +274,6 @@ ec () {
 
 export EDITOR="~/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw -a nano"
 
-#------------------------------
-# Power management
-#------------------------------
-
-function savevm {
-    RUNNINGVMS=("${(@f)$(vboxmanage list runningvms | grep -o -P '(?<=[{]).*(?=[}])')}")
-    if [ -n '$RUNNINGVMS' ]; then
-        for VM in $RUNNINGVMS; do
-            vboxmanage controlvm $VM savestate
-        done
-    fi
-}
 
 #------------------------------
 # Prompt
