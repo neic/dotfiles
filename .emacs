@@ -1,6 +1,6 @@
 (defvar ema-dir "~/.emacs.d/")
 
-(add-to-list 'load-path ema-dir)
+(add-to-list 'load-path (concat ema-dir "ema/"))
 
 ;; config changes made through the customize UI will be store here
 (setq custom-file "~/.emacs.d/custom.el")
