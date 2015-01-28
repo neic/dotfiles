@@ -4,6 +4,8 @@
 .ssh
 !.ssh/config
 .emacs.d/elpa
+.emacs.d/url
+.yas-compiled-snippets.el
 .gitignore-boilerplates
 .java_base.tag
 .Thrash
@@ -12,11 +14,11 @@
 ### Various history files
 .emacs.d/ac-comphist.dat
 .emacs.d/savehist
-.bash_history
+.*_history
 .histfile
 .ido.last
 .lesshst
-.sh_history
+.octave_hist
 
 ### This i gernerated with gibo Emacs OSX >> .gitignore
 
