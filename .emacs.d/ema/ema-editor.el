@@ -1,7 +1,7 @@
 ;;; ema-editor.el -- Core editor enhancement.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2014-06-16 15:56:39 (neic)>
+;; Time-stamp: <2015-01-28 10:08:40 (neic)>
 ;;
 ;; Inspired by prelude-editor.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -116,27 +116,6 @@
 (yas-load-directory (concat ema-dir "snippets/"))
 (yas-global-mode 1)
 
-;; ajc-java-complete
-(add-to-list 'load-path (concat ema-dir "plugins/ajc/"))
-(require 'ajc-java-complete-config)
-(add-hook 'java-mode-hook 'ajc-java-complete-mode)
-(add-hook 'find-file-hook 'ajc-4-jsp-find-file-hook)
-
-;; markdown mode
-(add-to-list 'load-path (concat ema-dir "plugins/markdown-mode/"))
-(autoload 'markdown-mode "markdown-mode"
-  "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
-;; go-mode
-(add-hook 'go-mode-hook
-          (lambda ()
-            (setq-default)
-            (setq tab-width 4)
-            (setq indent-tabs-mode t)))
-
 ;; tramp, for sudo access
 (require 'tramp)
 ;; keep in mind known issues with zsh - see emacs wiki
@@ -155,9 +134,6 @@
 ;; git gutter everywhere
 (global-git-gutter-mode +1)
 
-;; Petite Chez Scheme
-(setq scheme-program-name "petite")
-
 (defun iwb ()
   "indent whole buffer"
   (interactive)
@@ -166,11 +142,63 @@
   (if (not indent-tabs-mode)
       (untabify (point-min) (point-max))))
 
-;; Hide annoying messages in ERC
+;; -----------
+;; Major modes
+;; -----------
+
+;; python-mode
+(add-hook 'python-mode-hook 'anaconda-mode 'turn-on-eldoc-mode)
+;;(add-to-list 'company-backends 'company-anaconda)
+
+;; markdown-mode
+(add-to-list 'load-path (concat ema-dir "plugins/markdown-mode/"))
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+;; go-mode
+;;(require 'company-go)
+(add-hook 'go-mode-hook
+          (lambda ()
+            (setq-default)
+            (setq tab-width 4)
+            (setq indent-tabs-mode t)))
+
+;; cc-mode
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'objc-mode-hook 'irony-mode)
+
+;; replace the `completion-at-point' and `complete-symbol' bindings in
+;; irony-mode's buffers by irony-mode's function
+(defun my-irony-mode-hook ()
+  (define-key irony-mode-map [remap completion-at-point]
+    'irony-completion-at-point-async)
+  (define-key irony-mode-map [remap complete-symbol]
+    'irony-completion-at-point-async))
+(add-hook 'irony-mode-hook 'my-irony-mode-hook)
+
+;; c-mode
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (define-key c-mode-base-map (kbd "C-c C-c") 'compile)
+            (define-key c-mode-base-map (kbd "C-c ;") 'comment-region)))
+
+
+;; scheme-mode
+(setq scheme-program-name "petite")
+
+;; erc-mode
 (setq erc-hide-list '("JOIN" "PART" "QUIT"))
 
-;; Dired
+;; dired-mode
 (setq openwith-associations '(("\\.pdf\\'" "open" (file))))
 (openwith-mode t)
+
+;; Use Emacs terminfo, not system terminfo
+(setq system-uses-terminfo nil)
+
 
 (provide 'ema-editor)
