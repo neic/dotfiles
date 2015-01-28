@@ -33,6 +33,8 @@
 ;; Indent whole buffer
 (global-set-key (kbd "<C-tab>") 'iwb)
 
+(global-set-key (kbd "C-;") #'comment-line)
+
 ;; real Emacs hackers don't use the arrow keys
 (global-set-key (kbd "<up>") (lambda ()
                                (interactive)
