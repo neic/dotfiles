@@ -3,6 +3,11 @@ config nudgePercentOf screenSize
 config resizePercentOf screenSize
 
 # Push Bindings
-bind right:ctrl;cmd  move (screenSizeX-165)/2;0 (screenSizeX-165)/2;screenSizeY
-bind left:ctrl;cmd   push left  bar-resize:(screenSizeX-165)/2
-bind up:ctrl;cmd     push left  bar-resize:screenSizeX-165
+bind right:ctrl;cmd  move (screenSizeX-220)/2;0 (screenSizeX-220)/2;screenSizeY
+bind left:ctrl;cmd   push left  bar-resize:(screenSizeX-220)/2
+bind up:ctrl;cmd     push left  bar-resize:screenSizeX-220
+
+bind left:ctrl;cmd;alt   move 0;screenSizeY/2 (screenSizeX-220)/2;screenSizeY/2
+bind up:ctrl;cmd;alt   move 0;0 (screenSizeX-220)/2;screenSizeY/2
+bind right:ctrl;cmd;alt   move (screenSizeX-220)/2;0 (screenSizeX-220)/2;screenSizeY/2
+bind down:ctrl;cmd;alt   move (screenSizeX-220)/2;screenSizeY/2 (screenSizeX-220)/2;screenSizeY/2
