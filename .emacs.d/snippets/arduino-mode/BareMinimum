@@ -2,9 +2,9 @@
 #key: exa
 # --
 void setup() {
-  $0 
+  $0
 }
 
 void loop() {
-    
+
 }

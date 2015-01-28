@@ -1,5 +1,0 @@
-# contributor: Mathias Dannesbo <neic@neic.dk>
-# name: \frac{}{}
-# key: frac
-# --
-\frac{$1}{$2}$0
