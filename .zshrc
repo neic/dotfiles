@@ -2,12 +2,11 @@
 #  .zshrc -- zsh resource file            #
 #                                         #
 # Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2015-01-28 10:33:51 (neic)>#
+# Time-stamp: <2015-01-28 10:50:49 (neic)>#
 #                                         #
 # Is sourced if interactive.              #
 ###########################################
 
-export EDITOR="emacsclient -nw -a nano"
 export GOPATH=$HOME/Documents/go
 export PATH=/usr/local/bin:${PATH}:$GOPATH/bin
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home"
@@ -255,7 +254,7 @@ up () {
 
 emacs () {
     if [ $(uname) = "Darwin" ]; then
-        /Applications/Emacs.app/Contents/MacOS/Emacs "$@"
+        ~/Applications/Emacs.app/Contents/MacOS/Emacs "$@"
     else
         command emacs
     fi
@@ -263,11 +262,14 @@ emacs () {
 
 ec () {
     if [ $(uname) = "Darwin" ]; then
-        open -a /Applications/Emacs.app "$@"
+        open -a ~/Applications/Emacs.app "$@"
     else
         emacsclient
     fi
 }
+
+export EDITOR="~/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw -a nano"
+
 #------------------------------
 # Power management
 #------------------------------
