@@ -2,7 +2,7 @@
 #  .zshrc -- zsh resource file            #
 #                                         #
 # Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2015-01-28 10:53:01 (neic)>#
+# Time-stamp: <2015-01-30 10:55:09 (neic)>#
 #                                         #
 # Is sourced if interactive.              #
 ###########################################
@@ -210,7 +210,10 @@ bindkey "^[[B" history-beginning-search-forward
 #------------------------------
 # Aliases
 #------------------------------
-alias ls='gls -C -F -h --color=always'
+if [ $(uname) = "Darwin" ]; then
+    alias ls='gls -C -F -h --color=always'
+fi
+
 alias ll='ls -l'
 alias clear='echo "Use C-l to clear"'
 alias exit='echo "Use C-d to exit"'
@@ -223,12 +226,15 @@ cle () {
         brew cleanup
         print "Cleaning homebrew cask software"
         brew cask cleanup
-    elif [ $(uname) = "Linux" ]; then
+    elif [[ $(uname) = "Linux" && $(lsb_release -si) = "Ubuntu" ]]; then
         print "Cleaning software from apt-get"
         sudo apt-get autoremove
         sudo apt-get autoclean
+    elif [ $(uname) = "Linux" && $(lsb_release -si) = "Arch" ]]; then
+        print "Cleaning software from pacman"
+        sudo pacman -Rs $(pacman -Qqtd); sudo pacman -Sc
     else
-        print "Cleaning failed: OS is not OSX or debian-based"
+        print "Cleaning failed: OS is not OSX, Ubuntu or Arch"
     fi
 }
 
@@ -241,12 +247,15 @@ up () {
         brew upgrade
         print "Updating homebrew cask repo"
         brew cask update
-    elif [ $(uname) = "Linux" ]; then
+    elif [[ $(uname) = "Linux" && $(lsb_release -si) = "Ubuntu" ]]; then
         print "Updating software from apt-get"
         sudo apt-get update
         sudo apt-get upgrade
+    elif [[ $(uname) = "Linux" && $(lsb_release -si) = "Arch" ]]; then
+        print "Updating software from pacman"
+        sudo pacman -Syu
     else
-        print "Updating failed: OS is not OSX or debian-based"
+        print "Updating failed: OS is not OSX, Ubuntu or Arch"
     fi
 
     if [ $+commands[tlmgr] ]; then
