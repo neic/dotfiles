@@ -2,7 +2,7 @@
 #  .zshrc -- zsh resource file            #
 #                                         #
 # Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2015-01-30 11:04:46 (neic)>#
+# Time-stamp: <2015-01-30 11:08:46 (neic)>#
 #                                         #
 # Is sourced if interactive.              #
 ###########################################
@@ -230,7 +230,7 @@ cle () {
         print "Cleaning software from apt-get"
         sudo apt-get autoremove
         sudo apt-get autoclean
-    elif [ $(uname) = "Linux" && $(lsb_release -si) = "Arch" ]]; then
+    elif [[ $(uname) = "Linux" && $(lsb_release -si) = "Arch" ]]; then
         print "Cleaning software from pacman"
         sudo pacman -Rs $(pacman -Qqtd); sudo pacman -Sc
     else
