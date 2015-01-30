@@ -2,7 +2,7 @@
 #  .zshrc -- zsh resource file            #
 #                                         #
 # Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2015-01-30 10:55:09 (neic)>#
+# Time-stamp: <2015-01-30 11:04:46 (neic)>#
 #                                         #
 # Is sourced if interactive.              #
 ###########################################
@@ -258,7 +258,7 @@ up () {
         print "Updating failed: OS is not OSX, Ubuntu or Arch"
     fi
 
-    if [ $+commands[tlmgr] ]; then
+    if (( $+commands[tlmgr] )); then
         print "Updating TeX Live"
         sudo tlmgr update --self
         sudo tlmgr update --all
