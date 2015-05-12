@@ -2,7 +2,7 @@
 #  .zshrc -- zsh resource file            #
 #                                         #
 # Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2015-01-30 11:46:41 (neic)>#
+# Time-stamp: <2015-05-12 14:29:12 (neic)>#
 #                                         #
 # Is sourced if interactive.              #
 ###########################################
@@ -282,7 +282,7 @@ up () {
         sudo softwareupdate -ia
         print "Updating homebrew software"
         brew update
-        brew upgrade
+        brew upgrade --all
         print "Updating homebrew cask repo"
         brew cask update
     elif [[ $(uname) = "Linux" && $(lsb_release -si) = "Ubuntu" ]]; then
