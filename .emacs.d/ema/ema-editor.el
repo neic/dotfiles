@@ -1,7 +1,7 @@
 ;;; ema-editor.el -- Core editor enhancement.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2015-02-24 22:16:13 (neic)>
+;; Time-stamp: <2015-07-17 22:45:25 (neic)>
 ;;
 ;; Inspired by prelude-editor.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -119,7 +119,7 @@
 ;; Auto complete
 (add-hook 'after-init-hook 'global-company-mode)
 (setq company-tooltip-limit 20)                      ; bigger popup window
-(setq company-idle-delay 0)                         ; decrease delay before autocompletion popup shows
+(setq company-idle-delay 0)                          ; decrease delay before autocompletion popup shows
 (setq company-echo-delay 0)                          ; remove annoying blinking
 (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
 
@@ -127,6 +127,9 @@
 (require 'yasnippet)
 (yas-load-directory (concat ema-dir "snippets/"))
 (yas-global-mode 1)
+
+(with-eval-after-load 'company
+(push '(company-semantic :with company-yasnippet) company-backends))
 
 ;; tramp, for sudo access
 (require 'tramp)
@@ -171,7 +174,8 @@ With negative prefix, apply to -N lines above."
 
 ;; python-mode
 (add-hook 'python-mode-hook 'anaconda-mode 'turn-on-eldoc-mode)
-;;(add-to-list 'company-backends 'company-anaconda)
+(with-eval-after-load 'company
+  (add-to-list 'company-backends 'company-anaconda))
 
 ;; markdown-mode
 (add-to-list 'load-path (concat ema-dir "plugins/markdown-mode/"))
@@ -182,7 +186,7 @@ With negative prefix, apply to -N lines above."
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ;; go-mode
-;;(require 'company-go)
+(require 'company-go)
 (add-hook 'go-mode-hook
           (lambda ()
             (setq-default)

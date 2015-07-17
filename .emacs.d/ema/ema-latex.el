@@ -1,7 +1,7 @@
 ;;; ema-latex.el -- LaTeX setup
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2014-11-03 18:16:31 (neic)>
+;; Time-stamp: <2015-02-24 17:30:35 (neic)>
 ;;
 ;; Inspired by prelude-latex.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -52,6 +52,6 @@
 (setq calc-embedded-close-formula "\\\\?\\\\?\n")
 
 ;; use company for auto completion
-;;(company-auctex-init)
+(company-auctex-init)
 
 (provide 'ema-latex)
