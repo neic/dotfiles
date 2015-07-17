@@ -1,7 +1,7 @@
 ;;; ema-editor.el -- Core editor enhancement.
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2015-01-28 10:15:33 (neic)>
+;; Time-stamp: <2015-02-24 22:16:13 (neic)>
 ;;
 ;; Inspired by prelude-editor.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -74,6 +74,15 @@
       (quote (("default"
                ("dired" (mode . dired-mode))
                ("erc"   (mode . erc-mode))
+               ("gnus" (or
+                        (mode . message-mode)
+                        (mode . bbdb-mode)
+                        (mode . mail-mode)
+                        (mode . gnus-group-mode)
+                        (mode . gnus-summary-mode)
+                        (mode . gnus-article-mode)
+                        (name . "^\\.bbdb$")
+                        (name . "^\\.newsrc-dribble")))
                ("java"  (mode . java-mode))
                ("latex" (or
                          (mode . tex-mode)

@@ -10,5 +10,6 @@
 (require 'ema-editor)
 (require 'ema-ui)
 (require 'ema-latex)
+(require 'ema-gnus)
 (require 'ema-global-keybindings)
 
