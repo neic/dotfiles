@@ -16,6 +16,9 @@
 ;; cycle through buffers
 (global-set-key (kbd "<C-tab>") 'bury-buffer)
 
+;; show git status buffer
+(global-set-key (kbd "C-x g") 'magit-status)
+
 ;; toggle ispell language
 (global-set-key (kbd "<f6>") 'ema-cycle-ispell-languages)
 

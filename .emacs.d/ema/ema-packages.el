@@ -1,7 +1,7 @@
 ;;; ema-packages.el -- ELPA packages
 ;;
 ;; Author: Mathias Dannesbo <neic@neic.dk>
-;; Time-stamp: <2014-11-27 10:34:15 (neic)>
+;; Time-stamp: <2015-07-17 22:24:16 (neic)>
 ;;
 ;; Inspired by prelude-packages.el
 ;; (http://www.emacswiki.org/cgi-bin/wiki/Prelude)
@@ -29,6 +29,7 @@
     company-anaconda
     openwith
     git-gutter
+    magit
     exec-path-from-shell
     zenburn-theme)
   "A list of packages to ensure are installed at launch.")
