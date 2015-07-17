@@ -4,6 +4,7 @@
 
 ;; config changes made through the customize UI will be store here
 (setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
 
 (require 'ema-packages)
 (require 'ema-osx)
