@@ -93,6 +93,12 @@
                          (name . "^\\*Completions\\*$")))
                ))))
 
+(add-hook 'ibuffer-mode-hook
+          (lambda ()
+            (ibuffer-switch-to-saved-filter-groups "default")))
+
+(setq ibuffer-show-empty-filter-groups nil)
+
 ;; flyspell-mode
 (setq ispell-program-name "aspell" ; use aspell instead of ispell
       ispell-extra-args '("--sug-mode=ultra"))
