@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: div id
+# key: divi
+# binding: direct-keybinding
+# --
+<div${1: id="${2:some_id}"}>
+  $0
+</div> <!-- $2 -->
