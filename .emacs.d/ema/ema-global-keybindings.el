@@ -109,7 +109,7 @@
 
 ;; ### Hyper ###
 ;; Number row
-(global-set-key (kbd "H-½") "")
+(global-set-key (kbd "H-§") "")
 (global-set-key (kbd "H-1") "")
 (global-set-key (kbd "H-2") "")
 (global-set-key (kbd "H-3") "")
@@ -120,10 +120,11 @@
 (global-set-key (kbd "H-8") "")
 (global-set-key (kbd "H-9") "")
 (global-set-key (kbd "H-0") "")
-(global-set-key (kbd "H-+") "")
+(global-set-key (kbd "H--") "")
+(global-set-key (kbd "H-=") "")
 ;; Upper row
 (global-set-key (kbd "H-q") "ℚ") ;; Blackboard Q
-(global-set-key (kbd "H-w") "∆")
+(global-set-key (kbd "H-w") "")
 (global-set-key (kbd "H-e") "∃") ;; Logic: there exists [\exists]
 (global-set-key (kbd "H-r") "ℝ") ;; Blackboard R
 (global-set-key (kbd "H-t") "⊤") ;; True
@@ -144,10 +145,11 @@
 (global-set-key (kbd "H-j") "")
 (global-set-key (kbd "H-k") "")
 (global-set-key (kbd "H-l") "")
-(global-set-key (kbd "H-æ") "")
-(global-set-key (kbd "H-ø") "")
+(global-set-key (kbd "H-;") "")
+(global-set-key (kbd "H-'") "")
+;;(global-set-key (kbd "H-\") "")
 ;; Lower row
-(global-set-key (kbd "H-<") "←")
+(global-set-key (kbd "H-`") "")
 (global-set-key (kbd "H-z") "ℤ") ;; Blackboard Z
 (global-set-key (kbd "H-x") (kbd "C-x 8 x")) ;; Multiplication ×
 (global-set-key (kbd "H-c") "ℂ") ;; Blackbord C
@@ -155,22 +157,23 @@
 (global-set-key (kbd "H-b") "")
 (global-set-key (kbd "H-n") "ℕ") ;; Blackboard N
 (global-set-key (kbd "H-m") "∖") ;; Set theory: complement [allmost \setminus]
-(global-set-key (kbd "H-,") "")
-(global-set-key (kbd "H-.") "")
-(global-set-key (kbd "H--") "")
+(global-set-key (kbd "H-,") "←")
+(global-set-key (kbd "H-.") "→")
+(global-set-key (kbd "H-/") "")
 ;; Number row shift
 (global-set-key (kbd "H-§") "")
 (global-set-key (kbd "H-!") "")
-;;(global-set-key (kbd "H-"") "")
+(global-set-key (kbd "H-@") "")
 (global-set-key (kbd "H-#") "")
-(global-set-key (kbd "H-¤") "")
+(global-set-key (kbd "H-$") "")
 (global-set-key (kbd "H-%") "")
+(global-set-key (kbd "H-^") "")
 (global-set-key (kbd "H-&") "")
-(global-set-key (kbd "H-/") "")
+(global-set-key (kbd "H-*") "")
 (global-set-key (kbd "H-(") "")
 (global-set-key (kbd "H-)") "")
-(global-set-key (kbd "H-=") "")
-(global-set-key (kbd "H-?") "")
+(global-set-key (kbd "H-_") "")
+(global-set-key (kbd "H-+") "")
 ;; Upper row shift
 (global-set-key (kbd "H-Q") "")
 (global-set-key (kbd "H-W") "")
@@ -182,7 +185,8 @@
 (global-set-key (kbd "H-I") "∉") ;; Set theory: non-membership [\notin]
 (global-set-key (kbd "H-O") "⊇") ;; Set theory: superset [\supseteq]
 (global-set-key (kbd "H-P") "")
-(global-set-key (kbd "H-Å") "")
+(global-set-key (kbd "H-{") "")
+(global-set-key (kbd "H-}") "")
 ;; Home row shift
 (global-set-key (kbd "H-A") "∧") ;; Logical and, conjunction (U+2227, not ⋀ U+22C0)
 (global-set-key (kbd "H-S") "")
@@ -193,10 +197,11 @@
 (global-set-key (kbd "H-J") "")
 (global-set-key (kbd "H-K") "")
 (global-set-key (kbd "H-L") "")
-(global-set-key (kbd "H-Æ") "")
-(global-set-key (kbd "H-Ø") "")
+(global-set-key (kbd "H-:") "")
+;;(global-set-key (kbd "H-"") "")
+(global-set-key (kbd "H-|") "")
 ;; Lower row shift
-(global-set-key (kbd "H->") "→")
+(global-set-key (kbd "H-~") "")
 (global-set-key (kbd "H-Z") "")
 (global-set-key (kbd "H-X") "")
 (global-set-key (kbd "H-C") "")
@@ -204,8 +209,8 @@
 (global-set-key (kbd "H-B") "")
 (global-set-key (kbd "H-N") "¬") ;; Logical not, negation (U+00AC)
 (global-set-key (kbd "H-M") "")
-(global-set-key (kbd "H-;") "")
-(global-set-key (kbd "H-:") "")
-(global-set-key (kbd "H-_") "")
+(global-set-key (kbd "H-<") "⇐")
+(global-set-key (kbd "H->") "⇒")
+(global-set-key (kbd "H-?") "")
 
 (provide 'ema-global-keybindings)
