@@ -2,7 +2,7 @@
 #  .zshrc -- zsh resource file            #
 #                                         #
 # Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2015-05-12 14:29:12 (neic)>#
+# Time-stamp: <2015-10-08 13:01:34 (neic)>#
 #                                         #
 # Is sourced if interactive.              #
 ###########################################
@@ -331,10 +331,12 @@ setopt prompt_subst
 # make some aliases for the colours: (coud use normal escap.seq's too)
 
 # Check the UID
-if [[ $UID -ge 1000 ]]; then # normal user
-    eval PR_USER='${GREEN}%n${NO_COLOR}'
-    eval PR_USER_OP='${GREEN}%#${NO_COLOR}'
-elif [[ $UID -eq 0 ]]; then # root
+
+# normal user
+eval PR_USER='${GREEN}%n${NO_COLOR}'
+eval PR_USER_OP='${GREEN}%#${NO_COLOR}'
+
+if [[ $UID -eq 0 ]]; then # root
     eval PR_USER='${RED}%n${NO_COLOR}'
     eval PR_USER_OP='${RED}%#${NO_COLOR}'
 fi
