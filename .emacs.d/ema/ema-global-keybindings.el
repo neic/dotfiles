@@ -204,7 +204,7 @@
 (global-set-key (kbd "H-~") "")
 (global-set-key (kbd "H-Z") "")
 (global-set-key (kbd "H-X") "")
-(global-set-key (kbd "H-C") "")
+(global-set-key (kbd "H-C") "↯") ;; Logical contradiction (U+21AF)
 (global-set-key (kbd "H-V") "∨") ;; Logical or, disjunction (U+2228, not ⋁ U+22C1)
 (global-set-key (kbd "H-B") "")
 (global-set-key (kbd "H-N") "¬") ;; Logical not, negation (U+00AC)
