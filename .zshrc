@@ -32,6 +32,8 @@ SAVEHIST=10000
 # Colors
 #-----------------------------
 
+# load some modules
+autoload -U zsh/terminfo # Used in the colour alias below
 if autoload colors && colors 2>/dev/null ; then
     BLUE="%{${fg[blue]}%}"
     RED="%{${fg_bold[red]}%}"
@@ -324,11 +326,7 @@ ec () {
 # Prompt
 #------------------------------
 
-# load some modules
-autoload -U zsh/terminfo # Used in the colour alias below
 setopt prompt_subst
-
-# make some aliases for the colours: (coud use normal escap.seq's too)
 
 # Check the UID
 
