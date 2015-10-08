@@ -8,7 +8,7 @@
 ###########################################
 
 export GOPATH=$HOME/Documents/go
-export PATH=/usr/local/bin:${PATH}:$GOPATH/bin
+export PATH=~/bin:/usr/local/bin:/usr/local/sbin:${PATH}:$GOPATH/bin
 
 if [ $(uname) = "Darwin" ]; then
     export EDITOR="~/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw -a nano"
