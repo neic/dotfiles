@@ -222,7 +222,7 @@ bindkey "^[[B" history-beginning-search-forward
 # Aliases
 #------------------------------
 if [ $(uname) = "Darwin" ]; then
-    alias ls='gls -C -F -h --color=always'
+    alias ls='gls -C -F --color=always'
 fi
 
 alias ll='ls -l'
