@@ -3,8 +3,7 @@
 
 .ssh
 !.ssh/config
-.emacs.d/elpa
-.emacs.d/url
+.emacs.d
 .yas-compiled-snippets.el
 .gitignore-boilerplates
 .java_base.tag
@@ -12,8 +11,6 @@
 .zcompdump
 
 ### Various history files
-.emacs.d/ac-comphist.dat
-.emacs.d/savehist
 .*_history
 .histfile
 .ido.last

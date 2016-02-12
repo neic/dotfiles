@@ -1,5 +1,0 @@
-# contributor: Mathias Dannesbo <neic@neic.dk>
-# name : digitalWrite(...)
-# key: dw
-# --
-digitalWrite(${1:pinNumber},${2:$$(yas/choose-value '("LOW" "HIGH"))});

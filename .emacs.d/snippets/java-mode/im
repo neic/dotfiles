@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# contributor: Mathias Dannesbo <neic@neic.dk> 
-# name : import
-# key : im
-# --
-import $0

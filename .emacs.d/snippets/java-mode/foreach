@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# contributor: Mathias Dannesbo <neic@neic.dk> 
-# name : for (… : …) { … }
-# key : foreach
-# --
-for (${1:String} ${2:name} : ${3:list}) {
-    $0
-}

@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# contributor: Mathias Dannesbo <neic@neic.dk> 
-# name : main
-# key : main
-# --
-public static void main(final String[] args) {
-    $0
-}
