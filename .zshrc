@@ -2,7 +2,7 @@
 #  .zshrc -- zsh resource file            #
 #                                         #
 # Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2015-10-08 13:46:14 (neic)>#
+# Time-stamp: <2016-01-20 11:01:15 (neic)>#
 #                                         #
 # Is sourced if interactive.              #
 ###########################################
@@ -306,10 +306,12 @@ up () {
 }
 
 pipup () {
+    pip install --upgrade pip
     pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
 }
 
 pip3up () {
+    pip3 install --upgrade pip
     pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U
 }
 
