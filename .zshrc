@@ -19,6 +19,8 @@ else
     export EDITOR=nano
 fi
 
+export HOMEBREW_NO_ANALYTICS="1"
+
 set noclobber
 
 #------------------------------
