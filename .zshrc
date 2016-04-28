@@ -341,6 +341,15 @@ ec () {
     fi
 }
 
+enableproxy () {
+    ssh -Nf -D 9001 wiply
+    networksetup -setsocksfirewallproxy "Wi-Fi" localhost 9001
+}
+
+
+disableproxy () {
+    networksetup -setsocksfirewallproxystate "Wi-Fi" off
+}
 
 #------------------------------
 # Prompt
