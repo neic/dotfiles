@@ -308,15 +308,22 @@ up () {
 }
 
 pipup () {
-    pip install --upgrade pip
-    pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
+    pipupinner pip
+}
+
+pip2up () {
+    pipupinner pip2
 }
 
 pip3up () {
-    pip3 install --upgrade pip
-    pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U
+    pipupinner pip3
 }
 
+function pipupinner() {
+    $1 --version
+    $1 install --upgrade pip
+    $1 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 $1 install -U
+}
 
 emacs () {
     if [ $(uname) = "Darwin" ]; then
