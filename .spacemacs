@@ -33,17 +33,25 @@ values."
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      spell-checking
-     ;; syntax-checking
-     ;; version-control
+     syntax-checking
+     version-control
      python
      latex
      go
+     html
+     javascript
+     erc
+     ibuffer
+     django
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages
+   '(
+     openwith
+     )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -191,7 +199,7 @@ values."
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup t
+   dotspacemacs-maximized-at-startup nil
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -247,6 +255,25 @@ in `dotspacemacs/user-config'."
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
+
+  ;; delete the selection with a keypress
+  (delete-selection-mode t)
+
+
+  ;; -----------
+  ;; Major modes
+  ;; -----------
+
+  ;; dired-mode
+  (setq openwith-associations '(("\\.pdf\\'" "open" (file))))
+  (openwith-mode t)
+
+  ;; magit-mode
+  '(magit-commit-arguments (quote ("--gpg-sign=Mathias Dannesbo <neic@neic.dk>")))
+
+  ;; org-mode
+  (setq org-hide-emphasis-markers t)
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -257,9 +284,12 @@ layers configuration. You are free to put any user code."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(magit-commit-arguments (quote ("--gpg-sign=Mathias Dannesbo <neic@neic.dk>")))
+ '(paradox-github-token t)
  '(safe-local-variable-values
    (quote
-    ((eval setq python-shell-virtualenv-path
+    ((TeX-engine . luatex_sh)
+     (TeX-engine . xetex_sh)
+     (eval setq python-shell-virtualenv-path
            (concat
             (locate-dominating-file buffer-file-name ".dir-locals.el")
             "venv"))
