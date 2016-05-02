@@ -327,7 +327,7 @@ function pipupinner() {
 
 emacs () {
     if [ $(uname) = "Darwin" ]; then
-        ~/Applications/Emacs.app/Contents/MacOS/Emacs "$@"
+        /usr/local/bin/emacs "$@"
     else
         command emacs
     fi
@@ -335,7 +335,7 @@ emacs () {
 
 ec () {
     if [ $(uname) = "Darwin" ]; then
-        open -a ~/Applications/Emacs.app "$@"
+        open -a /Applications/Emacs "$@"
     else
         emacsclient
     fi
