@@ -67,6 +67,8 @@ values."
      php
      python
 
+     ;; 12 Operating systems
+     osx ;; modifier keybindings is overwritten in user-config
 
      ;; 14 Source control
      git
@@ -335,6 +337,8 @@ you should place your code here."
   ;; delete the selection with a keypress
   (delete-selection-mode t)
 
+  (setq mac-command-modifier 'meta
+        mac-option-modifier  'none)
 
   '(safe-local-variable-values
     (quote
