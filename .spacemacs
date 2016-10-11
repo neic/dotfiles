@@ -84,6 +84,7 @@ values."
    dotspacemacs-additional-packages
    '(
      openwith
+     rainbow-mode
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
