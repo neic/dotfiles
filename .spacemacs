@@ -62,7 +62,8 @@ values."
      go
      html
      javascript
-     latex
+     (latex :variables
+            TeX-save-query nil)
      markdown
      php
      (python :variables
