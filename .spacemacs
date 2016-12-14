@@ -65,7 +65,8 @@ values."
      latex
      markdown
      php
-     python
+     (python :variables
+             python-shell-interpreter "python3" )
 
      ;; 12 Operating systems
      osx ;; modifier keybindings is overwritten in user-config
