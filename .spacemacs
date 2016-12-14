@@ -57,6 +57,7 @@ values."
      django
 
      ;; 10 Programming and markup languages
+     csv
      emacs-lisp
      fsharp
      go
