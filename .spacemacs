@@ -49,7 +49,7 @@ values."
      helm
 
      ;; 5 Emacs
-     ;; better-defaults
+     better-defaults
      org
      ibuffer
 
