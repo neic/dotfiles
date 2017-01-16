@@ -286,9 +286,7 @@ up () {
         sudo softwareupdate -ia
         print "Updating homebrew software"
         brew update
-        brew upgrade --all
-        print "Updating homebrew cask repo"
-        brew cask update
+        brew upgrade
     elif [[ $(uname) = "Linux" && $(lsb_release -si) = "Ubuntu" ]]; then
         print "Updating software from apt-get"
         sudo apt-get update
