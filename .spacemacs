@@ -68,7 +68,8 @@ values."
      markdown
      php
      (python :variables
-             python-shell-interpreter "python3" )
+             python-shell-interpreter "python3"
+             flycheck-python-pycompile-executable "python3")
 
      ;; 12 Operating systems
      osx ;; modifier keybindings is overwritten in user-config
