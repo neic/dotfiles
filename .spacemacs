@@ -70,6 +70,7 @@ values."
      (python :variables
              python-shell-interpreter "python3"
              flycheck-python-pycompile-executable "python3")
+     yaml
 
      ;; 12 Operating systems
      osx ;; modifier keybindings is overwritten in user-config
