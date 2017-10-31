@@ -92,6 +92,7 @@ values."
    '(
      openwith
      rainbow-mode
+     circadian
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -353,6 +354,16 @@ you should place your code here."
             (concat
              (locate-dominating-file buffer-file-name ".dir-locals.el")
              "/venv/")))))
+
+  (use-package circadian
+    :ensure t
+    :config
+    (setq calendar-latitude 55.7)
+    (setq calendar-longitude 12.5)
+    (setq circadian-themes '((:sunrise . spacemacs-light)
+                             (:sunset  . spacemacs-dark)))
+    (circadian-setup))
+
 
   ;; -----------
   ;; Major modes
