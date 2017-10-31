@@ -333,7 +333,7 @@ emacs () {
 
 ec () {
     if [ $(uname) = "Darwin" ]; then
-        open -a /Applications/Emacs "$@"
+        open -a /Applications/Emacs.app "$@"
     else
         emacsclient
     fi
