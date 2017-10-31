@@ -340,7 +340,7 @@ ec () {
 }
 
 enableproxy () {
-    ssh -Nf -D 9001 wiply
+    ssh -Nf -D 9001 ${1:=wiply}
     networksetup -setsocksfirewallproxy "Wi-Fi" localhost 9001
 }
 
