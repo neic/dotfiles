@@ -266,8 +266,6 @@ cle () {
     if [ $(uname) = "Darwin" ]; then
         print "Cleaning homebrew software"
         brew cleanup
-        print "Cleaning homebrew cask software"
-        brew cask cleanup
     elif [[ $(uname) = "Linux" && $(lsb_release -si) = "Ubuntu" ]]; then
         print "Cleaning software from apt-get"
         sudo apt-get autoremove

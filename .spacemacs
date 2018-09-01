@@ -65,6 +65,7 @@ values."
      javascript
      (latex :variables
             TeX-save-query nil)
+     lua
      markdown
      php
      (python :variables
@@ -78,6 +79,10 @@ values."
      ;; 14 Source control
      git
      version-control
+
+     ;; 18 Tools
+     docker
+     nginx
 
      ;; (shell :variables
      ;;        shell-default-height 30
