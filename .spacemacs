@@ -69,8 +69,7 @@ values."
      markdown
      php
      (python :variables
-             python-shell-interpreter "python3"
-             flycheck-python-pycompile-executable "python3")
+             python-fill-column 88)
      yaml
 
      ;; 12 Operating systems
