@@ -59,7 +59,6 @@ values."
      ;; 10 Programming and markup languages
      csv
      emacs-lisp
-     fsharp
      go
      html
      javascript
@@ -391,27 +390,6 @@ you should place your code here."
   ;; org-mode
   (setq org-hide-emphasis-markers t)
 
-  ;; Homemade hacky Maple-mode
-  (require 'generic-x)
-  (define-generic-mode maple-mode
-    '("#") ; comment-list
-    '("LinearAlgebra") ; keyword-list
-    '("\\.[mM][pP][lL]\\'")
-    nil
-    (list (lambda ()
-            (defun run-file-maple ()
-              (interactive)
-              (save-buffer)
-              (shell-command
-               (concat
-                "/Library/Frameworks/Maple.framework/Versions/2016/bin/maple -q "
-                buffer-file-name)
-               (concat "Maple Output<"
-                       (file-name-nondirectory buffer-file-name)
-                       ">"))))
-
-          (lambda ()
-            (local-set-key (kbd "C-c C-c") 'run-file-maple))))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
