@@ -64,7 +64,9 @@ values."
      html
      javascript
      (latex :variables
-            TeX-save-query nil)
+            TeX-save-query nil
+            TeX-error-overview-open-after-TeX-run t
+            )
      lua
      markdown
      php
