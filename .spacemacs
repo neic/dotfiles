@@ -99,6 +99,7 @@ values."
      openwith
      rainbow-mode
      circadian
+     all-the-icons ;; replaced by neotree layer on develop
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -381,6 +382,11 @@ you should place your code here."
 
   ;; magit-mode
   '(magit-commit-arguments (quote ("--gpg-sign=Mathias Dannesbo <neic@neic.dk>")))
+
+  ;; neotree
+  ;; replaced by neotree layer on develop
+  (require 'all-the-icons)
+  (setq neo-theme 'icons)
 
   ;; org-mode
   (setq org-hide-emphasis-markers t)
