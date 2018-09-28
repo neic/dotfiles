@@ -40,26 +40,29 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
 
-     ;; 1 Chat
+     ;; Chat
      erc
 
-     ;; 2 Checkers
+     ;; Checkers
      spell-checking
      syntax-checking
 
-     ;; 3 Completion
+     ;; Completion
      auto-completion
      helm
 
-     ;; 5 Emacs
+     ;; Emacs
      better-defaults
      org
      ibuffer
 
-     ;; 7 Frameworks
+     ;; Filetree
+     neotree
+
+     ;; Frameworks
      django
 
-     ;; 10 Programming and markup languages
+     ;; Programming and markup languages
      csv
      emacs-lisp
      go
@@ -77,14 +80,14 @@ This function should only modify configuration layer settings."
              )
      yaml
 
-     ;; 12 Operating systems
+     ;; Operating systems
      osx ;; modifier keybindings is overwritten in user-config
 
-     ;; 14 Source control
+     ;; Source control
      git
      version-control
 
-     ;; 18 Tools
+     ;; Tools
      docker
      nginx
 
@@ -101,7 +104,6 @@ This function should only modify configuration layer settings."
      openwith
      rainbow-mode
      circadian
-     all-the-icons ;; replaced by neotree layer on develop
      )
 
    ;; A list of packages that cannot be updated.
@@ -530,11 +532,6 @@ before packages are loaded."
 
   ;; magit-mode
   '(magit-commit-arguments (quote ("--gpg-sign=Mathias Dannesbo <neic@neic.dk>")))
-
-  ;; neotree
-  ;; replaced by neotree layer on develop
-  (require 'all-the-icons)
-  (setq neo-theme 'icons)
 
   ;; org-mode
   (setq org-hide-emphasis-markers t)
