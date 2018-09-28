@@ -7,29 +7,6 @@
 # Is sourced if interactive.              #
 ###########################################
 
-
-#------------------------------
-# Path
-#------------------------------
-
-export GOPATH=$HOME/Documents/go
-export PATH=~/bin:/usr/local/bin:/usr/local/sbin:${PATH}:$GOPATH/bin
-
-if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-fi
-
-if [ $(uname) = "Darwin" ]; then
-    export EDITOR="~/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw -a nano"
-    export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home"
-elif (( $+commands[emacs] )); then
-    export EDITOR=emacs
-else
-    export EDITOR=nano
-fi
-
-export HOMEBREW_NO_ANALYTICS="1"
-
 set noclobber
 
 #------------------------------
