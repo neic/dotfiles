@@ -500,6 +500,7 @@ before packages are loaded."
   ;; delete the selection with a keypress
   (delete-selection-mode t)
 
+  ;; Overwrite modifier keys from the osx layer
   (setq mac-command-modifier 'meta
         mac-option-modifier  'none)
 
@@ -507,15 +508,7 @@ before packages are loaded."
   (setq custom-file "~/.emacs.d/.cache/.custom-settings")
   (load custom-file)
 
-  '(safe-local-variable-values
-    (quote
-     ((TeX-engine . luatex_sh)
-      (TeX-engine . xetex_sh)
-      (eval setq python-shell-virtualenv-path
-            (concat
-             (locate-dominating-file buffer-file-name ".dir-locals.el")
-             "/venv/")))))
-
+  ;; Use circadian to change themes during the day
   (use-package circadian
     :ensure t
     :config
