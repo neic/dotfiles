@@ -503,6 +503,10 @@ before packages are loaded."
   (setq mac-command-modifier 'meta
         mac-option-modifier  'none)
 
+  ;; Move custom settings out of .spacemacs
+  (setq custom-file "~/.emacs.d/.cache/.custom-settings")
+  (load custom-file)
+
   '(safe-local-variable-values
     (quote
      ((TeX-engine . luatex_sh)
