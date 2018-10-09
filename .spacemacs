@@ -80,6 +80,7 @@ This function should only modify configuration layer settings."
      (python :variables
              python-fill-column 88
              )
+     shell-scripts
      yaml
 
      ;; Operating systems
