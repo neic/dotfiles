@@ -379,9 +379,7 @@ eval PR_RET='%(?..${RED}%?${NO_COLOR} )'
 
 # set the prompt
 case $TERM in
-    "dumb")
-        PS1="> "
-        ;;
+    # dumb terminal overwrite further down
     termite|*xterm*|rxvt|rxvt-unicode|rxvt-256color|rxvt-unicode-256color|screen|(dt|k|E)term)
     PS1=$'${PR_RET}${CYAN}[${PR_USER}${CYAN}@${PR_HOST}${CYAN}][${BLUE}%~${CYAN}]${PR_USER_OP} '
     PS2=$'%_>'
@@ -395,6 +393,7 @@ esac
 # Window title
 #------------------------------
 case $TERM in
+    # dumb terminal overwrite further down
     termite|*xterm*|rxvt|rxvt-unicode|rxvt-256color|rxvt-unicode-256color|(dt|k|E)term)
     precmd () { print -Pn "\e]0;[%n@%M][%~]%#\a" }
     preexec () { print -Pn "\e]0;[%n@%M][%~]%# ($1)\a" }
@@ -410,3 +409,19 @@ case $TERM in
         }
         ;;
 esac
+
+
+#------------------------------
+# Dumb terminal
+#------------------------------
+
+# Overwrite fancy setting if the terminal is dumb. Emacs is dumb.
+if [[ "$TERM" == "dumb" ]]
+then
+    unsetopt zle
+    unsetopt prompt_cr
+    unsetopt prompt_subst
+    unfunction precmd
+    unfunction preexec
+    PS1='$ '
+fi
