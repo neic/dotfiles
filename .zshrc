@@ -9,6 +9,18 @@
 
 set noclobber
 
+
+#------------------------------
+# Path
+#------------------------------
+
+export PATH=/usr/local/sbin:${PATH}
+
+
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
+
 #------------------------------
 # History stuff
 #------------------------------
@@ -277,6 +289,7 @@ up () {
         sudo apt-get upgrade
     elif [[ $(uname) = "Linux" && $(lsb_release -si) = "Arch" ]]; then
         print "Updating software from pacman"
+
         sudo pacman -Syu
     else
         print "Updating failed: OS is not OSX, Ubuntu or Arch"
@@ -319,6 +332,7 @@ ec () {
     if [ $(uname) = "Darwin" ]; then
         open -a /Applications/Emacs.app "$@"
     else
+
         emacsclient
     fi
 }
