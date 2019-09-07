@@ -55,7 +55,26 @@ This function should only modify configuration layer settings."
 
      ;; Emacs
      better-defaults
-     org
+     (org :variables
+          org-hide-emphasis-markers t
+          org-todo-keywords
+          '((sequence "TODO" "INPROGRESS" "WAITING" "|" "DONE" "CANCELED"))
+          org-directory "~/Documents/org"
+          org-agenda-files (list org-directory)
+          org-default-notes-file
+          (concat org-directory "/inbox.org")
+          org-capture-templates
+          `(
+	          ("p" "Protocol" entry (file "")
+             "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?")
+	          ("L" "Protocol Link" entry (file "")
+             "* %? [[%:link][%:description]] \nCaptured On: %U")
+            )
+          org-refile-targets '((org-agenda-files :maxlevel . 3))
+          org-modules '(org-id)
+          org-id-link-to-org-use-id t
+          )
+
      ibuffer
 
      ;; Filetree
@@ -533,9 +552,6 @@ before packages are loaded."
 
   ;; magit-mode
   '(magit-commit-arguments (quote ("--gpg-sign=Mathias Dannesbo <neic@neic.dk>")))
-
-  ;; org-mode
-  (setq org-hide-emphasis-markers t)
 
   )
 
