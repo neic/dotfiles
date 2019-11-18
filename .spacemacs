@@ -553,6 +553,9 @@ before packages are loaded."
   ;; magit-mode
   '(magit-commit-arguments (quote ("--gpg-sign=Mathias Dannesbo <neic@neic.dk>")))
 
+
+  ;; org-mode
+  (add-to-list 'org-file-apps '(directory . emacs))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
