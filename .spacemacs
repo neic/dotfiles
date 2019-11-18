@@ -99,6 +99,7 @@ This function should only modify configuration layer settings."
      php
      (python :variables
              python-fill-column 88
+             python-formatter 'black
              )
      rust
      shell-scripts
