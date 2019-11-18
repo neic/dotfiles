@@ -359,9 +359,7 @@ disableproxy () {
 
 setopt prompt_subst
 
-# Check the UID
-
-# normal user
+# User part
 eval PR_USER='${GREEN}%n${NO_COLOR}'
 eval PR_USER_OP='${GREEN}%#${NO_COLOR}'
 
@@ -370,13 +368,18 @@ if [[ $UID -eq 0 ]]; then # root
     eval PR_USER_OP='${RED}%#${NO_COLOR}'
 fi
 
-# Check if we are on SSH or not
+# Host part
+eval PR_HOST='${GREEN}%M${NO_COLOR}'
+
 if [[ -n "$SSH_CLIENT" || -n "$SSH2_CLIENT" ]]; then
-    eval PR_HOST='${YELLOW}%M${NO_COLOR}' #SSH
-else
-    eval PR_HOST='${GREEN}%M${NO_COLOR}' # no SSH
+    eval PR_HOST='${YELLOW}%M${NO_COLOR}'
 fi
 
+if [[ "$HOST" = "jump" ]]; then
+    eval PR_HOST='${RED}%M${NO_COLOR}'
+fi
+
+# Return code
 eval PR_RET='%(?..${RED}%?${NO_COLOR} )'
 
 # set the prompt
