@@ -1,6 +1,8 @@
 [user]
 	name = Mathias Dannesbo
 	email = neic@neic.dk
+[github]
+	user = neic@neic.dk
 [alias]
 	c = commit
 	a = add
@@ -13,3 +15,5 @@
 	default = simple
 [core]
 	excludesfile = /Users/neic/.gitignore_global
+[gpg]
+	program = gpg1
