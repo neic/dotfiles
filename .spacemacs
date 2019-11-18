@@ -108,7 +108,7 @@ This function should only modify configuration layer settings."
 
      ;; Source control
      git
-     version-control
+     ;; version-control ;; Disabled due to https://github.com/nonsequitur/git-gutter-plus/issues/42
 
      ;; Tools
      docker
