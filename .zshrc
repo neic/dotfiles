@@ -262,14 +262,14 @@ sshvm () {
 
 cle () {
     if [ $(uname) = "Darwin" ]; then
-        print "Cleaning homebrew software"
+        print -P "${BLUE}Cleaning homebrew software${NO_COLOR}"
         brew cleanup
     elif [[ $(uname) = "Linux" && $(lsb_release -si) = "Ubuntu" ]]; then
-        print "Cleaning software from apt-get"
+        print -P "${BLUE}Cleaning software from apt-get${NO_COLOR}"
         sudo apt-get autoremove
         sudo apt-get autoclean
     elif [[ $(uname) = "Linux" && $(lsb_release -si) = "Arch" ]]; then
-        print "Cleaning software from pacman"
+        print -P "${BLUE}Cleaning software from pacman${NO_COLOR}"
         sudo pacman -Rs $(pacman -Qqtd); sudo pacman -Sc
     else
         print "Cleaning failed: OS is not OSX, Ubuntu or Arch"
