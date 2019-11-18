@@ -278,25 +278,27 @@ cle () {
 
 up () {
     if [ $(uname) = "Darwin" ]; then
-        print "Updating OSX and App Store software"
+        print -P "${BLUE}Updating OSX and App Store software${NO_COLOR}"
         sudo softwareupdate -ia
-        print "Updating homebrew software"
+        print -P "${BLUE}Updating homebrew software${NO_COLOR}"
         brew update
         brew upgrade
     elif [[ $(uname) = "Linux" && $(lsb_release -si) = "Ubuntu" ]]; then
-        print "Updating software from apt-get"
+        print -P "${BLUE}Updating software from apt-get${NO_COLOR}"
         sudo apt-get update
         sudo apt-get upgrade
+        if [ -f /var/run/reboot-required ]; then
+            print -P "${YELLOW}Reboot required${NO_COLOR}"
+        fi
     elif [[ $(uname) = "Linux" && $(lsb_release -si) = "Arch" ]]; then
-        print "Updating software from pacman"
-
+        print -P "${BLUE}Updating software from pacman${NO_COLOR}"
         sudo pacman -Syu
     else
         print "Updating failed: OS is not OSX, Ubuntu or Arch"
     fi
 
     if (( $+commands[tlmgr] )); then
-        print "Updating TeX Live"
+        print -P "${BLUE}Updating TeX Live${NO_COLOR}"
         sudo tlmgr update --self
         sudo tlmgr update --all
     fi
