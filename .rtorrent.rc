@@ -19,7 +19,7 @@
 upload_rate = 50
 
 # Default directory to save the downloaded torrents.
-directory = /tank/Downloads
+directory = /tank/neic2/Downloads
 
 # Default session directory. Make sure you don't run multiple instance
 # of rtorrent using the same session directory. Perhaps using a
@@ -28,8 +28,8 @@ session = ~/.rtorrentsession
 
 # Watch a directory for new torrents, and stop those that have been
 # deleted.
-schedule = watch_directory,5,5,load_start=/tank/Torrents/
-schedule = untied_directory,5,5,stop_untied=/tank/Torrents/
+schedule = watch_directory,5,5,load_start=/tank/neic2/Torrents/
+schedule = untied_directory,5,5,stop_untied=/tank/neic2/Torrents/
 
 # Close torrents when diskspace is low.
 #schedule = low_diskspace,5,60,close_low_diskspace=100M
