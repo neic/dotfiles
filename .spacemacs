@@ -85,6 +85,7 @@ This function should only modify configuration layer settings."
      django
 
      ;; Programming and markup languages
+     ansible
      csv
      emacs-lisp
      go
