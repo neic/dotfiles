@@ -231,6 +231,8 @@ alias exit='echo "Use C-d to exit"'
 
 alias gs='git status'
 
+alias gitlab-run='docker run --rm -v $PWD:$PWD -v /var/run/docker.sock:/var/run/docker.sock --workdir $PWD gitlab/gitlab-runner exec docker'
+
 sshvm () {
     if [[ $1 =~ "@" ]]; then
         NAME=$(echo $1 | perl -nle'print $1 if /\@(.*)/')
