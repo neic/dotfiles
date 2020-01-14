@@ -103,6 +103,7 @@ This function should only modify configuration layer settings."
              )
      rust
      shell-scripts
+     sql
      yaml
 
      ;; Operating systems
