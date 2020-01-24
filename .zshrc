@@ -330,13 +330,8 @@ emacs () {
     fi
 }
 
-ec () {
-    if [ $(uname) = "Darwin" ]; then
-        open -a /Applications/Emacs.app "$@"
-    else
+alias ec='emacsclient -n'
 
-        emacsclient
-    fi
 }
 
 enableproxy () {
