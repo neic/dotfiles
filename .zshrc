@@ -227,8 +227,6 @@ alias ll='ls -l'
 alias clear='echo "Use C-l to clear"'
 alias exit='echo "Use C-d to exit"'
 
-alias gs='git status'
-
 alias gitlab-run='docker run --rm -v $PWD:$PWD -v /var/run/docker.sock:/var/run/docker.sock --workdir $PWD gitlab/gitlab-runner exec docker'
 
 sshvm () {
@@ -332,6 +330,13 @@ emacs () {
 
 alias ec='emacsclient -n'
 
+gs () {
+    if (( $+commands[emacsclient] )); then
+        emacsclient -e "(magit-status \"$(pwd)\")" > /dev/null
+        emacsclient -e "(select-frame-set-input-focus (selected-frame))" > /dev/null
+    else
+        git status
+    fi
 }
 
 enableproxy () {
