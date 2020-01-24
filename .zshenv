@@ -27,3 +27,4 @@ if [ $(uname) = "Darwin" ]; then
 fi
 
 export HOMEBREW_NO_ANALYTICS="1"
+export HOMEBREW_NO_INSTALL_CLEANUP="1"
