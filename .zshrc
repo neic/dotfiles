@@ -54,8 +54,6 @@ else
     NO_COLOR=$'%{\e[0m%}'
 fi
 
-export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
-
 #------------------------------
 # Completion
 #------------------------------
