@@ -229,35 +229,6 @@ alias exit='echo "Use C-d to exit"'
 
 alias gitlab-run='docker run --rm -v $PWD:$PWD -v /var/run/docker.sock:/var/run/docker.sock --workdir $PWD gitlab/gitlab-runner exec docker'
 
-sshvm () {
-    if [[ $1 =~ "@" ]]; then
-        NAME=$(echo $1 | perl -nle'print $1 if /\@(.*)/')
-        USERN=$(echo $1 | perl -nle'print $1 if /(.*)\@/')
-    else
-        NAME=${1}
-        USERN=$USERNAME
-    fi
-
-    if [[ $(VBoxManage list runningvms) =~ $NAME ]]; then
-        print $NAME "is already running. SSHing..."
-    else
-        VBoxManage startvm $NAME --type headless
-    fi
-
-    if [ $? -eq 0 ]; then
-        PORT=$(VBoxManage showvminfo $NAME --details | grep '^NIC.*localssh' | perl -nle'print $1 if /host port =.*?(\d+)/')
-        if [[ ! -z $PORT ]]; then
-            ssh -l $USERN -p $PORT $2 localhost
-        else
-            print "The port can't be parsed. Remember to port forward and call the rule 'localssh'."
-            return 1
-        fi
-    else
-        print "The VM" $1 "is not known."
-        return 1
-    fi
-}
-
 cle () {
     if [ $(uname) = "Darwin" ]; then
         print -P "${BLUE}Cleaning homebrew software${NO_COLOR}"
