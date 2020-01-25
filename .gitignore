@@ -3,6 +3,7 @@
 
 .ssh
 !.ssh/config
+.gitconfig
 .emacs.d
 .yas-compiled-snippets.el
 .gitignore-boilerplates

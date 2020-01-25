@@ -1,0 +1,16 @@
+[user]
+	name = Mathias Dannesbo
+[alias]
+	c = commit
+	a = add
+	p = push
+	d = diff
+	co = checkout
+	pl = pull
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit
+[push]
+	default = simple
+[core]
+	excludesfile = /Users/neic/.gitignore_global
+[commit]
+	gpgsign = true

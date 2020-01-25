@@ -554,9 +554,6 @@ before packages are loaded."
   (setq openwith-associations '(("\\.pdf\\'" "open" (file))))
   (openwith-mode t)
 
-  ;; magit-mode
-  '(magit-commit-arguments (quote ("--gpg-sign=Mathias Dannesbo <neic@neic.dk>")))
-
 
   ;; org-mode
   (add-to-list 'org-file-apps '(directory . emacs))
