@@ -10,9 +10,7 @@ export LANG=en_US.UTF-8
 #------------------------------
 
 if [ $(uname) = "Darwin" ]; then
-    export EDITOR="~/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -nw -a nano"
-elif (( $+commands[emacs] )); then
-    export EDITOR=emacs
+    export EDITOR="emacsclient -nw -a nano"
 else
     export EDITOR=nano
 fi
