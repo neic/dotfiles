@@ -14,7 +14,7 @@ set noclobber
 # Path
 #------------------------------
 
-export PATH=/usr/local/sbin:${PATH}
+export PATH=/usr/local/sbin:/usr/local/opt/ruby/bin:${PATH}
 
 
 if command -v pyenv 1>/dev/null 2>&1; then
