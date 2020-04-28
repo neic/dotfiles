@@ -586,7 +586,11 @@ before packages are loaded."
 
 
   ;; org-mode
-  (add-to-list 'org-file-apps '(directory . emacs))
+  (setq org-file-apps '(
+                        (auto-mode . emacs)
+                        (directory . emacs)
+                        ))
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
