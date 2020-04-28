@@ -71,7 +71,7 @@ compinit
 # End of lines added by compinstall
 
 #------------------------------
-# Keybingings
+# Keybindings
 #------------------------------
 
 bindkey "^[[A" history-beginning-search-backward
