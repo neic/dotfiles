@@ -98,6 +98,7 @@ This function should only modify configuration layer settings."
      markdown
      php
      (python :variables
+             python-backend 'lsp
              python-fill-column 88
              python-formatter 'black
              )
