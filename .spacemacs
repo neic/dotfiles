@@ -116,6 +116,7 @@ This function should only modify configuration layer settings."
      ;; Tools
      docker
      nginx
+     vagrant
 
      ;; (shell :variables
      ;;        shell-default-height 30
