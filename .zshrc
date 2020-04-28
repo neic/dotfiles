@@ -224,8 +224,6 @@ if [ $(uname) = "Darwin" ]; then
 fi
 
 alias ll='ls -l'
-alias clear='echo "Use C-l to clear"'
-alias exit='echo "Use C-d to exit"'
 
 alias gitlab-run='docker run --rm -v $PWD:$PWD -v /var/run/docker.sock:/var/run/docker.sock --workdir $PWD gitlab/gitlab-runner exec docker'
 
