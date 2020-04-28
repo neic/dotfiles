@@ -70,6 +70,10 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+# Completion for MinIO client
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/mc mc
+
 #------------------------------
 # Prefix line
 #------------------------------
