@@ -111,7 +111,11 @@ This function should only modify configuration layer settings."
 
      ;; Source control
      git
-     ;; version-control ;; Disabled due to https://github.com/nonsequitur/git-gutter-plus/issues/42
+     (version-control :variables
+                      version-control-diff-tool 'diff-hl
+                      version-control-diff-side 'left
+                      version-control-global-margin t
+                      )
 
      ;; Tools
      docker
