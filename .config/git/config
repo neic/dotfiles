@@ -12,3 +12,5 @@
 	excludesfile = /Users/neic/.gitignore_global
 [commit]
 	gpgsign = true
+[core]
+	hooksPath = ~/.config/git/hooks
