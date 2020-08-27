@@ -59,7 +59,7 @@ This function should only modify configuration layer settings."
           org-catch-invisible-edits 'show-and-error
           org-todo-keywords
           '((sequence "TODO" "INPROGRESS" "WAITING" "|" "DONE" "CANCELED"))
-          org-directory "~/Documents/org"
+          org-directory "~/org"
           org-agenda-files (list org-directory)
           org-default-notes-file
           (concat org-directory "/inbox.org")
