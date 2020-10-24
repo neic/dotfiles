@@ -52,6 +52,9 @@ This function should only modify configuration layer settings."
      auto-completion
      helm
 
+     ;; Email
+     notmuch
+
      ;; Emacs
      better-defaults
      (org :variables
@@ -586,13 +589,26 @@ before packages are loaded."
   (openwith-mode t)
 
 
+  ;; message-mode
+  (setq mail-user-agent 'message-user-agent)
+  (setq user-mail-address "neic@neic.dk"
+        user-full-name "Mathias Dannesbo")
+
+  (setq send-mail-function 'sendmail-send-it)
+  (setq sendmail-program "msmtp")
+
+  (setq message-default-mail-headers "Cc: \nBcc: \n")
+  ;; postponed message is put in the following draft directory
+  (setq message-auto-save-directory "~/mail/draft")
+  (setq message-kill-buffer-on-exit t)
+  ;; change the directory to store the sent mail
+  (setq message-directory "~/mail/")
+
   ;; org-mode
   (setq org-file-apps '(
                         (auto-mode . emacs)
                         (directory . emacs)
                         ))
-
-  )
 
   ;; magit
   (add-hook 'git-commit-setup-hook 'end-of-line)
@@ -600,7 +616,7 @@ before packages are loaded."
   ;; vterm
 
   ;;(setq vterm-shell "/usr/local/bin/zsh")
-
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
