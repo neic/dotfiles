@@ -204,6 +204,32 @@ disableproxy () {
     sudo networksetup -setsocksfirewallproxystate "iPhone USB" off
 }
 
+
+#------------------------------
+# Emacs vterm
+#------------------------------
+
+vterm_printf(){
+    if [ -n "$TMUX" ]; then
+        # Tell tmux to pass the escape sequences through
+        # (Source: http://permalink.gmane.org/gmane.comp.terminal-emulators.tmux.user/1324)
+        printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+    elif [ "${TERM%%-*}" = "screen" ]; then
+        # GNU screen (screen, screen-256color, screen-256color-bce)
+        printf "\eP\e]%s\007\e\\" "$1"
+    else
+        printf "\e]%s\e\\" "$1"
+    fi
+}
+
+if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
+    alias clear='vterm_printf "51;Evterm-clear-scrollback";tput clear'
+fi
+
+
+autoload -U add-zsh-hook
+add-zsh-hook -Uz chpwd (){ print -Pn "\e]2;%m:%2~\a" }
+
 #------------------------------
 # Prompt
 #------------------------------
@@ -233,11 +259,14 @@ fi
 # Return code
 eval PR_RET='%(?..${RED}%?${NO_COLOR} )'
 
+# Emacs vterm
+eval VTERM_PROMT_END=vterm_printf "51;A$(whoami)@$(hostname):$(pwd)";
+
 # set the prompt
 case $TERM in
     # dumb terminal overwrite further down
     termite|*xterm*|rxvt|rxvt-unicode|rxvt-256color|rxvt-unicode-256color|screen|(dt|k|E)term)
-    PS1=$'${PR_RET}${CYAN}[${PR_USER}${CYAN}@${PR_HOST}${CYAN}][${BLUE}%~${CYAN}]${PR_USER_OP} '
+    PS1=$'${PR_RET}${CYAN}[${PR_USER}${CYAN}@${PR_HOST}${CYAN}][${BLUE}%~${CYAN}]${PR_USER_OP} ${VTERM_PROMT_END}'
     PS2=$'%_>'
     RPROMPT='$(date +%T)'
     ;;

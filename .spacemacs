@@ -136,6 +136,7 @@ This function should only modify configuration layer settings."
      openwith
      rainbow-mode
      circadian
+     vterm
      )
 
    ;; A list of packages that cannot be updated.
@@ -595,6 +596,11 @@ before packages are loaded."
 
   ;; magit
   (add-hook 'git-commit-setup-hook 'end-of-line)
+
+  ;; vterm
+
+  ;;(setq vterm-shell "/usr/local/bin/zsh")
+
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
