@@ -52,6 +52,12 @@
         kubectl
     ];
 
+  fonts.fonts = with pkgs; [
+    dejavu_fonts
+    gyre-fonts
+    source-code-pro
+  ];
+
   services.yabai = {
     enable = true;
     package = pkgs.yabai;
