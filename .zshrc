@@ -14,6 +14,8 @@ set noclobber
 # Path
 #------------------------------
 
+source $HOME/.nix-profile/etc/profile.d/nix.sh
+
 export PATH=/usr/local/sbin:/usr/local/opt/ruby/bin:${PATH}
 
 
