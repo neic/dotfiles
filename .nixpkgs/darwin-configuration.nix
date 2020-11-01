@@ -52,6 +52,18 @@
         kubectl
     ];
 
+  services.yabai = {
+    enable = true;
+    package = pkgs.yabai;
+    config = {
+      layout = "bsp";
+      window_border = "off";
+    };
+    extraConfig = "
+      yabai -m rule --add app=Gramps manage=off
+    ";
+  };
+
   # Auto upgrade nix package and the daemon service.
   # services.nix-daemon.enable = true;
   # nix.package = pkgs.nix;
