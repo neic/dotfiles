@@ -10,6 +10,7 @@
 .java_base.tag
 .Thrash/
 .zcompdump
+.Brewfile.lock.json
 
 ### Various history files
 .*_history
