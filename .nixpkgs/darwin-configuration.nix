@@ -64,6 +64,29 @@
     ";
   };
 
+  networking.hostName = "mac-n-cheese";
+
+  system.defaults = {
+    NSGlobalDomain = {
+      # Keyboard
+      InitialKeyRepeat = 10;
+      KeyRepeat = 1;
+    };
+
+    trackpad = {
+      ActuationStrength = 0; # Trackpad > Point & Click > Silent clicking = off
+      FirstClickThreshold = 0; # Trackpad > Point & Click > Click = Light
+      SecondClickThreshold = 0; # Trackpad > Point & Click > Click = Light
+    };
+
+    dock = {
+      autohide = true;
+      orientation = "left";
+      tilesize = 24;
+      static-only = true;
+    };
+  };
+
   # Auto upgrade nix package and the daemon service.
   # services.nix-daemon.enable = true;
   # nix.package = pkgs.nix;
