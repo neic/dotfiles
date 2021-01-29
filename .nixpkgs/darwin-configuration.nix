@@ -7,10 +7,7 @@
         pass
 
         # Spelling
-        aspell
-        aspellDicts.da
-        aspellDicts.en
-        aspellDicts.en-computers
+        (aspellWithDicts (ds: [ ds.en ds.da]))
         languagetool
 
         # Linters
