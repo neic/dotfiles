@@ -57,6 +57,7 @@
         python38
     ];
 
+  fonts.enableFontDir = true;
   fonts.fonts = with pkgs; [
     dejavu_fonts
     gyre-fonts
