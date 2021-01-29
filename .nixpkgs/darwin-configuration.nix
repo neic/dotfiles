@@ -81,7 +81,7 @@
     NSGlobalDomain = {
       # Keyboard
       InitialKeyRepeat = 10;
-      KeyRepeat = 1;
+      KeyRepeat = 2;
     };
 
     trackpad = {
