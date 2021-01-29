@@ -122,6 +122,8 @@ This function should only modify configuration layer settings."
      ;; Tools
      docker
      nginx
+     salt
+     terraform
      vagrant
 
      )

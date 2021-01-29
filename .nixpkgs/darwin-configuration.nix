@@ -49,7 +49,12 @@
         youtube-dl
 
         # Infrastructure CLIs
+        google-cloud-sdk
         kubectl
+        terraform_0_14
+        terraform-lsp
+
+        python38
     ];
 
   fonts.fonts = with pkgs; [
