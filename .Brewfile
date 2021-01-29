@@ -1,6 +1,9 @@
 cask "google-chrome"
 cask "firefox"
 
+tap "railwaycat/emacsmacport"
+cask "emacs-mac"
+
 cask "flux"
 cask "duet"
 cask "little-snitch"

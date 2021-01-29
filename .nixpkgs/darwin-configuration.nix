@@ -3,7 +3,6 @@
 {
   environment.systemPackages = with pkgs; [
         # Applications
-        emacsMacport
         gnupg
         pass
 
