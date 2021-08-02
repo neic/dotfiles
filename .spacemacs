@@ -102,6 +102,7 @@ This function should only modify configuration layer settings."
              python-fill-column 88
              python-formatter 'black
              )
+     ruby
      rust
      shell-scripts
      sql
@@ -121,8 +122,11 @@ This function should only modify configuration layer settings."
 
      ;; Tools
      docker
+     kubernetes
      nginx
      salt
+     shell
+     systemd
      terraform
      vagrant
 
