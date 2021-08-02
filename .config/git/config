@@ -8,9 +8,10 @@
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%Creset' --abbrev-commit
 [push]
 	default = simple
-[core]
-	excludesfile = /Users/neic/.gitignore_global
+[pull]
+	rebase = true
 [commit]
 	gpgsign = true
 [core]
+	excludesfile = /Users/neic/.gitignore_global
 	hooksPath = ~/.config/git/hooks
