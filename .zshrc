@@ -162,6 +162,37 @@ disableproxy () {
     sudo networksetup -setsocksfirewallproxystate "iPhone USB" off
 }
 
+
+function prune_local_branches () {
+    # Deletes branches locally that no longer exist on remote
+    # (eg. after merge + "Delete source branch")
+
+    # The script works by checking out the trunk branch,
+    # pulling the latest changes from remote with the prune
+    # flag enabled and finally deleting branches that are
+    # marked as "gone".
+
+    # You can (and should) use this script gratuitously
+    # as it has the added benefit of making sure your trunk
+    # is up-to-date when you start new feature branches.
+
+    # Generally, the script can be run as is; specifying
+    # a target branch is only needed if you don't want to
+    # use development or master as your trunk branch.
+
+    # Usage:
+    ## prune_local_branches <optional trunk branch name>
+    BRANCH_NAME="${1:-development}"
+    # Verify that target branch exists, fall back to master
+    if ! $(git rev-parse --verify --quiet "$BRANCH_NAME" >/dev/null); then
+        BRANCH_NAME=master
+    fi
+    git checkout "$BRANCH_NAME"
+    git pull -p
+    git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D
+}
+
+
 #------------------------------
 # Prompt
 #------------------------------
