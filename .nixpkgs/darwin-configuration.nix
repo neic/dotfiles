@@ -48,7 +48,7 @@
         # Infrastructure CLIs
         google-cloud-sdk
         kubectl
-        terraform_0_14
+        terraform
         terraform-lsp
 
         python38
