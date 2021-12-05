@@ -77,38 +77,8 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/mc mc
 
 #------------------------------
-# Prefix line
-#------------------------------
-
-# Save a prefix on a line in the shell and insert on all follwing lines. This is
-# useful to run commands in other contexts instead of ctreating a subshell. Ex.
-# if you run commands insiside a docker container with `docker-compose exec
-# my-container <command>`, you can press `C-x C-p` with the cursor before
-# `<command>` and have `docker-compose exec my-container ` appear after the
-# subsequent promts.
-
-# From https://unix.stackexchange.com/a/555734
-
-zle-line-init() {
-    # Inserts the content of $zle_prefix on all new lines in the shell.
-    if [[ $CONTEXT = start ]]; then
-        LBUFFER=$zle_prefix$LBUFFER
-    fi
-}
-zle -N zle-line-init
-
-prime-zle-prefix() {
-    # Sets $zle_prefix to everything left of the cursor on a line.
-    zle_prefix=$LBUFFER
-}
-zle -N prime-zle-prefix
-
-
-#------------------------------
 # Keybindings
 #------------------------------
-bindkey '^X^P' prime-zle-prefix
-
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
