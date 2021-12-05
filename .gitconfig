@@ -1,5 +1,5 @@
 [user]
 	name = Mathias Dannesbo
 	email = neic@neic.dk
-[gpg]
-	program = gpg2
+[github]
+	user = neic@neic.dk
