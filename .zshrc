@@ -206,38 +206,9 @@ fi
 eval PR_RET='%(?..${RED}%?${NO_COLOR} )'
 
 # set the prompt
-case $TERM in
-    # dumb terminal overwrite further down
-    termite|*xterm*|rxvt|rxvt-unicode|rxvt-256color|rxvt-unicode-256color|screen|(dt|k|E)term)
-    PS1=$'${PR_RET}${CYAN}[${PR_USER}${CYAN}@${PR_HOST}${CYAN}][${BLUE}%~${CYAN}]${PR_USER_OP} '
-    PS2=$'%_>'
-    RPROMPT='$(date +%T)'
-    ;;
-    *)
-        PS1="> "
-        ;;
-esac
-#------------------------------
-# Window title
-#------------------------------
-case $TERM in
-    # dumb terminal overwrite further down
-    termite|*xterm*|rxvt|rxvt-unicode|rxvt-256color|rxvt-unicode-256color|(dt|k|E)term)
-    precmd () { print -Pn "\e]0;[%n@%M][%~]%#\a" }
-    preexec () { print -Pn "\e]0;[%n@%M][%~]%# ($1)\a" }
-    ;;
-    screen)
-        precmd () {
-            print -Pn "\e]83;title \"$1\"\a"
-            print -Pn "\e]0;$TERM - (%L) [%n@%M]%# [%~]\a"
-        }
-        preexec () {
-            print -Pn "\e]83;title \"$1\"\a"
-            print -Pn "\e]0;$TERM - (%L) [%n@%M]%# [%~] ($1)\a"
-        }
-        ;;
-esac
-
+PS1=$'${PR_RET}${CYAN}[${PR_USER}${CYAN}@${PR_HOST}${CYAN}][${BLUE}%~${CYAN}]${PR_USER_OP} '
+PS2=$'%_>'
+RPROMPT='$(date +%T)'
 
 #------------------------------
 # Dumb terminal
