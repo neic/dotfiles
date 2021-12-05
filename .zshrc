@@ -9,20 +9,6 @@
 
 set noclobber
 
-
-#------------------------------
-# Path
-#------------------------------
-
-source $HOME/.nix-profile/etc/profile.d/nix.sh
-
-export PATH=/usr/local/sbin:/usr/local/opt/ruby/bin:${PATH}
-
-
-if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-fi
-
 #------------------------------
 # History stuff
 #------------------------------
