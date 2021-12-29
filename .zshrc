@@ -138,7 +138,7 @@ alias ec='emacsclient -n'
 
 gs () {
     if (( $+commands[emacsclient] )); then
-        emacsclient -e "(magit-status \"$(pwd)\")" > /dev/null
+        emacsclient -e "(magit-status \"$(git rev-parse --show-toplevel)\")" > /dev/null
         emacsclient -e "(select-frame-set-input-focus (selected-frame))" > /dev/null
     else
         git status
