@@ -650,6 +650,13 @@ before packages are loaded."
   (setq mac-system-move-file-to-trash-use-finder nil)
 
 
+  ;; Reuse the same ssh connection everywhere by inheriting ControlMaster from
+  ;; ~/.ssh/config for TRAMP.
+  ;; https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
+  ;; # TRAMP does not use default ssh ControlPath
+  (setq tramp-use-ssh-controlmaster-options nil)
+
+
   ;; -----------
   ;; Major modes
   ;; -----------
