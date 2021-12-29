@@ -71,11 +71,8 @@ bindkey "^[[B" history-beginning-search-forward
 #------------------------------
 # Aliases
 #------------------------------
-if [ $(uname) = "Darwin" ]; then
-    alias ls='ls -C -F --color=always'
-fi
-
-alias ll='ls -l'
+alias ls='ls --color=always --classify'
+alias ll='ls --color=always -l'
 
 alias gitlab-run='docker run --rm -v $PWD:$PWD -v /var/run/docker.sock:/var/run/docker.sock --workdir $PWD gitlab/gitlab-runner exec docker'
 
@@ -250,5 +247,7 @@ then
     unsetopt prompt_subst
     unfunction precmd
     unfunction preexec
+    unalias ls
+    unalias ll
     PS1='$ '
 fi
