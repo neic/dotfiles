@@ -145,21 +145,6 @@ gs () {
     fi
 }
 
-enableproxy () {
-    ssh -Nf -D 9001 ${1:=wiply}
-    sudo networksetup -setsocksfirewallproxy "Wi-Fi" localhost 9001
-    sudo networksetup -setsocksfirewallproxy "Thunderbolt Ethernet" localhost 9001
-    sudo networksetup -setsocksfirewallproxy "iPhone USB" localhost 9001
-}
-
-
-disableproxy () {
-    sudo networksetup -setsocksfirewallproxystate "Wi-Fi" off
-    sudo networksetup -setsocksfirewallproxystate "Thunderbolt Ethernet" off
-    sudo networksetup -setsocksfirewallproxystate "iPhone USB" off
-}
-
-
 function prune_local_branches () {
     # Deletes branches locally that no longer exist on remote
     # (eg. after merge + "Delete source branch")
