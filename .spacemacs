@@ -97,7 +97,9 @@ This function should only modify configuration layer settings."
              )
      shell-scripts
      sql
-     yaml
+     (yaml :variables
+           yaml-enable-lsp t
+           )
 
      ;; Operating systems
      osx ;; modifier keybindings is overwritten in user-config

@@ -15,6 +15,11 @@
         # Linters
         black
         shellcheck
+        yamllint
+
+        # LSP
+        nodePackages.yaml-language-server
+        terraform-lsp
 
         # System utils
         colordiff
@@ -51,7 +56,6 @@
         google-cloud-sdk
         kubectl
         terraform
-        terraform-lsp
 
         # Programming
         cmake
