@@ -54,6 +54,9 @@ This function should only modify configuration layer settings."
 
      ;; Emacs
      better-defaults
+     (ibuffer :variables
+              ibuffer-group-buffers-by 'projects
+              )
      (org :variables
           org-hide-emphasis-markers t
           org-catch-invisible-edits 'show-and-error
@@ -74,8 +77,6 @@ This function should only modify configuration layer settings."
           org-modules '(org-id)
           org-id-link-to-org-use-id t
           )
-
-     ibuffer
 
      ;; Programming and markup languages
      ansible
