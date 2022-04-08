@@ -1,3 +1,5 @@
+# https://daiderd.com/nix-darwin/manual/index.htm
+
 { config, pkgs, ... }:
 
 {
@@ -32,7 +34,7 @@
         rsync
         wget
 
-        # Archiveing
+        # Archiving
         gzip
         unrar
         unzip
@@ -100,7 +102,7 @@
   };
 
   # Auto upgrade nix package and the daemon service.
-  # services.nix-daemon.enable = true;
+  services.nix-daemon.enable = true;
   # nix.package = pkgs.nix;
 
   programs.zsh.enable = true;
