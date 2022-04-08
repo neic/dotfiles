@@ -619,6 +619,10 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+
+  ;; Move custom settings out of .spacemacs
+  (setq custom-file "~/.emacs.d/.cache/.custom-settings")
+  (load custom-file)
 )
 
 
@@ -645,10 +649,6 @@ before packages are loaded."
   ;; Overwrite modifier keys from the osx layer
   (setq mac-command-modifier 'meta
         mac-option-modifier  'none)
-
-  ;; Move custom settings out of .spacemacs
-  (setq custom-file "~/.emacs.d/.cache/.custom-settings")
-  (load custom-file)
 
   ;; Use circadian to change themes during the day
   (use-package circadian
