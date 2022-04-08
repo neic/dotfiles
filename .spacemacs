@@ -120,7 +120,10 @@ This function should only modify configuration layer settings."
      salt
      shell
      systemd
-     terraform
+     (terraform :variables
+                terraform-auto-format-on-save t
+                terraform-backend 'lsp
+                )
      vagrant
      )
 
