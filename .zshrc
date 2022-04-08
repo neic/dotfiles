@@ -183,13 +183,21 @@ function prune_local_branches () {
     # Usage:
     ## prune_local_branches <optional trunk branch name>
     BRANCH_NAME="${1:-development}"
-    # Verify that target branch exists, fall back to master
+    # Verify that target branch exists, fall back to master or main
     if ! $(git rev-parse --verify --quiet "$BRANCH_NAME" >/dev/null); then
         BRANCH_NAME=master
+    fi
+    if ! $(git rev-parse --verify --quiet "$BRANCH_NAME" >/dev/null); then
+        BRANCH_NAME=main
+    fi
+    if ! $(git rev-parse --verify --quiet "$BRANCH_NAME" >/dev/null); then
+        echo "Branch does not exists."
+        exit 1
     fi
     git checkout "$BRANCH_NAME"
     git pull -p
     git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -D
+    git branch --merged | egrep -v "(^\*|master|main|dev)" | xargs git branch -d
 }
 
 
