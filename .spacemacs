@@ -646,6 +646,9 @@ before packages are loaded."
                              (:sunset  . spacemacs-dark)))
     (circadian-setup))
 
+  ;; `Fix move-file-to-trash: Removing old name: Mac error -1743` error
+  (setq mac-system-move-file-to-trash-use-finder nil)
+
 
   ;; -----------
   ;; Major modes
