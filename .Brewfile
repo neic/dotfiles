@@ -1,3 +1,5 @@
+brew "mas"
+
 cask "google-chrome"
 cask "firefox"
 

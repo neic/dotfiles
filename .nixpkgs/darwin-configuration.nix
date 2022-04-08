@@ -27,7 +27,6 @@
         tree
 
         # Network
-        httpie
         nmap
         openssh
         rsync
@@ -46,12 +45,16 @@
         youtube-dl
 
         # Infrastructure CLIs
+        ansible
         google-cloud-sdk
         kubectl
         terraform
         terraform-lsp
 
-        python38
+        # Programming
+        cmake
+        libtool
+        python310
     ];
 
   fonts.enableFontDir = true;

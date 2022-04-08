@@ -77,12 +77,6 @@ This function should only modify configuration layer settings."
 
      ibuffer
 
-     ;; Filetree
-     neotree
-
-     ;; Frameworks
-     django
-
      ;; Programming and markup languages
      ansible
      csv
@@ -94,7 +88,6 @@ This function should only modify configuration layer settings."
             TeX-save-query nil
             TeX-error-overview-open-after-TeX-run t
             )
-     lua
      markdown
      php
      (python :variables
@@ -102,8 +95,6 @@ This function should only modify configuration layer settings."
              python-fill-column 88
              python-formatter 'black
              )
-     ruby
-     rust
      shell-scripts
      sql
      yaml
@@ -129,7 +120,6 @@ This function should only modify configuration layer settings."
      systemd
      terraform
      vagrant
-
      )
 
    ;; List of additional packages that will be installed without being wrapped
@@ -150,7 +140,10 @@ This function should only modify configuration layer settings."
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(
+     yasnippet
+     forge
+     )
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
