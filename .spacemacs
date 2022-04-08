@@ -95,6 +95,7 @@ This function should only modify configuration layer settings."
              python-backend 'lsp
              python-fill-column 88
              python-formatter 'black
+             python-format-on-save t
              )
      shell-scripts
      sql
