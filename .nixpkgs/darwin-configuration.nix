@@ -63,7 +63,7 @@
         python310
     ];
 
-  fonts.enableFontDir = true;
+  fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
     dejavu_fonts
     gyre-fonts
