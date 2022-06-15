@@ -59,10 +59,6 @@ zstyle ':completion:*' menu select=long
 autoload -Uz compinit
 compinit
 
-# Completion for MinIO client
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/local/bin/mc mc
-
 #------------------------------
 # Keybindings
 #------------------------------
