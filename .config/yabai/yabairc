@@ -1,0 +1,3 @@
+yabai -m config layout bsp
+yabai -m config window_border off
+yabai -m rule --add app=Gramps manage=off

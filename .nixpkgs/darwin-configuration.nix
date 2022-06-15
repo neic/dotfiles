@@ -70,18 +70,6 @@
     source-code-pro
   ];
 
-  services.yabai = {
-    enable = true;
-    package = pkgs.yabai;
-    config = {
-      layout = "bsp";
-      window_border = "off";
-    };
-    extraConfig = "
-      yabai -m rule --add app=Gramps manage=off
-    ";
-  };
-
   networking.hostName = "mac-n-cheese";
 
   system.defaults = {
