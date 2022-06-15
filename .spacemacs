@@ -45,9 +45,7 @@ This function should only modify configuration layer settings."
      erc
 
      ;; Checkers
-     (spell-checking :variables
-                     enable-flyspell-auto-completion t
-                     )
+     spell-checking
      syntax-checking
 
      ;; Completion
