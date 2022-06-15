@@ -103,6 +103,11 @@
    enableSyntaxHighlighting = true;
   };
 
+  environment.loginShell = "${pkgs.zsh}/bin/zsh -l";
+  environment.variables = {
+    SHELL = "${pkgs.zsh}/bin/zsh";
+  };
+
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = 4;
 }
