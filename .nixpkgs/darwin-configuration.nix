@@ -100,6 +100,7 @@
   programs.zsh = {
    enable = true;
    enableCompletion = false;  # compinit is called from .zshrc
+   enableSyntaxHighlighting = true;
   };
 
   nixpkgs.config.allowUnfree = true;
