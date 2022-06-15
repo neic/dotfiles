@@ -67,10 +67,20 @@ This function should only modify configuration layer settings."
           org-default-notes-file
           (concat org-directory "/inbox.org")
           org-capture-templates
-          `(
-	          ("p" "Protocol" entry (file "")
+          '(
+            ("t" "Simple TODO" entry
+             (file #1="")
+             "* TODO %^{Title}\nCaptured On: %U\n%?"
+              )
+
+            ("T" "Timed TODO" entry
+             (file #1="")
+             "* TODO %^{Title}\nSCHEDULED: %^{Schedule}t DEADLINE: %^{Deadline}t\nCaptured On: %U\n%?"
+              )
+            ;; For/from https://github.com/sprig/org-capture-extension
+            ("p" "Protocol" entry (file "")
              "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?")
-	          ("L" "Protocol Link" entry (file "")
+            ("L" "Protocol Link" entry (file "")
              "* %? [[%:link][%:description]] \nCaptured On: %U")
             )
           org-refile-targets '((org-agenda-files :maxlevel . 3))
