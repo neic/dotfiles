@@ -46,17 +46,13 @@ fi
 # Completion
 #------------------------------
 
-# The following lines were added by compinstall
-
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'r:|[._-]=* r:|=*'
 zstyle ':completion:*' menu select=long
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 
 autoload -Uz compinit
 compinit
-# End of lines added by compinstall
 
 # Completion for MinIO client
 autoload -U +X bashcompinit && bashcompinit
