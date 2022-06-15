@@ -97,7 +97,10 @@
   services.nix-daemon.enable = true;
   # nix.package = pkgs.nix;
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+   enable = true;
+   enableCompletion = false;  # compinit is called from .zshrc
+  };
 
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = 4;

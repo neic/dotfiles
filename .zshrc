@@ -46,6 +46,11 @@ fi
 # Completion
 #------------------------------
 
+# Add current nix system to ZSH path to enable completion of installed packages.
+# This is likely a upstream bug, but I haven't investigated. See
+# https://github.com/nix-community/home-manager/issues/2802
+fpath+=(/run/current-system/sw/share/zsh/site-functions)
+
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'r:|[._-]=* r:|=*'
