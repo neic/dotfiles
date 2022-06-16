@@ -59,6 +59,7 @@ This function should only modify configuration layer settings."
               )
      (org :variables
           org-hide-emphasis-markers t
+          org-startup-folded t
           org-catch-invisible-edits 'show-and-error
           org-todo-keywords
           '((sequence "TODO" "INPROGRESS" "WAITING" "|" "DONE" "CANCELED"))
