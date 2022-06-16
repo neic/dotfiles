@@ -59,6 +59,11 @@ zstyle ':completion:*' menu select=long
 autoload -Uz compinit
 compinit
 
+autoload -Uz bashcompinit
+bashcompinit
+
+complete -C terraform terraform
+
 #------------------------------
 # Keybindings
 #------------------------------
