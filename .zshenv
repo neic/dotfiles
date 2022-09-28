@@ -6,6 +6,14 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 #------------------------------
+# Path
+#------------------------------
+
+if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
+    PATH="${PATH:+${PATH}:}/usr/local/opt/fzf/bin"
+fi
+
+#------------------------------
 # Editor
 #------------------------------
 

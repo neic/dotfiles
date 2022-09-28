@@ -1,4 +1,4 @@
-# https://daiderd.com/nix-darwin/manual/index.htm
+# https://daiderd.com/nix-darwin/manual/index.html
 
 { config, pkgs, ... }:
 
@@ -24,6 +24,7 @@
         # System utils
         colordiff
         coreutils
+        fzf
         gitAndTools.gitFull
         htop
         ncdu
