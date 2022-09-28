@@ -28,3 +28,9 @@ export HOMEBREW_NO_INSTALL_CLEANUP="1"
 
 export COMPOSE_DOCKER_CLI_BUILD="1"
 export DOCKER_BUILDKIT="1"
+
+#------------------------------
+# kubectl
+#------------------------------
+
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
