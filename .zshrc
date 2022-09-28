@@ -139,7 +139,16 @@ emacs () {
     fi
 }
 
-alias ec='emacsclient -n'
+ec () {
+    if [ -z "$1" ]; then
+        TMP="$(mktemp /tmp/stdin-XXX)"
+        cat >$TMP
+        emacsclient -n $TMP
+        rm $TMP
+    else
+        emacsclient -n "$@"
+    fi
+}
 
 gs () {
     if (( $+commands[emacsclient] )); then
