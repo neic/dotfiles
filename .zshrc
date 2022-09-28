@@ -73,8 +73,8 @@ bindkey "^[[B" history-beginning-search-forward
 #------------------------------
 # Aliases
 #------------------------------
-alias ls='ls --color=always --classify'
-alias ll='ls --color=always -l'
+alias ls='gls --color=always --classify'
+alias ll='gls --color=always -l'
 
 alias gitlab-run='docker run --rm -v $PWD:$PWD -v /var/run/docker.sock:/var/run/docker.sock --workdir $PWD gitlab/gitlab-runner exec docker'
 
