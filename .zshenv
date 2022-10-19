@@ -13,6 +13,8 @@ if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
     PATH="${PATH:+${PATH}:}/usr/local/opt/fzf/bin"
 fi
 
+PATH="${PATH:+${PATH}:}${HOME}/.emacs.d/bin"
+
 #------------------------------
 # Editor
 #------------------------------

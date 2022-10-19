@@ -138,6 +138,12 @@ up () {
         print "Updating failed: OS is not OSX, Ubuntu or Arch"
     fi
 
+    if (( $+commands[doom] )); then
+        print -P "${BLUE}Updating Doom Emacs${NO_COLOR}"
+        doom upgrade
+        doom sync
+    fi
+
     if (( $+commands[tlmgr] )); then
         print -P "${BLUE}Updating TeX Live${NO_COLOR}"
         sudo tlmgr update --self
