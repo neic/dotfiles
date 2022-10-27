@@ -15,3 +15,7 @@
 [core]
 	excludesfile = /Users/neic/.gitignore_global
 	hooksPath = ~/.config/git/hooks
+[remote]
+	pushDefault = origin
+[branch]
+	autoSetupMerge = inherit
