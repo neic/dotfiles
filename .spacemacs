@@ -657,15 +657,6 @@ before packages are loaded."
   ;; `Fix move-file-to-trash: Removing old name: Mac error -1743` error
   (setq mac-system-move-file-to-trash-use-finder nil)
 
-  ;; Don't insert newlines in base64-encode-region when its given a
-  ;; prefix-argument.
-  ;; https://emacs.stackexchange.com/a/41225
-  (defun base64-encode-region-prefix-arg (&rest _args)
-    "Pass prefix arg as third arg to `base64-encode-region'."
-    (interactive "r\nP"))
-
-  (advice-add 'base64-encode-region :before #'base64-encode-region-prefix-arg)
-
 
   ;; -----------
   ;; Major modes
