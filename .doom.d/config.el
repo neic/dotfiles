@@ -82,3 +82,12 @@
 ; Overwrite modifier keys on macOS
 (setq mac-command-modifier 'meta
       mac-option-modifier 'none)
+
+;; -----------
+;; Major modes
+;; -----------
+
+;; magit
+(after! magit
+  (setq magit-save-repository-buffers 'dontask)
+  (add-hook 'git-commit-setup-hook 'end-of-line))
