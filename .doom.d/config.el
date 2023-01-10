@@ -88,6 +88,16 @@
 (setq mac-command-modifier 'meta
       mac-option-modifier 'none)
 
+; Disable everything other than git for version control to speedup TRAMP.
+; https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
+; # How to speed up TRAMP?
+(setq vc-handled-backends '(Git))
+; Reuse the same ssh connection everywhere by inheriting ControlMaster from
+; ~/.ssh/config for TRAMP.
+; https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
+; # TRAMP does not use default ssh ControlPath
+(setq tramp-use-ssh-controlmaster-options nil)
+
 ;; -----------
 ;; Major modes
 ;; -----------
