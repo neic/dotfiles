@@ -654,16 +654,6 @@ before packages are loaded."
   ;; delete the selection with a keypress
   (delete-selection-mode t)
 
-  ;; Use circadian to change themes during the day
-  (use-package circadian
-    :ensure t
-    :config
-    (setq calendar-latitude 55.7)
-    (setq calendar-longitude 12.5)
-    (setq circadian-themes '((:sunrise . spacemacs-light)
-                             (:sunset  . spacemacs-dark)))
-    (circadian-setup))
-
   ;; `Fix move-file-to-trash: Removing old name: Mac error -1743` error
   (setq mac-system-move-file-to-trash-use-finder nil)
 
