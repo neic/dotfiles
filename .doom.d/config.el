@@ -74,3 +74,11 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; ---------------
+;; Global settings
+;; ---------------
+
+; Overwrite modifier keys on macOS
+(setq mac-command-modifier 'meta
+      mac-option-modifier 'none)

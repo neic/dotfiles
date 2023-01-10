@@ -115,7 +115,6 @@ This function should only modify configuration layer settings."
            )
 
      ;; Operating systems
-     osx ;; modifier keybindings is overwritten in user-config
      nixos
 
      ;; Source control
@@ -654,10 +653,6 @@ before packages are loaded."
 
   ;; delete the selection with a keypress
   (delete-selection-mode t)
-
-  ;; Overwrite modifier keys from the osx layer
-  (setq mac-command-modifier 'meta
-        mac-option-modifier  'none)
 
   ;; Use circadian to change themes during the day
   (use-package circadian
