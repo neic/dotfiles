@@ -27,7 +27,7 @@
         fzf
         gitAndTools.gitFull
         htop
-        ncdu
+        ncdu_1
         pv
         pwgen
         silver-searcher
