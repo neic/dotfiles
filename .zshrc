@@ -106,9 +106,11 @@ up () {
         print -P "${BLUE}Updating homebrew software${NO_COLOR}"
         brew update
         brew upgrade
-        print -P "${BLUE}Updating nix${NO_COLOR}"
-        nix-channel --update
-        darwin-rebuild switch
+        if (( $+commands[nix-channel] )); then
+            print -P "${BLUE}Updating nix${NO_COLOR}"
+            nix-channel --update
+            darwin-rebuild switch
+        fi
     elif [[ $(uname) = "Linux" && $(lsb_release -si) = "Ubuntu" ]]; then
         print -P "${BLUE}Updating software from apt-get${NO_COLOR}"
         sudo apt-get update
