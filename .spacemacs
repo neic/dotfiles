@@ -56,32 +56,13 @@ This function should only modify configuration layer settings."
      better-defaults
 
      ;; Programming and markup languages
-     ansible
      csv
-     emacs-lisp
-     go
-     html
-     javascript
      (latex :variables
             TeX-save-query nil
             TeX-error-overview-open-after-TeX-run t
             )
-     markdown
      php
-     (python :variables
-             python-backend 'lsp
-             python-fill-column 88
-             python-formatter 'black
-             python-format-on-save t
-             )
-     shell-scripts
      sql
-     (yaml :variables
-           yaml-enable-lsp t
-           )
-
-     ;; Operating systems
-     nixos
 
      ;; Source control
      git
@@ -92,16 +73,11 @@ This function should only modify configuration layer settings."
                       )
 
      ;; Tools
-     docker
      kubernetes
      nginx
      salt
      shell
      systemd
-     (terraform :variables
-                terraform-auto-format-on-save t
-                terraform-backend 'lsp
-                )
      vagrant
      )
 
