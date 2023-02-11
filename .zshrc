@@ -110,6 +110,11 @@ cle () {
     else
         print "Cleaning failed: OS is not OSX, Ubuntu or Arch"
     fi
+
+    if (( $+commands[nix-collect-garbage] )); then
+        print -P "${BLUE}Cleaning nix${NO_COLOR}"
+        nix-collect-garbage --delete-older-than 30d
+    fi
 }
 
 up () {
