@@ -82,8 +82,17 @@ fi
 #------------------------------
 # Aliases
 #------------------------------
-alias ls='gls --color=always --classify'
-alias ll='gls --color=always -l'
+
+# GNU coreutils in homebrew is with a `g`-prefix. Remove this when running nix
+# everywhere.
+if [ -n "${commands[gls]}" ]; then
+  alias ls='gls --color=always --classify'
+  alias ll='gls --color=always -l'
+else
+  alias ls='ls --color=always --classify'
+  alias ll='ls --color=always -l'
+fi
+
 
 alias gitlab-run='docker run --rm -v $PWD:$PWD -v /var/run/docker.sock:/var/run/docker.sock --workdir $PWD gitlab/gitlab-runner exec docker'
 
