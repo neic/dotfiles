@@ -54,9 +54,6 @@ This function should only modify configuration layer settings."
 
      ;; Emacs
      better-defaults
-     (ibuffer :variables
-              ibuffer-group-buffers-by 'projects
-              )
 
      ;; Programming and markup languages
      ansible
