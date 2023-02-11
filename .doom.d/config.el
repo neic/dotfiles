@@ -114,3 +114,25 @@
 (after! magit
   (setq magit-save-repository-buffers 'dontask)
   (add-hook 'git-commit-setup-hook 'end-of-line))
+
+(after! org
+  (setq org-startup-folded t)
+  (setq org-modules '(org-id))
+  (setq org-id-link-to-org-use-id t)
+  (setq org-capture-templates
+        '(
+          ("t" "Simple TODO" entry
+           (file #1="")
+           "* TODO %^{Title}\nCaptured On: %U\n%?"
+           )
+          ("T" "Timed TODO" entry
+           (file #1="")
+           "* TODO %^{Title}\nSCHEDULED: %^{Schedule}t DEADLINE: %^{Deadline}t\nCaptured On: %U\n%?"
+           )
+          ;; For/from https://github.com/sprig/org-capture-extension
+          ("p" "Protocol" entry (file "")
+           "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?")
+          ("L" "Protocol Link" entry (file "")
+           "* %? [[%:link][%:description]] \nCaptured On: %U")
+          ))
+  )

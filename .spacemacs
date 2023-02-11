@@ -57,37 +57,6 @@ This function should only modify configuration layer settings."
      (ibuffer :variables
               ibuffer-group-buffers-by 'projects
               )
-     (org :variables
-          org-hide-emphasis-markers t
-          org-startup-folded t
-          org-catch-invisible-edits 'show-and-error
-          org-todo-keywords
-          '((sequence "TODO" "INPROGRESS" "WAITING" "|" "DONE" "CANCELED"))
-          org-directory "~/org"
-          org-agenda-files (list org-directory)
-          org-default-notes-file
-          (concat org-directory "/inbox.org")
-          org-capture-templates
-          '(
-            ("t" "Simple TODO" entry
-             (file #1="")
-             "* TODO %^{Title}\nCaptured On: %U\n%?"
-              )
-
-            ("T" "Timed TODO" entry
-             (file #1="")
-             "* TODO %^{Title}\nSCHEDULED: %^{Schedule}t DEADLINE: %^{Deadline}t\nCaptured On: %U\n%?"
-              )
-            ;; For/from https://github.com/sprig/org-capture-extension
-            ("p" "Protocol" entry (file "")
-             "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?")
-            ("L" "Protocol Link" entry (file "")
-             "* %? [[%:link][%:description]] \nCaptured On: %U")
-            )
-          org-refile-targets '((org-agenda-files :maxlevel . 3))
-          org-modules '(org-id)
-          org-id-link-to-org-use-id t
-          )
 
      ;; Programming and markup languages
      ansible
