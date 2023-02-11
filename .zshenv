@@ -14,6 +14,7 @@ if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
 fi
 
 PATH="${PATH:+${PATH}:}${HOME}/.emacs.d/bin"
+PATH="${PATH:+${PATH}:}${HOME}/Documents/bin"
 
 #------------------------------
 # Editor
