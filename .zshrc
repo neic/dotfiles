@@ -20,7 +20,9 @@ setopt INC_APPEND_HISTORY        # Write to the history file immediately, not wh
 setopt SHARE_HISTORY             # Share history between all sessions.
 setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
 
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/key-bindings.zsh"
+fi
 
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
@@ -73,7 +75,9 @@ bashcompinit
 
 complete -C terraform terraform
 
-source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/completion.zsh"
+fi
 
 #------------------------------
 # Aliases
