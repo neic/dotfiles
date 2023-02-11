@@ -54,7 +54,9 @@
 
         # Infrastructure CLIs
         ansible
+        fluxcd
         google-cloud-sdk
+        k9s
         kubectl
         terraform
 
