@@ -231,6 +231,15 @@ function prune_local_branches () {
 alias notify='terminal-notifier -title "Terminal" -message "Done with task! Exit status: $?" -activate com.apple.Terminal'
 
 
+flushdns () {
+    if [ $(uname) = "Darwin" ]; then
+        sudo dscacheutil -flushcache
+        sudo killall -HUP mDNSResponder
+    else
+        print "Cleaning failed: OS is not macOS"
+    fi
+}
+
 #------------------------------
 # Prompt
 #------------------------------
