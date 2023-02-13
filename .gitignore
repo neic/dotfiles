@@ -11,6 +11,7 @@
 .Thrash/
 .zcompdump
 .Brewfile.lock.json
+.config/k9s/config.yml
 
 ### Various history files
 .*_history

@@ -41,7 +41,8 @@ export COMPOSE_DOCKER_CLI_BUILD="1"
 export DOCKER_BUILDKIT="1"
 
 #------------------------------
-# kubectl
+# Kubernetes
 #------------------------------
 
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+export K9SCONFIG=~/.config/k9s
