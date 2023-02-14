@@ -1,0 +1,15 @@
+#!/bin/bash
+
+url="$2"
+
+IFS=' '
+while read -r local_ref local_sha remote_ref remote_sha
+do
+  if [[ "$url" == *"git.magenta.dk"* && (
+          "$remote_ref" == *"master"* ||
+          "$remote_ref" == *"main"* )
+     ]]; then
+    echo "~/.config/git/hooks/pre-push: Aborting push to protected branch."
+    exit 1
+  fi
+done
