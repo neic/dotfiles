@@ -274,11 +274,22 @@ PS1=$'${PR_RET}${CYAN}[${PR_USER}${CYAN}@${PR_HOST}${CYAN}][${BLUE}%~${CYAN}]${P
 PS2=$'%_>'
 RPROMPT='$(date +%T)'
 
+
+#------------------------------
+# (Emacs) vterm
+#------------------------------
+
+if [[ "$INSIDE_EMACS" = 'vterm' ]] \
+    && [[ -n ${EMACS_VTERM_PATH} ]] \
+    && [[ -f ${EMACS_VTERM_PATH}/etc/emacs-vterm-zsh.sh ]]; then
+	source ${EMACS_VTERM_PATH}/etc/emacs-vterm-zsh.sh
+fi
+
 #------------------------------
 # Dumb terminal
 #------------------------------
 
-# Overwrite fancy setting if the terminal is dumb. Emacs is dumb.
+# Overwrite fancy setting if the terminal is dumb.
 if [[ "$TERM" == "dumb" ]]
 then
     unsetopt zle
