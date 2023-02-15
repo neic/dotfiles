@@ -36,6 +36,10 @@
   (if (string= (plist-get (mac-application-state) :appearance) "NSAppearanceNameDarkAqua")
       'doom-vibrant
       'doom-one-light))
+
+(setq doom-vibrant-brighter-comments t)
+(setq doom-one-light-brighter-comments t)
+
 (setq doom-theme (theme-variant))
 (add-hook 'mac-effective-appearance-change-hook #'(lambda () (load-theme (theme-variant) 1)))
 
