@@ -63,6 +63,7 @@
 
         # Programming
         cmake
+        colima
         libtool
         python310
     ];

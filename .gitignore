@@ -12,6 +12,7 @@
 .zcompdump
 .Brewfile.lock.json
 .config/k9s/config.yml
+.colima
 
 ### Various history files
 .*_history
