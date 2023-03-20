@@ -56,6 +56,7 @@
         # Infrastructure CLIs
         ansible
         fluxcd
+        glab
         google-cloud-sdk
         k9s
         kubectl
