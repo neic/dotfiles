@@ -79,6 +79,7 @@
   homebrew.onActivation.upgrade = true;
   homebrew.taps = [
     "homebrew/cask"
+    "homebrew/cask-versions"
     "railwaycat/emacsmacport"
   ];
   homebrew.casks = [
@@ -99,7 +100,7 @@
     "josm"
 
     "docker"
-    "virtualbox"
+    "virtualbox-beta"
 
     "steam"
     "nvidia-geforce-now"
