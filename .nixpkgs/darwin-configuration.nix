@@ -3,6 +3,8 @@
 { config, pkgs, ... }:
 
 {
+  imports = [ ~/.nixpkgs/local-configuration.nix ];
+
   environment.systemPackages = with pkgs; [
         # Applications
         gnupg
@@ -75,8 +77,6 @@
     gyre-fonts
     source-code-pro
   ];
-
-  networking.hostName = "mac-n-cheese";
 
   system.defaults = {
     NSGlobalDomain = {
