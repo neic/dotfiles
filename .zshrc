@@ -121,9 +121,6 @@ up () {
     if [ $(uname) = "Darwin" ]; then
         print -P "${BLUE}Updating OSX and App Store software${NO_COLOR}"
         sudo softwareupdate --install --all
-        print -P "${BLUE}Updating homebrew software${NO_COLOR}"
-        brew update
-        brew upgrade
         if (( $+commands[nix-channel] )); then
             print -P "${BLUE}Updating nix${NO_COLOR}"
             nix-channel --update

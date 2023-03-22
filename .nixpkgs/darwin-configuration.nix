@@ -71,6 +71,51 @@
         python310
     ];
 
+  homebrew.enable = true;
+  homebrew.onActivation.autoUpdate = true;
+  homebrew.onActivation.cleanup = "zap";
+  homebrew.onActivation.upgrade = true;
+  homebrew.taps = [
+    "homebrew/cask"
+    "railwaycat/emacsmacport"
+  ];
+  homebrew.casks = [
+    "google-chrome"
+    "firefox"
+
+    "emacs-mac"
+    "iterm2"
+    "gpg-suite"
+
+    "little-snitch"
+    "flux"
+    "nextcloud"
+
+    "thunderbird"
+    "element"
+    "gramps"
+    "josm"
+
+    "docker"
+    "virtualbox"
+
+    "steam"
+    "nvidia-geforce-now"
+    "discord"
+
+    "vlc"
+    "spotify"
+
+    "wireshark"
+  ];
+  homebrew.masApps = {
+    "Tailscale" = 1475387142;
+    "Microsoft Remote Desktop" = 1295203466;
+    "iMovie" = 408981434;
+    "DaVinci Resolve" = 571213070;
+    "Xcode" = 497799835;
+  };
+
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
     dejavu_fonts
