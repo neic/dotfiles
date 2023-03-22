@@ -29,6 +29,7 @@
         fzf
         gitAndTools.gitFull
         htop
+        jq
         ncdu_1
         pv
         pwgen
@@ -36,6 +37,7 @@
         silver-searcher
         trash-cli
         tree
+        yq
 
         # Network
         nmap
