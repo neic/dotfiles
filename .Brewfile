@@ -3,9 +3,6 @@ brew "mas"
 cask "google-chrome"
 cask "firefox"
 
-tap "koekeishiya/formulae"
-brew "yabai"
-
 tap "railwaycat/emacsmacport"
 cask "emacs-mac"
 cask "iterm2"

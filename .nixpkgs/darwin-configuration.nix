@@ -116,4 +116,18 @@
 
   nixpkgs.config.allowUnfree = true;
   system.stateVersion = 4;
+
+  services.yabai = {
+    enable = true;
+    config = {
+      window_border = "off";
+      layout = "bsp";
+    };
+
+    extraConfig = ''
+      yabai -m rule --add app='System Settings' manage=off
+      yabai -m rule --add app=Gramps manage=off
+      yabai -m rule --add app=josm manage=off
+    '';
+  };
 }
