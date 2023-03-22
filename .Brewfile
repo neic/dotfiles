@@ -11,9 +11,7 @@ cask "gpg-suite"
 tap "homebrew/cask"
 cask "little-snitch"
 cask "flux"
-cask "duet"
 cask "nextcloud"
-mas "WireGuard", id: 1451685025
 mas "Tailscale", id: 1475387142
 mas "Microsoft Remote Desktop", id: 1295203466
 
@@ -24,7 +22,6 @@ cask "josm"
 
 cask "docker"
 cask "virtualbox"
-cask "virtualbox-extension-pack"
 
 cask "steam"
 cask "nvidia-geforce-now"
