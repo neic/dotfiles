@@ -159,14 +159,6 @@ pipup () {
     pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 $1 install -U
 }
 
-emacs () {
-    if [ $(uname) = "Darwin" ]; then
-        /usr/local/bin/emacs "$@"
-    else
-        command emacs
-    fi
-}
-
 ec () {
     if [ -z "$1" ]; then
         TMP="$(mktemp /tmp/stdin-XXX)"
