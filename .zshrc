@@ -97,11 +97,8 @@ cle () {
         print -P "${BLUE}Cleaning software from apt-get${NO_COLOR}"
         sudo apt-get autoremove
         sudo apt-get autoclean
-    elif [[ $(uname) = "Linux" && $(lsb_release -si) = "Arch" ]]; then
-        print -P "${BLUE}Cleaning software from pacman${NO_COLOR}"
-        sudo pacman -Rs $(pacman -Qqtd); sudo pacman -Sc
     else
-        print "Cleaning failed: OS is not OSX, Ubuntu or Arch"
+        print "Cleaning failed: OS is not macOS or Ubuntu"
     fi
 
     if (( $+commands[nix-collect-garbage] )); then
@@ -126,11 +123,8 @@ up () {
         if [ -f /var/run/reboot-required ]; then
             print -P "${YELLOW}Reboot required${NO_COLOR}"
         fi
-    elif [[ $(uname) = "Linux" && $(lsb_release -si) = "Arch" ]]; then
-        print -P "${BLUE}Updating software from pacman${NO_COLOR}"
-        sudo pacman -Syu
     else
-        print "Updating failed: OS is not OSX, Ubuntu or Arch"
+        print "Updating failed: OS is not macOS or Ubuntu"
     fi
 
     if (( $+commands[doom] )); then
