@@ -70,6 +70,7 @@
         # Programming
         cmake
         colima
+        docker-client
         libtool
         python310
     ];
