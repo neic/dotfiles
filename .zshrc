@@ -216,6 +216,8 @@ flushdns () {
     fi
 }
 
+source ~/.zshplugins/zsh-nix-shell/nix-shell.plugin.zsh
+
 #------------------------------
 # Prompt
 #------------------------------
@@ -242,11 +244,17 @@ if [[ "$HOST" = "jump" ]]; then
     eval PR_HOST='${RED}%M${NO_COLOR}'
 fi
 
+if [[ "$IN_NIX_SHELL" = "pure" ]]; then
+    eval PR_NIX='${CYAN}[${MAGENTA}pu${CYAN}]'
+elif [[ "$IN_NIX_SHELL" = "impure" ]]; then
+    eval PR_NIX='${CYAN}[${MAGENTA}im${CYAN}]'
+fi
+
 # Return code
 eval PR_RET='%(?..${RED}%?${NO_COLOR} )'
 
 # set the prompt
-PS1=$'${PR_RET}${CYAN}[${PR_USER}${CYAN}@${PR_HOST}${CYAN}][${BLUE}%~${CYAN}]${PR_USER_OP} '
+PS1=$'${PR_RET}${CYAN}[${PR_USER}${CYAN}@${PR_HOST}${CYAN}]${PR_NIX}[${BLUE}%~${CYAN}]${PR_USER_OP} '
 PS2=$'%_>'
 RPROMPT='$(date +%T)'
 
