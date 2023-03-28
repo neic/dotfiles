@@ -64,6 +64,7 @@
         google-cloud-sdk
         k9s
         kubectl
+        sops
         terraform
 
         # Programming
