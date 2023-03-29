@@ -6,10 +6,14 @@ IFS=' '
 while read -r local_ref local_sha remote_ref remote_sha
 do
   if [[ "$url" == *"git.magenta.dk"* && (
-          "$remote_ref" == *"master"* ||
-          "$remote_ref" == *"main"* )
+          "$remote_ref" == "refs/head/master" ||
+          "$remote_ref" == "refs/head/main" )
      ]]; then
     echo "~/.config/git/hooks/pre-push: Aborting push to protected branch."
+    # echo "local_ref: ${local_ref}"
+    # echo "local_sha: ${local_sha}"
+    # echo "remote_ref: ${remote_ref}"
+    # echo "remote_sha: ${remote_sha}"
     exit 1
   fi
 done
