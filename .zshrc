@@ -222,6 +222,7 @@ source ~/.zshplugins/zsh-nix-shell/nix-shell.plugin.zsh
 # Prompt
 #------------------------------
 
+prompt off
 setopt prompt_subst
 
 # User part
