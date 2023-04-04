@@ -27,7 +27,7 @@
         colordiff
         coreutils
         fzf
-        gitAndTools.gitFull
+        gitFull
         htop
         jq
         ncdu_1
