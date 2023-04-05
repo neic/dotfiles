@@ -257,7 +257,9 @@ eval PR_RET='%(?..${RED}%?${NO_COLOR} )'
 # set the prompt
 PS1=$'${PR_RET}${PR_USER}${GREEN}@${PR_HOST} ${PR_NIX}${BLUE}%~${PR_USER_OP} '
 PS2=$'%_>'
-RPROMPT='%*'
+
+TIMER_THRESHOLD=5
+source ~/.zshplugins/cmdtime.plugin.zsh
 
 
 #------------------------------

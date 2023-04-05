@@ -38,7 +38,7 @@ __cmdtime_display_cmdtime_precmd() {
     if [[ -z "${TIMER_THRESHOLD}" || ${tdiff} -ge "${TIMER_THRESHOLD}" ]]; then
         local tdiffstr=$(__cmdtime_format_duration ${tdiff})
         local cols=$((COLUMNS - ${#tdiffstr} - 1))
-        echo -e "\033[1A\033[${cols}C \e[2m${tdiffstr}\e[22m"
+        echo -e "Execution time: ${tdiffstr}"
     fi
   fi
 }
