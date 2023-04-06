@@ -7,6 +7,7 @@
 
   environment.systemPackages = with pkgs; [
         # Applications
+        browserpass
         gnupg
         pass
 
