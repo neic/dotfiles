@@ -9,6 +9,9 @@ export LANG=en_US.UTF-8
 # Path
 #------------------------------
 
+# Nix changes the PATH in `/nix/store/<hash>-set-environment` via
+# `/etc/zsh_env`. Homebrew changes the PATH in `.zprofile`.
+
 if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
     PATH="${PATH:+${PATH}:}/usr/local/opt/fzf/bin"
 fi
