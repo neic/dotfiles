@@ -226,7 +226,6 @@ prompt off
 setopt prompt_subst
 
 # User part
-eval PR_USER='${GREEN}%n${NO_COLOR}'
 eval PR_USER_OP='${GREEN}%#${NO_COLOR}'
 
 if [[ $UID -eq 0 ]]; then # root
@@ -234,15 +233,16 @@ if [[ $UID -eq 0 ]]; then # root
     eval PR_USER_OP='${RED}%#${NO_COLOR}'
 fi
 
-# Host part
-eval PR_HOST='${GREEN}%M${NO_COLOR}'
-
 if [[ -n "$SSH_CLIENT" || -n "$SSH2_CLIENT" ]]; then
     eval PR_HOST='${YELLOW}%M${NO_COLOR}'
 fi
 
 if [[ "$HOST" = "jump" ]]; then
     eval PR_HOST='${RED}%M${NO_COLOR}'
+fi
+
+if [[ -n "$PR_USER" || -n "$PR_HOST" ]]; then
+  eval PR_LOGIN='${PR_USER}${GREEN}@${PR_HOST}'
 fi
 
 if [[ "$IN_NIX_SHELL" = "pure" ]]; then
@@ -255,8 +255,9 @@ fi
 eval PR_RET='%(?..${RED}%?${NO_COLOR} )'
 
 # set the prompt
-PS1=$'${PR_RET}${PR_USER}${GREEN}@${PR_HOST} ${PR_NIX}${BLUE}%~${PR_USER_OP} '
+PS1=$'${PR_RET}${PR_LOGIN}${PR_NIX}${BLUE}%~${PR_USER_OP} '
 PS2=$'%_>'
+RPROMPT=''
 
 TIMER_THRESHOLD=5
 source ~/.zshplugins/cmdtime.plugin.zsh
