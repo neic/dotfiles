@@ -222,7 +222,9 @@ source ~/.zshplugins/zsh-nix-shell/nix-shell.plugin.zsh
 # Prompt
 #------------------------------
 
-prompt off
+if [ -n "${commands[prompt]}" ]; then
+  prompt off
+fi
 setopt prompt_subst
 
 # User part
