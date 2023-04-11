@@ -68,7 +68,7 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'r:|[._-]=* r
 zstyle ':completion:*' menu select=long
 
 autoload -Uz compinit
-compinit
+compinit -u
 
 autoload -Uz bashcompinit
 bashcompinit
