@@ -114,10 +114,13 @@
 ;; Major modes
 ;; -----------
 
-;; magit
 (after! magit
   (setq magit-save-repository-buffers 'dontask)
   (add-hook 'git-commit-setup-hook 'end-of-line))
+
+(after! vterm
+  (define-key vterm-mode-map (kbd "C-q") #'vterm-send-next-key)
+  )
 
 (after! org
   (setq org-startup-folded t)
