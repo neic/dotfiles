@@ -113,6 +113,7 @@ up () {
         sudo softwareupdate --install --all
         if (( $+commands[nix-channel] )); then
             print -P "${BLUE}Updating nix${NO_COLOR}"
+            sudo -i nix-channel --update
             nix-channel --update
             darwin-rebuild switch
         fi
