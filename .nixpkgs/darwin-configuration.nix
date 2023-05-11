@@ -17,6 +17,7 @@
 
         # Linters
         black
+        pre-commit
         shellcheck
         yamllint
 
