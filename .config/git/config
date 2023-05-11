@@ -7,7 +7,7 @@
 [commit]
 	gpgsign = true
 [core]
-	excludesfile = /Users/neic/.gitignore_global
+	excludesfile = ~/.config/git/gitignore_global
 	hooksPath = ~/.config/git/hooks
 [remote]
 	pushDefault = origin
