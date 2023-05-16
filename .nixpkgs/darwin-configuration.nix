@@ -68,6 +68,7 @@
         ])
         k9s
         kubectl
+        kubectx
         sops
         terraform
 

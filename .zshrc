@@ -219,6 +219,14 @@ flushdns () {
 
 alias sopscat='EDITOR=cat sops'
 
+# See `set_kube_context` under # Prompt
+for cmd in kubectl flux k9s kubectx; do
+function $cmd () {
+    command $0 $@
+    set_kube_context
+}
+done
+
 source ~/.zshplugins/zsh-nix-shell/nix-shell.plugin.zsh
 
 #------------------------------
@@ -254,11 +262,15 @@ if [[ -v IN_NIX_SHELL ]]; then
     eval PR_NIX='${MAGENTA}⬣${IN_NIX_SHELL:0:2}\(${NO_COLOR}${NIX_SHELL_PACKAGES}${MAGENTA}\)\ '
 fi
 
+function set_kube_context () {
+    eval PR_KUBE='${CYAN}⎈$(command kubectl config current-context)\ '
+}
+
 # Return code
 eval PR_RET='%(?..${RED}%?${NO_COLOR} )'
 
 # set the prompt
-PS1=$'${PR_RET}${PR_LOGIN}${PR_NIX}${BLUE}%~${PR_USER_OP} '
+PS1=$'${PR_RET}${PR_LOGIN}${PR_NIX}${PR_KUBE}${BLUE}%~${PR_USER_OP} '
 PS2=$'%_>'
 RPROMPT=''
 
