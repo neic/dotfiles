@@ -61,6 +61,7 @@
 
         # Infrastructure CLIs
         ansible
+        azure-cli
         fluxcd
         glab
         (google-cloud-sdk.withExtraComponents [
