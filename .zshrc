@@ -250,10 +250,8 @@ if [[ -n "$PR_USER" || -n "$PR_HOST" ]]; then
   eval PR_LOGIN='${PR_USER}${GREEN}@${PR_HOST}'
 fi
 
-if [[ "$IN_NIX_SHELL" = "pure" ]]; then
-    eval PR_NIX='${MAGENTA}pu\ '
-elif [[ "$IN_NIX_SHELL" = "impure" ]]; then
-    eval PR_NIX='${MAGENTA}im\ '
+if [[ -v IN_NIX_SHELL ]]; then
+    eval PR_NIX='${MAGENTA}⬣${IN_NIX_SHELL:0:2}\(${NO_COLOR}${NIX_SHELL_PACKAGES}${MAGENTA}\)\ '
 fi
 
 # Return code
