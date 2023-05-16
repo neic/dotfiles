@@ -262,7 +262,7 @@ PS1=$'${PR_RET}${PR_LOGIN}${PR_NIX}${BLUE}%~${PR_USER_OP} '
 PS2=$'%_>'
 RPROMPT=''
 
-TIMER_THRESHOLD=5
+TIMER_THRESHOLD=30
 source ~/.zshplugins/cmdtime.plugin.zsh
 
 
