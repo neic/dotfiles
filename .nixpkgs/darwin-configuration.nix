@@ -28,6 +28,7 @@
         # System utils
         colordiff
         coreutils
+        findutils
         fzf
         gitFull
         htop
