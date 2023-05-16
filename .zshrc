@@ -217,6 +217,8 @@ flushdns () {
     fi
 }
 
+alias sopscat='EDITOR=cat sops'
+
 source ~/.zshplugins/zsh-nix-shell/nix-shell.plugin.zsh
 
 #------------------------------
