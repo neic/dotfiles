@@ -36,6 +36,7 @@
         ncdu_1
         pv
         pwgen
+        reuse
         ripgrep
         silver-searcher
         trash-cli

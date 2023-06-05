@@ -219,6 +219,8 @@ flushdns () {
 
 alias sopscat='EDITOR=cat sops'
 
+alias mreuse="reuse annotate --copyright 'Magenta ApS' --exclude-year --license 'MPL-2.0'"
+
 # See `set_kube_context` under # Prompt
 for cmd in kubectl flux k9s kubectx; do
 function $cmd () {
