@@ -40,7 +40,7 @@
         silver-searcher
         trash-cli
         tree
-        yq
+        yq-go
 
         # Network
         nmap
