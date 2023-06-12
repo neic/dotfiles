@@ -235,7 +235,7 @@ source ~/.zshplugins/zsh-nix-shell/nix-shell.plugin.zsh
 # Prompt
 #------------------------------
 
-if [ -n "${commands[prompt]}" ]; then
+if [ -n "${functions[prompt]}" ]; then
   prompt off
 fi
 setopt prompt_subst
