@@ -13,7 +13,7 @@ memory: 48
 
 # Architecture of the virtual machine (x86_64, aarch64, host).
 # Default: host
-arch: host
+arch: x86_64
 
 # Container runtime to be used (docker, containerd).
 # Default: docker
@@ -116,7 +116,7 @@ vmType: vz
 
 # Utilise rosetta for amd64 emulation (requires m1 mac and vmType `vz`)
 # Default: false
-rosetta: false
+rosetta: true
 
 # Volume mount driver for the virtual machine (virtiofs, 9p, sshfs).
 #
