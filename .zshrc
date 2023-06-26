@@ -241,10 +241,6 @@ if [[ $UID -eq 0 ]]; then # root
 fi
 
 if [[ -n "$SSH_CLIENT" || -n "$SSH2_CLIENT" ]]; then
-    eval PR_HOST='${YELLOW}%M${NO_COLOR}'
-fi
-
-if [[ "$HOST" = "jump" ]]; then
     eval PR_HOST='${RED}%M${NO_COLOR}'
 fi
 
