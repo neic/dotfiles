@@ -264,10 +264,10 @@ preexec_functions+=(turn_on_contexts)
 
 set_contexts() {
     if [[ -v IN_NIX_SHELL ]]; then
-        eval PR_NIX='${MAGENTA}⬣${IN_NIX_SHELL:0:2}\(${NO_COLOR}${NIX_SHELL_PACKAGES}${MAGENTA}\)\ '
+        eval PR_NIX='${MAGENTA}󱄅${IN_NIX_SHELL:0:2}\(${NO_COLOR}${NIX_SHELL_PACKAGES}${MAGENTA}\)\ '
     fi
     if [[ $CTX_KUBE ]]; then
-        eval PR_KUBE='${CYAN}⎈$(command kubectl config current-context)\ '
+        eval PR_KUBE='${CYAN}󱃾$(command kubectl config current-context)\ '
     fi
 }
 precmd_functions+=(set_contexts)

@@ -129,9 +129,10 @@
 
   fonts.fontDir.enable = true;
   fonts.fonts = with pkgs; [
-    dejavu_fonts
-    gyre-fonts
-    source-code-pro
+    (nerdfonts.override {
+      fonts = [
+        "IBMPlexMono"
+      ]; })
   ];
 
   system.defaults = {
