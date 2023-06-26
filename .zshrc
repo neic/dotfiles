@@ -221,14 +221,6 @@ alias sopscat='EDITOR=cat sops'
 
 alias mreuse="reuse annotate --copyright 'Magenta ApS' --exclude-year --license 'MPL-2.0'"
 
-# See `set_kube_context` under # Prompt
-for cmd in kubectl flux k9s kubectx; do
-function $cmd () {
-    command $0 $@
-    set_kube_context
-}
-done
-
 source ~/.zshplugins/zsh-nix-shell/nix-shell.plugin.zsh
 
 #------------------------------
@@ -240,7 +232,7 @@ if [ -n "${functions[prompt]}" ]; then
 fi
 setopt prompt_subst
 
-# User part
+# User and host
 eval PR_USER_OP='${GREEN}%#${NO_COLOR}'
 
 if [[ $UID -eq 0 ]]; then # root
@@ -260,13 +252,25 @@ if [[ -n "$PR_USER" || -n "$PR_HOST" ]]; then
   eval PR_LOGIN='${PR_USER}${GREEN}@${PR_HOST}'
 fi
 
-if [[ -v IN_NIX_SHELL ]]; then
-    eval PR_NIX='${MAGENTA}⬣${IN_NIX_SHELL:0:2}\(${NO_COLOR}${NIX_SHELL_PACKAGES}${MAGENTA}\)\ '
-fi
+# Contexts
+turn_on_contexts() {
+  local current_cmd=$(echo $1 | cut -d' ' -f1)
 
-function set_kube_context () {
-    eval PR_KUBE='${CYAN}⎈$(command kubectl config current-context)\ '
+  if [[ "$current_cmd" =~ ^"kubectl|flux|k9s|kubectx" ]]; then
+      export CTX_KUBE=true
+  fi
 }
+preexec_functions+=(turn_on_contexts)
+
+set_contexts() {
+    if [[ -v IN_NIX_SHELL ]]; then
+        eval PR_NIX='${MAGENTA}⬣${IN_NIX_SHELL:0:2}\(${NO_COLOR}${NIX_SHELL_PACKAGES}${MAGENTA}\)\ '
+    fi
+    if [[ $CTX_KUBE ]]; then
+        eval PR_KUBE='${CYAN}⎈$(command kubectl config current-context)\ '
+    fi
+}
+precmd_functions+=(set_contexts)
 
 # Return code
 eval PR_RET='%(?..${RED}%?${NO_COLOR} )'
