@@ -146,3 +146,42 @@
            "* %? [[%:link][%:description]] \nCaptured On: %U")
           ))
   )
+
+
+(use-package! gptai)
+;;(setq gptai-api-key "")
+(setq gptai-username "md@magenta-aps.dk")
+;;(setq gptai-org "org-oABnHRQlPUh176CjMBtt11Ao")
+(setq gptai-model "gpt-4")
+
+(after! gptai
+  (defun ai-replace (prompt)
+    (let ((gptai-prompt (concat prompt
+                            (buffer-substring-no-properties
+                             (region-beginning)
+                             (region-end))
+                          )))
+    (let ((response (gptai-turbo-request gptai-prompt)))
+      (delete-region (region-beginning)
+                     (region-end))
+      (insert response))))
+
+  (defun ai-shorten-commit-message ()
+    "Shorten a commit message in region to less than 50 characters."
+    (interactive)
+    (ai-replace "Shorten this git commit message to be shorter than 50 characters.\n")
+    )
+  (global-set-key (kbd "C-c g s") 'ai-shorten-commit-message)
+
+  (defun ai-fix-merge-conflict ()
+    (interactive)
+    (let ((gptai-prompt (concat "How do I fix the following git merge conflict?\n"
+                        (buffer-substring-no-properties
+                             (region-beginning)
+                             (region-end))
+                          )))
+    (gptai-turbo-query gptai-prompt)
+    ))
+  (global-set-key (kbd "C-c g c") 'ai-fix-merge-conflict)
+
+)

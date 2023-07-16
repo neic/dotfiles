@@ -78,7 +78,9 @@
         # Programming
         colima
         docker-client
-        python310
+        (python311.withPackages(ps: with ps; [
+          openai
+        ]))
     ];
 
   homebrew.enable = true;

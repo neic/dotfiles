@@ -50,3 +50,4 @@
 ;(unpin! t)
 
 (package! salt-mode)
+(package! gptai)
