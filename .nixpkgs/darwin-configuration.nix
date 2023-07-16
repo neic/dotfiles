@@ -36,7 +36,6 @@
         ncdu_1
         pv
         pwgen
-        reuse
         ripgrep
         silver-searcher
         trash-cli
@@ -62,9 +61,6 @@
         youtube-dl
 
         # Infrastructure CLIs
-        ansible
-        azure-cli
-        fluxcd
         glab
         (google-cloud-sdk.withExtraComponents [
           google-cloud-sdk.components.gke-gcloud-auth-plugin
@@ -72,7 +68,6 @@
         k9s
         kubectl
         kubectx
-        sops
         terraform
 
         # Programming

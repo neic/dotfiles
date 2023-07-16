@@ -217,10 +217,6 @@ flushdns () {
     fi
 }
 
-alias sopscat='EDITOR=cat sops'
-
-alias mreuse="reuse annotate --copyright 'Magenta ApS' --exclude-year --license 'MPL-2.0'"
-
 source ~/.zshplugins/zsh-nix-shell/nix-shell.plugin.zsh
 
 #------------------------------
