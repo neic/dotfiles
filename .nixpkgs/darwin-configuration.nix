@@ -98,6 +98,7 @@
     "little-snitch"
     "flux"
     "nextcloud"
+    "karabiner-elements"
 
     "thunderbird"
     "element"
