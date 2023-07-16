@@ -108,7 +108,6 @@
     "virtualbox-beta"
 
     "steam"
-    "nvidia-geforce-now"
     "discord"
 
     "vlc"
