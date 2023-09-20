@@ -15,14 +15,20 @@
         (aspellWithDicts (ds: [ ds.en ds.da]))
         languagetool
 
-        # Linters
+        # Linters and formatters
         black
+        nixfmt
         pre-commit
+        rustfmt
         shellcheck
         yamllint
 
         # LSP
+        clang
+        nodePackages.bash-language-server
+        nodePackages.pyright
         nodePackages.yaml-language-server
+        rust-analyzer
         terraform-lsp
 
         # System utils
@@ -75,7 +81,10 @@
         docker-client
         (python311.withPackages(ps: with ps; [
           openai
+          pyflakes
+          isort
         ]))
+
     ];
 
   homebrew.enable = true;

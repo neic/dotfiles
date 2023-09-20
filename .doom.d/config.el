@@ -110,6 +110,11 @@
   (interactive "r\nP"))
 (advice-add 'base64-encode-region :before #'base64-encode-region-prefix-arg)
 
+;; Use lsp on large repos.
+(after! lsp-mode
+  (setq lsp-file-watch-threshold 3500)
+  )
+
 ;; -----------
 ;; Major modes
 ;; -----------
