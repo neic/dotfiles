@@ -137,6 +137,7 @@
     (nerdfonts.override {
       fonts = [
         "IBMPlexMono"
+        "NerdFontsSymbolsOnly"
       ]; })
   ];
 
