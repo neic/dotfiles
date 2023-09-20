@@ -17,10 +17,14 @@
 
         # Linters and formatters
         black
+        dockfmt
+        jsbeautifier
         nixfmt
+        nodePackages.stylelint
         pre-commit
         rustfmt
         shellcheck
+        shfmt
         yamllint
 
         # LSP
@@ -34,9 +38,12 @@
         # System utils
         colordiff
         coreutils
+        coreutils-prefixed  # for emacs dired
+        fd  # emacs
         findutils
         fzf
         gitFull
+        gnugrep # emacs
         htop
         jq
         ncdu_1
