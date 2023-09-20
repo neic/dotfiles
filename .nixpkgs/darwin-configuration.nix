@@ -1,7 +1,22 @@
 # https://daiderd.com/nix-darwin/manual/index.html
 
 { config, pkgs, ... }:
+let
+  sadmin = pkgs.stdenv.mkDerivation rec {
+    pname = "simple-admin";
+    version = "v0.0.40";
 
+    src = pkgs.fetchzip {
+      url = "https://github.com/antialize/simple-admin/releases/download/${version}/sadmin-client-osx.zip";
+      sha256 = "x32lRmzBCIoNLsAT3yLxYNu4VDoG1QS0Q+44J1mZk+s=";
+    };
+    nativeBuildInputs = [ pkgs.installShellFiles ];
+
+    installPhase = ''
+    install -D './sadmin' "$out/bin/sadmin"
+    '';
+  };
+in
 {
   imports = [ ~/.nixpkgs/local-configuration.nix ];
 
@@ -90,8 +105,18 @@
           openai
           pyflakes
           isort
+          (buildPythonPackage rec {
+            pname = "sadmin-deploy";
+            version = "2.1.0";
+            src = builtins.fetchGit {
+              url = "git@git.scalgo.com:scalgo/sadmin-deploy.git";
+            };
+            propagatedBuildInputs = [ requests ];
+          })
         ]))
 
+        # Scalgo
+        sadmin
     ];
 
   homebrew.enable = true;
@@ -120,6 +145,7 @@
     "element"
     "gramps"
     "josm"
+    "qgis"
 
     "docker"
     "virtualbox-beta"
