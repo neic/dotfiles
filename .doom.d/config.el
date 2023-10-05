@@ -150,6 +150,8 @@
           ("L" "Protocol Link" entry (file "")
            "* %? [[%:link][%:description]] \nCaptured On: %U")
           ))
+  ;; Search recursively for org-agenda files. https://stackoverflow.com/a/41969519
+  (setq org-agenda-files (directory-files-recursively org-directory "\\.org$"))
   )
 
 
