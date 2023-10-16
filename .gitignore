@@ -13,6 +13,8 @@
 .Brewfile.lock.json
 .config/k9s/config.yml
 .colima
+.lima
+.docker
 /.nixpkgs/local-configuration.nix
 
 ### Various history files
