@@ -13,7 +13,7 @@ memory: 48
 
 # Architecture of the virtual machine (x86_64, aarch64, host).
 # Default: host
-arch: x86_64
+arch: aarch64
 
 # Container runtime to be used (docker, containerd).
 # Default: docker
