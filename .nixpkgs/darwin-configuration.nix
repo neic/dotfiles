@@ -111,7 +111,7 @@ in
             src = builtins.fetchGit {
               url = "git@git.scalgo.com:scalgo/sadmin-deploy.git";
             };
-            propagatedBuildInputs = [ requests ];
+            propagatedBuildInputs = [ requests pyaml ];
           })
         ]))
 
