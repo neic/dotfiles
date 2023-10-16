@@ -37,6 +37,7 @@ in
         nixfmt
         nodePackages.stylelint
         pre-commit
+        ruff
         rustfmt
         shellcheck
         shfmt
