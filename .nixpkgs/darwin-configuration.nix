@@ -146,7 +146,6 @@ in
     "josm"
     "qgis"
 
-    "docker"
     "virtualbox-beta"
 
     "steam"
