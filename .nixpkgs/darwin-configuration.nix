@@ -190,6 +190,24 @@ in
       orientation = "left";
       tilesize = 24;
       static-only = true;
+      wvous-bl-corner = 1;  #Disabled
+      wvous-br-corner = 1;  #Disabled
+      wvous-tl-corner = 1;  #Disabled
+      wvous-tr-corner = 1;  #Disabled
+    };
+    finder = {
+      AppleShowAllExtensions = true;
+      AppleShowAllFiles = true;
+      FXPreferredViewStyle = "Nlsv";
+      QuitMenuItem = true;
+      ShowPathbar = true;
+    };
+    loginwindow = {
+      GuestEnabled = false;
+    };
+    menuExtraClock = {
+      ShowDate = 0;
+      ShowSeconds = true;
     };
   };
 
