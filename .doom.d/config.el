@@ -150,6 +150,31 @@
           ("L" "Protocol Link" entry (file "")
            "* %? [[%:link][%:description]] \nCaptured On: %U")
           ))
+  ;; From https://github.com/doomemacs/doomemacs/blob/master/modules/lang/org/config.el
+  (setq org-todo-keywords
+        '((sequence
+           "TODO(t)"  ; A task that needs doing & is ready to do
+           "PROJ(p)"  ; A project, which usually contains other tasks
+           "LOOP(r)"  ; A recurring task
+           "STRT(s!)"  ; A task that is in progress
+           "WAIT(w!)"  ; Something external is holding up this task
+           "HOLD(h!)"  ; This task is paused/on hold because of me
+           "IDEA(i)"  ; An unconfirmed and unapproved task or notion
+           "|"
+           "DONE(d!)"  ; Task successfully completed
+           "KILL(k!)") ; Task was cancelled, aborted or is no longer applicable
+          (sequence
+           "[ ](T)"   ; A task that needs doing
+           "[-](S)"   ; Task is in progress
+           "[?](W)"   ; Task is being held up or paused
+           "|"
+           "[X](D)")  ; Task was completed
+          (sequence
+           "|"
+           "OKAY(o)"
+           "YES(y)"
+           "NO(n)")
+          ))
   ;; Search recursively for org-agenda files. https://stackoverflow.com/a/41969519
   (setq org-agenda-files (directory-files-recursively org-directory "\\.org$"))
   )
