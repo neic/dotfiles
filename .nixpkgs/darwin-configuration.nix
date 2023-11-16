@@ -180,6 +180,7 @@ in
       # Keyboard
       InitialKeyRepeat = 10;
       KeyRepeat = 2;
+      ApplePressAndHoldEnabled = false;  # Accent menu
     };
 
     trackpad = {
