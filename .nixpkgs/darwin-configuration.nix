@@ -127,10 +127,13 @@ in
   homebrew.taps = [
     "homebrew/cask"
     "homebrew/cask-versions"
+    "railwaycat/emacsmacport"
   ];
   homebrew.casks = [
     "google-chrome"
     "firefox"
+
+    "emacs-mac"
 
     "iterm2"
     "gpg-suite"
