@@ -50,3 +50,5 @@
 ;(unpin! t)
 
 (package! gptai)
+(package! wkt-mode
+  :recipe (:host github :repo "orontee/wkt-mode"))
