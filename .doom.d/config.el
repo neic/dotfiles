@@ -217,3 +217,5 @@
   (global-set-key (kbd "C-c g c") 'ai-fix-merge-conflict)
 
 )
+
+(use-package! magit-lfs)

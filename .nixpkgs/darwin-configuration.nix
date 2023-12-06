@@ -59,6 +59,7 @@ in
         findutils
         fzf
         gitFull
+        git-lfs
         gnugrep # emacs
         htop
         jq

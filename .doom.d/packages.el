@@ -52,3 +52,4 @@
 (package! gptai)
 (package! wkt-mode
   :recipe (:host github :repo "orontee/wkt-mode"))
+(package! magit-lfs)
