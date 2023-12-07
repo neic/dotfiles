@@ -177,6 +177,8 @@
           ))
   ;; Search recursively for org-agenda files. https://stackoverflow.com/a/41969519
   (setq org-agenda-files (directory-files-recursively org-directory "\\.org$"))
+  ;; Auto save all org mode buffers after inactivity
+  (add-hook 'auto-save-hook 'org-save-all-org-buffers)
   )
 
 
