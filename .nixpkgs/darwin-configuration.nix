@@ -16,6 +16,16 @@ let
     install -D './sadmin' "$out/bin/sadmin"
     '';
   };
+     pkgs2 = import (builtins.fetchGit {
+       # Use old colima due to https://github.com/abiosoft/colima/issues/855 and
+       # https://github.com/abiosoft/colima/issues/926.
+         name = "my-old-revision";
+         url = "https://github.com/NixOS/nixpkgs/";
+         ref = "refs/heads/nixpkgs-unstable";
+         rev = "9957cd48326fe8dbd52fdc50dd2502307f188b0d";
+     }) {};
+
+     colima_0_5_6 = pkgs2.colima;
 in
 {
   imports = [ ~/.nixpkgs/local-configuration.nix ];
@@ -101,7 +111,7 @@ in
         terraform
 
         # Programming
-        colima
+        colima_0_5_6
         docker-client
         (python310.withPackages(ps: with ps; [
           openai
