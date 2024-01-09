@@ -137,7 +137,6 @@ in
   homebrew.onActivation.cleanup = "zap";
   homebrew.onActivation.upgrade = true;
   homebrew.taps = [
-    "homebrew/cask"
     "homebrew/cask-versions"
     "railwaycat/emacsmacport"
   ];
