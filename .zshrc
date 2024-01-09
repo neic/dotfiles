@@ -34,12 +34,12 @@ bindkey "^[[B" history-beginning-search-forward
 # load some modules
 autoload -U zsh/terminfo # Used in the colour alias below
 if autoload colors && colors 2>/dev/null ; then
-    BLUE="%{${fg[blue]}%}"
-    RED="%{${fg_bold[red]}%}"
+    BLUE="%{${fg[blue]}%}" # $CWD
+    RED="%{${fg_bold[red]}%}" # Exitcode
     GREEN="%{${fg[green]}%}"
-    CYAN="%{${fg[cyan]}%}"
-    MAGENTA="%{${fg[magenta]}%}"
-    YELLOW="%{${fg[yellow]}%}"
+    CYAN="%{${fg[cyan]}%}" # K8s context
+    MAGENTA="%{${fg[magenta]}%}" # Nix-shell context
+    YELLOW="%{${fg[yellow]}%}" # Terraform context
     WHITE="%{${fg[white]}%}"
     NO_COLOR="%{${reset_color}%}"
 else
@@ -230,11 +230,11 @@ fi
 setopt prompt_subst
 
 # User and host
-eval PR_USER_OP='${GREEN}%#${NO_COLOR}'
+eval PR_USER_OP='${WHITE}%#'
 
 if [[ $UID -eq 0 ]]; then # root
-    eval PR_USER='${RED}%n${NO_COLOR}'
-    eval PR_USER_OP='${RED}%#${NO_COLOR}'
+    eval PR_USER='${RED}%n'
+    eval PR_USER_OP='${RED}%#'
 fi
 
 if [[ -n "$SSH_CLIENT" || -n "$SSH2_CLIENT" ]]; then
@@ -242,7 +242,7 @@ if [[ -n "$SSH_CLIENT" || -n "$SSH2_CLIENT" ]]; then
 fi
 
 if [[ -n "$PR_USER" || -n "$PR_HOST" ]]; then
-  eval PR_LOGIN='${PR_USER}${GREEN}@${PR_HOST}'
+  eval PR_LOGIN='${PR_USER}${WHITE}@${PR_HOST}'
 fi
 
 # Contexts
@@ -274,7 +274,7 @@ precmd_functions+=(set_contexts)
 eval PR_RET='%(?..${RED}%?${NO_COLOR} )'
 
 # set the prompt
-PS1=$'${PR_RET}${PR_LOGIN}${PR_NIX}${PR_KUBE}${PR_TF}${BLUE}%~${PR_USER_OP} '
+PS1=$'${PR_RET}${PR_LOGIN}${PR_NIX}${PR_KUBE}${PR_TF}${BLUE}%~${PR_USER_OP}${NO_COLOR} '
 PS2=$'%_>'
 RPROMPT=''
 
