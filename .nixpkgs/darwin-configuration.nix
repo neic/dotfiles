@@ -113,6 +113,7 @@ in
 
         # Programming
         colima_0_5_6
+        dive
         docker-client
         (python310.withPackages(ps: with ps; [
           openai

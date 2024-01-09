@@ -87,6 +87,7 @@ alias ls='ls --color=always --classify'
 alias ll='ls --color=always -l'
 
 alias sa='SADMIN_PASS="$(pass scalgo/sadmin.scalgo.com | head -n1)" sadmin auth'
+alias dive="DOCKER_HOST=$(docker context inspect --format='{{.Endpoints.docker.Host}}') dive"
 
 cle () {
     if [ $(uname) = "Darwin" ]; then
