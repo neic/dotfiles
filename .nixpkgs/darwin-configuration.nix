@@ -54,7 +54,8 @@ in
         yamllint
 
         # LSP
-        clang
+        clang_17
+        clang-tools_17 # clang-format
         nodePackages.bash-language-server
         nodePackages.pyright
         nodePackages.yaml-language-server
