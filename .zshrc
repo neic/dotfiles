@@ -36,7 +36,7 @@ autoload -U zsh/terminfo # Used in the colour alias below
 if autoload colors && colors 2>/dev/null ; then
     BLUE="%{${fg[blue]}%}" # $CWD
     RED="%{${fg_bold[red]}%}" # Exitcode, context errors
-    GREEN="%{${fg[green]}%}"
+    GREEN="%{${fg[green]}%}" # Docker context
     CYAN="%{${fg[cyan]}%}" # K8s context
     MAGENTA="%{${fg[magenta]}%}" # Nix-shell context
     YELLOW="%{${fg[yellow]}%}" # Terraform context
@@ -253,6 +253,8 @@ turn_on_contexts() {
       export CTX_KUBE=true
   elif [[ "$current_cmd" =~ ^"terraform" ]]; then
       export CTX_TF=true
+  elif [[ "$current_cmd" =~ ^"colima|docker|docker-compose|podman" ]]; then
+      export CTX_DO=true
   fi
 }
 preexec_functions+=(turn_on_contexts)
@@ -271,6 +273,13 @@ set_contexts() {
     if [[ $CTX_TF ]]; then
         eval PR_TF='${YELLOW}󱁢\ $(command terraform workspace show)\ '
     fi
+    if [[ $CTX_DO ]]; then
+      if command colima status &> /dev/null; then
+        eval PR_DO='${GREEN}󰡨󰐊\ '
+      else
+        eval PR_DO='${RED}󰡨󰓛\ '
+      fi
+    fi
 }
 precmd_functions+=(set_contexts)
 
@@ -278,7 +287,7 @@ precmd_functions+=(set_contexts)
 eval PR_RET='%(?..${RED}%?${NO_COLOR} )'
 
 # set the prompt
-PS1=$'${PR_RET}${PR_LOGIN}${PR_NIX}${PR_KUBE}${PR_TF}${BLUE}%~${PR_USER_OP}${NO_COLOR} '
+PS1=$'${PR_RET}${PR_LOGIN}${PR_NIX}${PR_KUBE}${PR_TF}${PR_DO}${BLUE}%~${PR_USER_OP}${NO_COLOR} '
 PS2=$'%_>'
 RPROMPT=''
 
