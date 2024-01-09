@@ -88,8 +88,6 @@ alias ll='ls --color=always -l'
 
 alias sa='SADMIN_PASS="$(pass scalgo/sadmin.scalgo.com | head -n1)" sadmin auth'
 
-alias gitlab-run='docker run --rm -v $PWD:$PWD -v /var/run/docker.sock:/var/run/docker.sock --workdir $PWD gitlab/gitlab-runner exec docker'
-
 cle () {
     if [ $(uname) = "Darwin" ]; then
         print -P "${BLUE}Cleaning homebrew software${NO_COLOR}"
