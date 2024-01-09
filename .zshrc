@@ -35,7 +35,7 @@ bindkey "^[[B" history-beginning-search-forward
 autoload -U zsh/terminfo # Used in the colour alias below
 if autoload colors && colors 2>/dev/null ; then
     BLUE="%{${fg[blue]}%}" # $CWD
-    RED="%{${fg_bold[red]}%}" # Exitcode
+    RED="%{${fg_bold[red]}%}" # Exitcode, context errors
     GREEN="%{${fg[green]}%}"
     CYAN="%{${fg[cyan]}%}" # K8s context
     MAGENTA="%{${fg[magenta]}%}" # Nix-shell context
@@ -259,13 +259,17 @@ preexec_functions+=(turn_on_contexts)
 
 set_contexts() {
     if [[ -v IN_NIX_SHELL ]]; then
-        eval PR_NIX='${MAGENTA}󱄅${IN_NIX_SHELL:0:2}\(${NO_COLOR}${NIX_SHELL_PACKAGES}${MAGENTA}\)\ '
+        eval PR_NIX='${MAGENTA}󱄅${IN_NIX_SHELL:0:1}\(${NO_COLOR}${NIX_SHELL_PACKAGES}${MAGENTA}\)\ '
     fi
     if [[ $CTX_KUBE ]]; then
-        eval PR_KUBE='${CYAN}󱃾$(command kubectl config current-context)\ '
+      if command kubectl config current-context &> /dev/null; then
+        eval PR_KUBE='${CYAN}󱃾\ $(command kubectl config current-context)\ '
+      else
+        eval PR_KUBE='${RED}󱃾\ no\ context\ '
+      fi
     fi
     if [[ $CTX_TF ]]; then
-        eval PR_TF='${YELLOW}󱁢$(command terraform workspace show)\ '
+        eval PR_TF='${YELLOW}󱁢\ $(command terraform workspace show)\ '
     fi
 }
 precmd_functions+=(set_contexts)
