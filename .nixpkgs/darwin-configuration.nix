@@ -99,7 +99,7 @@ in
         atomicparsley
         ffmpeg
         imagemagick
-        youtube-dl
+        yt-dlp
 
         # Infrastructure CLIs
         glab
@@ -109,7 +109,7 @@ in
         k9s
         kubectl
         kubectx
-        terraform
+        opentofu
 
         # Programming
         colima_0_5_6
