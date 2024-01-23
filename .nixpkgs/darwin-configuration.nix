@@ -130,6 +130,7 @@ in
         ]))
 
         # Scalgo
+        gdal
         sadmin
     ];
 
