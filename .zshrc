@@ -24,9 +24,6 @@ if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/key-bindings.zsh"
 fi
 
-bindkey "^[[A" history-beginning-search-backward
-bindkey "^[[B" history-beginning-search-forward
-
 #-----------------------------
 # Colors
 #-----------------------------
@@ -133,18 +130,6 @@ up () {
         doom upgrade
         doom sync
     fi
-
-    if (( $+commands[tlmgr] )); then
-        print -P "${BLUE}Updating TeX Live${NO_COLOR}"
-        sudo tlmgr update --self
-        sudo tlmgr update --all
-    fi
-}
-
-pipup () {
-    pip3 --version
-    pip3 install --upgrade pip
-    pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 $1 install -U
 }
 
 ec () {
@@ -203,10 +188,6 @@ function prune_local_branches () {
     git branch -vv | grep ': gone]' | awk '{print $1}' | xargs --no-run-if-empty git branch -D
     git branch --merged | egrep -v "(^\*|master|main|dev)" | xargs --no-run-if-empty git branch -d
 }
-
-
-alias notify='terminal-notifier -title "Terminal" -message "Done with task! Exit status: $?" -activate com.apple.Terminal'
-
 
 flushdns () {
     if [ $(uname) = "Darwin" ]; then
