@@ -1,72 +1,44 @@
 /*
-!.*
+!/.*
 
-.ssh
-!.ssh/config
-.gitconfig
-.emacs.d
-.yas-compiled-snippets.el
-.gitignore-boilerplates
-.java_base.tag
-.Thrash/
-.zcompdump
-.Brewfile.lock.json
-.config/k9s/config.yml
-.colima
-.lima
-.docker
+/.CFUserTextEncoding
+/.DS_Store
+/.Trash
+/.cache
+/.colima
+!/.colima/_templates/default.yaml
+#/.config
+/.config/k9s/
+/.config/htop/
+/.config/iterm2/
+/.cups
+/.docker
+#/.doom.d
+/.emacs.d
+/.gitconfig
+#/.gitignore
+/.gnupg*
+/.grass7
+#/.install.md
+/.lesshst
+/.lima
+/.local
+/.nix-channels
+/.nix-defexpr
+/.nix-profile
+#/.nixpkgs
 /.nixpkgs/local-configuration.nix
-
-### Various history files
-.*_history
-.histfile
-.ido.last
-.lesshst
-.octave_hist
-
-### This i gernerated with gibo Emacs OSX >> .gitignore
-
-### https://raw.github.com/github/gitignore/master/Global/Emacs.gitignore
-
-# -*- mode: gitignore; -*-
-*~
-\#*\#
-/.emacs.desktop
-/.emacs.desktop.lock
-*.elc
-auto-save-list
-tramp
-.\#*
-
-# Org-mode
-.org-id-locations
-*_archive
-
-# flymake-mode
-*_flymake.*
-
-# eshell files
-/eshell/history
-/eshell/lastdir
-
-# elpa packages
-/elpa/
-
-
-### https://raw.github.com/github/gitignore/master/Global/OSX.gitignore
-
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Icon must ends with two \r.
-Icon
-
-# Thumbnails
-._*
-
-# Files that might appear on external disk
-.Spotlight-V100
-.Trashes
-
-
+/.password-store
+/.python_history
+#/.rtorrent.rc
+/.ruff_cache
+/.ssh
+!/.ssh/config
+/.terraform.d
+/.zcompdump
+/.zprofile
+/.zsh_history
+/.zsh_sessions
+#/.zshenv
+#/.zshplugins
+#/.zshrc
