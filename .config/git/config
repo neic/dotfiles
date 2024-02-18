@@ -12,3 +12,5 @@
 	pushDefault = origin
 [branch]
 	autoSetupMerge = inherit
+[merge]
+	conflictstyle = zdiff3
