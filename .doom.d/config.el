@@ -122,6 +122,9 @@
                '("ssh" "zsh"))
   )
 
+(setq! directory-abbrev-alist
+       '(("\\`/Users/.*/Library/Mobile Documents/com~apple~CloudDocs/org" . "~/org")))
+
 (after! org
   (setq org-startup-folded t)
   (setq org-modules '(org-id))
