@@ -123,7 +123,7 @@
   )
 
 (setq! directory-abbrev-alist
-       '(("\\`/Users/.*/Library/Mobile Documents/com~apple~CloudDocs/org" . "~/org")))
+       '(("\\`/Users/.*/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org" . "~/org")))
 
 (after! org
   (setq org-startup-folded t)
