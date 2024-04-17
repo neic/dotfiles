@@ -152,6 +152,7 @@ in
 
     "iterm2"
     "gpg-suite"
+    "docker"
 
     "little-snitch"
     "flux"
