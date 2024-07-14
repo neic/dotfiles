@@ -49,7 +49,7 @@ in
         black
         dockfmt
         jsbeautifier
-        nixfmt
+        nixfmt-classic
         nodePackages.stylelint
         pre-commit
         ruff
@@ -59,11 +59,11 @@ in
         yamllint
 
         # LSP
-        clang_17
         clang-tools_17 # clang-format
+        clang_17
         nodePackages.bash-language-server
-        nodePackages.pyright
         nodePackages.yaml-language-server
+        pyright
         rust-analyzer
         terraform-lsp
 
@@ -139,18 +139,6 @@ in
         gdal
         sadmin
     ];
-  nixpkgs.overlays = [
-    (final: prev: {
-      dive = prev.dive.overrideAttrs (old: {
-        patches = (old.patches or {}) ++ [
-          (prev.fetchpatch {
-            url = "https://github.com/wagoodman/dive/pull/473.patch";
-            hash = "sha256-7goeSeHfE3QLdgM2sUkgxEeywAqcfFBd9TSteAABY0o=";
-          })
-        ];
-      });
-    })
-  ];
 
   homebrew.enable = true;
   homebrew.onActivation.autoUpdate = true;
@@ -180,8 +168,6 @@ in
     "gramps"
     "josm"
     "qgis"
-
-    "virtualbox-beta"
 
     "steam"
     "discord"
