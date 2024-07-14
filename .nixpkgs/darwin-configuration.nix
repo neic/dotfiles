@@ -16,6 +16,21 @@ let
     install -D './sadmin' "$out/bin/sadmin"
     '';
   };
+  kyrat = pkgs.stdenv.mkDerivation rec {
+    pname = "kyrat";
+    version = "1";
+
+    src = builtins.fetchGit {
+      url = "git@github.com:fsquillace/kyrat.git";
+      ref = "master";
+    };
+    nativeBuildInputs = [ pkgs.installShellFiles ];
+
+    installPhase = ''
+    install -D './lib/core.sh' "$out/lib/core.sh"
+    install -D './bin/kyrat' "$out/bin/kyrat"
+    '';
+  };
 in
 {
   imports = [ ~/.nixpkgs/local-configuration.nix ];
@@ -74,6 +89,7 @@ in
         yq-go
 
         # Network
+        kyrat
         nmap
         openssh
         rsync

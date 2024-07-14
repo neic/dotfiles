@@ -53,3 +53,9 @@ export DOCKER_BUILDKIT="1"
 
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 export K9SCONFIG=~/.config/k9s
+
+#------------------------------
+# Kyrat
+#------------------------------
+
+export KYRAT_SHELL=zsh
