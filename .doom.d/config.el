@@ -113,7 +113,12 @@
 
 (after! magit
   (setq magit-save-repository-buffers 'dontask)
-  (add-hook 'git-commit-setup-hook 'end-of-line))
+  (add-hook 'git-commit-setup-hook 'end-of-line)
+  (transient-append-suffix 'magit-push "-u"
+    '(1 "=s" "Skip gitlab pipeline" "--push-option=ci.skip"))
+  (transient-append-suffix 'magit-push "=s"
+    '(1 "=m" "Create MR" "--push-option=merge_request.create"))
+  )
 
 (after! vterm
   (define-key vterm-mode-map (kbd "C-q") #'vterm-send-next-key)
