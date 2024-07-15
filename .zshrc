@@ -32,7 +32,7 @@ fi
 autoload -U zsh/terminfo # Used in the colour alias below
 if autoload colors && colors 2>/dev/null ; then
     BLUE="%{${fg[blue]}%}" # $CWD
-    RED="%{${fg_bold[red]}%}" # Exitcode, context errors
+    RED="%{${fg[red]}%}" # Exitcode, context errors
     GREEN="%{${fg[green]}%}" # Docker context
     CYAN="%{${fg[cyan]}%}" # K8s context
     MAGENTA="%{${fg[magenta]}%}" # Nix-shell context
