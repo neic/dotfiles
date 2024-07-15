@@ -184,8 +184,7 @@ in
     "Xcode" = 497799835;
   };
 
-  fonts.fontDir.enable = true;
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     (nerdfonts.override {
       fonts = [
         "IBMPlexMono"
