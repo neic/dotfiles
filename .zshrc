@@ -32,11 +32,11 @@ fi
 autoload -U zsh/terminfo # Used in the colour alias below
 if autoload colors && colors 2>/dev/null ; then
     BLUE="%{${fg[blue]}%}" # $CWD
-    RED="%{${fg[red]}%}" # Exitcode, context errors
+    RED="%{${fg[red]}%}" # Exitcode, context errors, root username
     GREEN="%{${fg[green]}%}" # Docker context
     CYAN="%{${fg[cyan]}%}" # K8s context
     MAGENTA="%{${fg[magenta]}%}" # Nix-shell context
-    YELLOW="%{${fg[yellow]}%}" # Terraform context
+    YELLOW="%{${fg[yellow]}%}" # Terraform context, other usernames, hostname
     WHITE="%{${fg[white]}%}"
     NO_COLOR="%{${reset_color}%}"
 else
@@ -211,19 +211,22 @@ fi
 setopt prompt_subst
 
 # User and host
-eval PR_USER_OP='${WHITE}%#'
-
 if [[ $UID -eq 0 ]]; then # root
     eval PR_USER='${RED}%n'
     eval PR_USER_OP='${RED}%#'
+elif [[ ! ($USER -eq 'neic' || $USER -eq 'md') ]]; then
+    eval PR_USER='${YELLOW}%n'
+    eval PR_USER_OP='${YELLOW}%#'
+else
+    eval PR_USER_OP='${WHITE}%#'
 fi
 
 if [[ -n "$SSH_CLIENT" || -n "$SSH2_CLIENT" ]]; then
-    eval PR_HOST='${RED}%M${NO_COLOR}'
+  eval PR_HOST='${YELLOW}%M${NO_COLOR}'
 fi
 
 if [[ -n "$PR_USER" || -n "$PR_HOST" ]]; then
-  eval PR_LOGIN='${PR_USER}${WHITE}@${PR_HOST}'
+  eval PR_LOGIN='${PR_USER}${WHITE}@${PR_HOST}\ '
 fi
 
 # Contexts
