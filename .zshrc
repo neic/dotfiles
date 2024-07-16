@@ -262,7 +262,7 @@ set_contexts() {
         eval PR_TF='${YELLOW}󱁢\ $(command terraform workspace show)\ '
     fi
     if [[ $CTX_DO ]]; then
-      if command colima status &> /dev/null; then
+      if command colima status &> /dev/null || command docker info &> /dev/null; then
         eval PR_DO='${GREEN}󰡨󰐊\ '
       else
         eval PR_DO='${RED}󰡨󰓛\ '
