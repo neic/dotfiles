@@ -27,6 +27,8 @@ PATH="${PATH:+${PATH}:}${HOME}/Documents/bin"
 # Editor
 #------------------------------
 
+export EMACS_SOCKET_NAME=~/.emacs.d/server
+
 if [ $(uname) = "Darwin" ]; then
     export EDITOR="emacsclient -nw -a nano"
 else

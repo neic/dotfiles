@@ -107,6 +107,10 @@
   (setq lsp-file-watch-threshold 3500)
   )
 
+;; Set server socket elsewhere than $TMPDIR as it is not preserved in nix-shell.
+;; https://github.com/NixOS/nix/pull/7492
+(setq server-socket-dir "~/.emacs.d/")
+
 ;; -----------
 ;; Major modes
 ;; -----------
