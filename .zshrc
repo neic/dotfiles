@@ -86,6 +86,10 @@ alias ll='ls --color=always -l'
 alias sa='SADMIN_PASS="$(pass scalgo/sadmin.scalgo.com | head -n1)" sadmin auth'
 alias dive='DOCKER_HOST="$(docker context inspect --format='{{.Endpoints.docker.Host}}')" dive'
 
+if [[ -n $KYRAT_HOME ]]; then
+  alias sudo='sudo --preserve-env=ZDOTDIR ONFOREIGNHOST=true'
+fi
+
 cle () {
     if [ $(uname) = "Darwin" ]; then
         print -P "${BLUE}Cleaning homebrew software${NO_COLOR}"
@@ -221,7 +225,7 @@ else
     eval PR_USER_OP='${WHITE}%#'
 fi
 
-if [[ -n "$SSH_CLIENT" || -n "$SSH2_CLIENT" ]]; then
+if [[ -n "$SSH_CLIENT" || -n "$SSH2_CLIENT" || -n "$ONFOREIGNHOST" ]]; then
   eval PR_HOST='${YELLOW}%M${NO_COLOR}'
 fi
 
