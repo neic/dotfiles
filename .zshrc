@@ -1,17 +1,7 @@
-###########################################
-#  .zshrc -- zsh resource file            #
-#                                         #
-# Author: Mathias Dannesbo <neic@neic.dk> #
-# Time-stamp: <2016-01-20 11:01:15 (neic)>#
-#                                         #
-# Is sourced if interactive.              #
-###########################################
-
 set noclobber
 
-#------------------------------
-# History stuff
-#------------------------------
+# History
+#--------
 export HISTFILE=~/.zsh_history
 export HISTSIZE=12000
 export SAVEHIST=10000
@@ -24,9 +14,8 @@ if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/key-bindings.zsh"
 fi
 
-#-----------------------------
 # Colors
-#-----------------------------
+#-------
 
 # load some modules
 autoload -U zsh/terminfo # Used in the colour alias below
@@ -50,9 +39,8 @@ else
     NO_COLOR=$'%{\e[0m%}'
 fi
 
-#------------------------------
 # Completion
-#------------------------------
+#-----------
 
 # Add current nix system to ZSH path to enable completion of installed packages.
 # This is likely a upstream bug, but I haven't investigated. See
@@ -76,9 +64,8 @@ if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/completion.zsh"
 fi
 
-#------------------------------
 # Aliases
-#------------------------------
+#--------
 
 alias ls='ls --color=always --classify'
 alias ll='ls --color=always -l'
@@ -215,9 +202,8 @@ if [[ -f ~/.zshplugins/zsh-nix-shell/nix-shell.plugin.zsh ]]; then
     source ~/.zshplugins/zsh-nix-shell/nix-shell.plugin.zsh
 fi
 
-#------------------------------
 # Prompt
-#------------------------------
+#-------
 
 if [ -n "${functions[prompt]}" ]; then
   prompt off
@@ -343,9 +329,8 @@ add-zsh-hook precmd __cmdtime_display_cmdtime_precmd
 # END OF `cmdtime.plugin.zsh`
 
 
-#------------------------------
 # (Emacs) vterm
-#------------------------------
+#--------------
 
 if [[ "$INSIDE_EMACS" = 'vterm' ]] \
     && [[ -n ${EMACS_VTERM_PATH} ]] \
@@ -353,9 +338,8 @@ if [[ "$INSIDE_EMACS" = 'vterm' ]] \
 	source ${EMACS_VTERM_PATH}/etc/emacs-vterm-zsh.sh
 fi
 
-#------------------------------
 # Dumb terminal
-#------------------------------
+#--------------
 
 # Overwrite fancy setting if the terminal is dumb.
 if [[ "$TERM" == "dumb" ]]
