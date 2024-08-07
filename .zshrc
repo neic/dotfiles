@@ -86,6 +86,16 @@ alias ll='ls --color=always -l'
 alias sa='SADMIN_PASS="$(pass scalgo/sadmin.scalgo.com | head -n1)" sadmin auth'
 alias dive='DOCKER_HOST="$(docker context inspect --format='{{.Endpoints.docker.Host}}')" dive'
 
+ksh () {
+  # ssh to a host using kyrat to bring along the dotfiles, starts a screen and
+  # sets the window/tab title to the hostname.
+
+  echo -e "\e];$1\e\\" # Note the last character is ESC \, the String terminator
+                       # C1 control code, not a double escaped double quote.
+  kyrat $1 -- screen -DR
+  echo -e "\e];\e\\"
+}
+
 if [[ -n $KYRAT_HOME ]]; then
   alias sudo='sudo --preserve-env=ZDOTDIR ONFOREIGNHOST=true'
 fi
