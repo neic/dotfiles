@@ -237,7 +237,7 @@ turn_on_contexts() {
       export CTX_KUBE=true
   elif [[ "$current_cmd" =~ ^"terraform" ]]; then
       export CTX_TF=true
-  elif [[ "$current_cmd" =~ ^"colima|docker|docker-compose|podman" ]]; then
+  elif [[ "$current_cmd" =~ ^"colima|docker|podman" ]]; then
       export CTX_DO=true
   fi
 }
