@@ -185,11 +185,8 @@ in
   };
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts = [
-        "IBMPlexMono"
-        "NerdFontsSymbolsOnly"
-      ]; })
+    nerd-fonts.blex-mono
+    nerd-fonts.symbols-only
   ];
 
   system.defaults = {
