@@ -10,10 +10,6 @@ export LANG=en_US.UTF-8
 # Nix changes the PATH in `/nix/store/<hash>-set-environment` via
 # `/etc/zsh_env`. Homebrew changes the PATH in `.zprofile`.
 
-# MacPorts
-PATH="${PATH:+${PATH}:}/opt/local/bin:/opt/local/sbin:"
-MANPATH="${MANPATH:+${MANPATH}:}/opt/local/share/man:"
-
 if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
     PATH="${PATH:+${PATH}:}/usr/local/opt/fzf/bin"
 fi

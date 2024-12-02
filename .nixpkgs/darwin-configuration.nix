@@ -43,6 +43,7 @@ in
   environment.systemPackages = with pkgs; [
         # Applications
         browserpass
+        emacs-macport
         gnupg
         pass
 
@@ -151,13 +152,10 @@ in
   homebrew.onActivation.upgrade = true;
   homebrew.taps = [
     "homebrew/cask-versions"
-    "railwaycat/emacsmacport"
   ];
   homebrew.casks = [
     "google-chrome"
     "firefox"
-
-    "emacs-mac"
 
     "iterm2"
     "gpg-suite"
