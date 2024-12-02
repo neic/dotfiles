@@ -123,6 +123,7 @@
   (transient-append-suffix 'magit-push "=s"
     '(1 "=m" "Create MR" "--push-option=merge_request.create"))
   )
+(use-package! magit-lfs)
 
 (after! vterm
   (define-key vterm-mode-map (kbd "C-q") #'vterm-send-next-key)
@@ -186,8 +187,6 @@
   )
 
 
-
-(use-package! magit-lfs)
 (use-package ellama
   :demand t
   :bind ("C-c g" . ellama-transient-main-menu)
