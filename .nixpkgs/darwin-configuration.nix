@@ -43,9 +43,15 @@ in
   environment.systemPackages = with pkgs; [
         # Applications
         browserpass
+        discord
         emacs-macport
         gnupg
+        iterm2
+        josm
+        karabiner-elements
         pass
+        spotify
+        wireshark
 
         # Spelling
         (aspellWithDicts (ds: [ ds.en ds.da]))
@@ -154,31 +160,19 @@ in
     "homebrew/cask-versions"
   ];
   homebrew.casks = [
-    "google-chrome"
-    "firefox"
-
-    "iterm2"
-    "gpg-suite"
-    "docker"
-
-    "little-snitch"
-    "flux"
-    "nextcloud"
-    "karabiner-elements"
-
-    "thunderbird"
-    "element"
-    "gramps"
-    "josm"
-    "qgis"
-
-    "steam"
-    "discord"
-
-    "vlc"
-    "spotify"
-
-    "wireshark"
+    "docker"  # not in nixpkg
+    "element" # nixpkg not build for darwin
+    "firefox" # nixpkg not build for darwin
+    "flux" # nixpkg not build for darwin
+    "google-chrome" # not in nixpkg
+    "gpg-suite" # not in nixpkg
+    "gramps" # nixpkg does not include .app
+    "little-snitch" # nixpkg not build for darwin
+    "nextcloud" # nixpkg not build for darwin
+    "qgis" # nixpkg not build for darwin
+    "steam" # nixpkg not build for darwin
+    "virtualbox@beta" # nixpkg not build for darwin
+    "vlc" # nixpkg not build for darwin
   ];
   homebrew.masApps = {
     "Tailscale" = 1475387142;
