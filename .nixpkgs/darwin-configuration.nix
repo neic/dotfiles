@@ -169,6 +169,7 @@ in
     "gramps" # nixpkg does not include .app
     "little-snitch" # nixpkg not build for darwin
     "nextcloud" # nixpkg not build for darwin
+    "ollama" # nixpkg does not include .app
     "qgis" # nixpkg not build for darwin
     "steam" # nixpkg not build for darwin
     "virtualbox@beta" # nixpkg not build for darwin

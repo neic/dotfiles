@@ -186,42 +186,37 @@
   )
 
 
-(use-package! gptai)
-;;(setq gptai-api-key "")
-(setq gptai-username "md@magenta-aps.dk")
-;;(setq gptai-org "org-oABnHRQlPUh176CjMBtt11Ao")
-(setq gptai-model "gpt-4")
-
-(after! gptai
-  (defun ai-replace (prompt)
-    (let ((gptai-prompt (concat prompt
-                            (buffer-substring-no-properties
-                             (region-beginning)
-                             (region-end))
-                          )))
-    (let ((response (gptai-turbo-request gptai-prompt)))
-      (delete-region (region-beginning)
-                     (region-end))
-      (insert response))))
-
-  (defun ai-shorten-commit-message ()
-    "Shorten a commit message in region to less than 50 characters."
-    (interactive)
-    (ai-replace "Shorten this git commit message to be shorter than 50 characters.\n")
-    )
-  (global-set-key (kbd "C-c g s") 'ai-shorten-commit-message)
-
-  (defun ai-fix-merge-conflict ()
-    (interactive)
-    (let ((gptai-prompt (concat "How do I fix the following git merge conflict?\n"
-                        (buffer-substring-no-properties
-                             (region-beginning)
-                             (region-end))
-                          )))
-    (gptai-turbo-query gptai-prompt)
-    ))
-  (global-set-key (kbd "C-c g c") 'ai-fix-merge-conflict)
-
-)
 
 (use-package! magit-lfs)
+(use-package ellama
+  :demand t
+  :bind ("C-c g" . ellama-transient-main-menu)
+  :init
+  (setopt ellama-auto-scroll t)
+  (require 'llm-ollama)
+  (setopt ellama-provider
+          (make-llm-ollama
+           :chat-model "llama3.2:3b"
+           :embedding-model "nomic-embed-text"
+           :default-chat-non-standard-params '(("num_ctx" . 8192))))
+  (setopt ellama-summarization-provider
+          (make-llm-ollama
+           :chat-model "llama3.2:3b"
+           :embedding-model "nomic-embed-text"
+           :default-chat-non-standard-params '(("num_ctx" . 32768))))
+  (setopt ellama-coding-provider
+          (make-llm-ollama
+           :chat-model "qwen2.5-coder:14b-instruct-q6_K"
+           :embedding-model "nomic-embed-text"
+           :default-chat-non-standard-params '(("num_ctx" . 32768))))
+  (setopt ellama-naming-provider
+          (make-llm-ollama
+           :chat-model "llama3.2:3b"
+           :embedding-model "nomic-embed-text"
+           :default-chat-non-standard-params '(("stop" . ("\n")))))
+  (setopt ellama-naming-scheme 'ellama-generate-name-by-llm)
+  (setopt ellama-translation-provider
+          (make-llm-ollama
+           :chat-model "llama3.2:3b"
+           :embedding-model "nomic-embed-text"
+           :default-chat-non-standard-params '(("num_ctx" . 32768)))))
