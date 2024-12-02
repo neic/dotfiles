@@ -54,3 +54,5 @@
   :recipe (:host github :repo "orontee/wkt-mode"))
 (package! magit-lfs)
 (package! ellama)
+(package! ultra-scroll-mac
+  :recipe (:host github :repo "jdtsmith/ultra-scroll-mac"))

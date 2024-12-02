@@ -111,6 +111,14 @@
 ;; https://github.com/NixOS/nix/pull/7492
 (setq server-socket-dir "~/.emacs.d/")
 
+(use-package ultra-scroll-mac
+  :if (eq window-system 'mac)
+  :init
+  (setq scroll-conservatively 101 ; important!
+        scroll-margin 0)
+  :config
+  (ultra-scroll-mac-mode 1))
+
 ;; -----------
 ;; Major modes
 ;; -----------
