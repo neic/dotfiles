@@ -31,9 +31,14 @@ let
     install -D './bin/kyrat' "$out/bin/kyrat"
     '';
   };
+  mac-app-util-src = builtins.fetchTarball "https://github.com/hraban/mac-app-util/archive/master.tar.gz";
+  mac-app-util = import mac-app-util-src {};
 in
 {
-  imports = [ ~/.nixpkgs/local-configuration.nix ];
+  imports = [
+    mac-app-util.darwinModules.default
+    ~/.nixpkgs/local-configuration.nix
+  ];
 
   environment.systemPackages = with pkgs; [
         # Applications
