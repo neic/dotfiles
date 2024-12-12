@@ -194,6 +194,10 @@
   (add-hook 'auto-save-hook 'org-save-all-org-buffers)
   )
 
+(after! apheleia
+  (setf (alist-get 'terraform apheleia-formatters)
+        '("tofu" "fmt" "-"))
+  )
 
 (use-package ellama
   :demand t
