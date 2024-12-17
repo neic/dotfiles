@@ -39,6 +39,11 @@
 
 (setq doom-vibrant-brighter-comments t)
 (setq doom-one-light-brighter-comments t)
+(custom-set-faces!
+  `(corfu-default :background ,(doom-color 'base2))
+  `(corfu-current :background ,(doom-blend 'highlight 'bg 0.2))
+  `(corfu-border :background ,(doom-color 'base6))
+ )
 
 (setq doom-theme (theme-variant))
 (add-hook 'mac-effective-appearance-change-hook #'(lambda () (load-theme (theme-variant) 1)))
