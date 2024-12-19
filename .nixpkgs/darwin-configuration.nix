@@ -76,6 +76,7 @@ in
         iterm2
         josm
         karabiner-elements
+        ollama # There is a launchd.user.agents further down.
         pass
         spotify
         wireshark
@@ -196,7 +197,6 @@ in
     "gramps" # nixpkg does not include .app
     "little-snitch" # nixpkg not build for darwin
     "nextcloud" # nixpkg not build for darwin
-    "ollama" # nixpkg does not include .app
     "qgis" # nixpkg not build for darwin
     "steam" # nixpkg not build for darwin
     "virtualbox@beta" # nixpkg not build for darwin
@@ -215,6 +215,15 @@ in
   ];
 
   launchd.user.agents = {
+    ollama-serve = {
+      command = "${pkgs.ollama}/bin/ollama serve";
+      serviceConfig = {
+        KeepAlive = true;
+        RunAtLoad = true;
+        StandardOutPath = "/tmp/ollama-serve.out.log";
+        StandardErrorPath = "/tmp/ollama-serve.err.log";
+      };
+    };
     org-pull = {
       command = "${pkgs.gitFull}/bin/git -C ~/org pull";
       serviceConfig = {
