@@ -214,6 +214,17 @@ in
     nerd-fonts.symbols-only
   ];
 
+  launchd.user.agents = {
+    org-pull = {
+      command = "${pkgs.gitFull}/bin/git -C ~/org pull";
+      serviceConfig = {
+        StartInterval = 60;
+        StandardOutPath = "/tmp/org-pull.out.log";
+        StandardErrorPath = "/tmp/org-pull.err.log";
+      };
+    };
+  };
+
   system.defaults = {
     NSGlobalDomain = {
       # Keyboard

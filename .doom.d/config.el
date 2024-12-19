@@ -116,6 +116,12 @@
 ;; https://github.com/NixOS/nix/pull/7492
 (setq server-socket-dir "~/.emacs.d/")
 
+(after! git-auto-commit-mode
+  (setq gac-automatically-push-p t)
+  (setq gac-automatically-add-new-files-p t)
+  (setq gac-debounce-interval 5)
+)
+
 (use-package ultra-scroll-mac
   :if (eq window-system 'mac)
   :init
@@ -145,8 +151,6 @@
                '("ssh" "zsh"))
   )
 
-(setq! directory-abbrev-alist
-       '(("\\`/Users/.*/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org" . "~/org")))
 
 (after! org
   (setq org-startup-folded t)
