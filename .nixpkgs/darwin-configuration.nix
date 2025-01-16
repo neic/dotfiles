@@ -31,6 +31,12 @@ let
     install -D './bin/kyrat' "$out/bin/kyrat"
     '';
   };
+  pkgs_2023-12-26 = import (builtins.fetchTarball {
+    url = "https://github.com/NixOS/nixpkgs/archive/c407032be28ca2236f45c49cfb2b8b3885294f7f.tar.gz";
+    sha256="1a95d5g5frzgbywpq7z0az8ap99fljqk3pkm296asrvns8qcv5bv";
+  }) {};
+  ruff_0_8_1 = pkgs_2023-12-26.ruff;
+
   mac-app-util = import (builtins.fetchTarball {
     url= "https://github.com/hraban/mac-app-util/archive/548672d0cb661ce11d08ee8bde92b87d2a75c872.tar.gz";
     sha256="1w80vjcnaysjlzxsp3v4pxq4yswbjvxs8ann2bk0m7rkjljnzz6m";
@@ -94,7 +100,7 @@ in
         nixfmt-classic
         nodePackages.stylelint
         pre-commit
-        ruff
+        ruff_0_8_1
         rustfmt
         shellcheck
         shfmt
