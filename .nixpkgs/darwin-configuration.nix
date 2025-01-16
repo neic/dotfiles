@@ -205,7 +205,6 @@ in
   homebrew.masApps = {
     "Tailscale" = 1475387142;
     "Microsoft Remote Desktop" = 1295203466;
-    "DaVinci Resolve" = 571213070;
     "Xcode" = 497799835;
   };
 
