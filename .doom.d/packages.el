@@ -55,5 +55,5 @@
 (package! magit-lfs)
 (package! ellama)
 (package! git-auto-commit-mode)
-(package! ultra-scroll-mac
-  :recipe (:host github :repo "jdtsmith/ultra-scroll-mac"))
+(package! ultra-scroll
+  :recipe (:host github :repo "jdtsmith/ultra-scroll"))

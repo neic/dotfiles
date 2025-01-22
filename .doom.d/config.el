@@ -122,13 +122,13 @@
   (setq gac-debounce-interval 5)
 )
 
-(use-package ultra-scroll-mac
+(use-package ultra-scroll
   :if (eq window-system 'mac)
   :init
   (setq scroll-conservatively 101 ; important!
         scroll-margin 0)
   :config
-  (ultra-scroll-mac-mode 1))
+  (ultra-scroll-mode 1))
 
 ;; -----------
 ;; Major modes
