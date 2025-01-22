@@ -161,7 +161,7 @@ in
         colima
         dive
         docker-client
-        (python310.withPackages(ps: with ps; [
+        (python312.withPackages(ps: with ps; [  # Same version as Ubuntu 24.04
           openai
           pyflakes
           isort
