@@ -73,6 +73,10 @@ alias ll='ls --color=always -l'
 alias sa='SADMIN_PASS="$(pass scalgo/sadmin.scalgo.com | head -n1)" sadmin auth'
 alias dive='DOCKER_HOST="$(docker context inspect --format='{{.Endpoints.docker.Host}}')" dive'
 
+if [ $(uname) = "Darwin" ]; then
+alias tailscale='/Applications/Tailscale.app/Contents/MacOS/Tailscale'
+fi
+
 ksh () {
   # ssh to a host using kyrat to bring along the dotfiles, starts a screen and
   # sets the window/tab title to the hostname.
