@@ -88,49 +88,62 @@ if [[ -n $KYRAT_HOME ]]; then
 fi
 
 cle () {
-    if [ $(uname) = "Darwin" ]; then
-        print -P "${BLUE}Cleaning homebrew software${NO_COLOR}"
-        brew cleanup
-    elif [[ $(uname) = "Linux" && $(lsb_release -si) = "Ubuntu" ]]; then
-        print -P "${BLUE}Cleaning software from apt-get${NO_COLOR}"
-        sudo apt-get autoremove
-        sudo apt-get autoclean
-    else
-        print "Cleaning failed: OS is not macOS or Ubuntu"
-    fi
+  only=${1-sys nix doom}
 
-    if (( $+commands[nix-collect-garbage] )); then
-        print -P "${BLUE}Cleaning nix${NO_COLOR}"
-        nix-collect-garbage --delete-older-than 30d
-    fi
+  if [[ $only == *"sys"* ]] && (( $+commands[brew] )); then
+    print -P "${BLUE}Cleaning homebrew software${NO_COLOR}"
+    brew cleanup
+  fi
+
+  if [[ $only == *"sys"* ]] && (( $+commands[apt-get] )); then
+    print -P "${BLUE}Cleaning software from apt-get${NO_COLOR}"
+    sudo apt-get autoremove
+    sudo apt-get autoclean
+  fi
+
+  if [[ $only == *"nix"* ]] && (( $+commands[nix-collect-garbage] )); then
+    print -P "${BLUE}Cleaning nix${NO_COLOR}"
+    nix-collect-garbage --delete-older-than 30d
+  fi
+
+  if [[ $only == *"doom"* ]] && (( $+commands[doom] )); then
+    print -P "${BLUE}Cleaning Doom Emacs${NO_COLOR}"
+    doom gc
+  fi
 }
 
 up () {
-    if [ $(uname) = "Darwin" ]; then
-        print -P "${BLUE}Updating OSX and App Store software${NO_COLOR}"
-        sudo softwareupdate --install --all
-        if (( $+commands[nix-channel] )); then
-            print -P "${BLUE}Updating nix${NO_COLOR}"
-            sudo -i nix-channel --update
-            nix-channel --update
-            darwin-rebuild switch
-        fi
-    elif [[ $(uname) = "Linux" && $(lsb_release -si) = "Ubuntu" ]]; then
-        print -P "${BLUE}Updating software from apt-get${NO_COLOR}"
-        sudo apt-get update
-        sudo apt-get upgrade
-        if [ -f /var/run/reboot-required ]; then
-            print -P "${YELLOW}Reboot required${NO_COLOR}"
-        fi
-    else
-        print "Updating failed: OS is not macOS or Ubuntu"
-    fi
+  only=${1-sys nix doom}
 
-    if (( $+commands[doom] )); then
-        print -P "${BLUE}Updating Doom Emacs${NO_COLOR}"
-        doom upgrade
-        doom sync
-    fi
+  if [[ $only == *"sys"* ]] && (( $+commands[softwareupdate] )); then
+    print -P "${BLUE}Updating macOS and App Store software${NO_COLOR}"
+    sudo softwareupdate --install --all
+  fi
+
+  if [[ $only == *"sys"* ]] && (( $+commands[apt-get] )); then
+    print -P "${BLUE}Updating software from apt-get${NO_COLOR}"
+    sudo apt-get update
+    sudo apt-get upgrade
+  fi
+
+  if [[ $only == *"nix"* ]] && (( $+commands[nix-channel] )) && (( $+commands[darwin-rebuild] )); then
+    print -P "${BLUE}Updating nix${NO_COLOR}"
+    sudo -i nix-channel --update
+    nix-channel --update
+    darwin-rebuild switch
+  fi
+
+  if [[ $only == *"doom"* ]] && (( $+commands[doom] )); then
+    print -P "${BLUE}Updating Doom Emacs${NO_COLOR}"
+    doom upgrade
+    doom sync
+  fi
+
+  if [[ $only == *"sys"* ]] \
+    && ( (( $+commands[softwareupdate] )) && softwareupdate -l | grep -q "restart" ) \
+    || ( (( $+commands[apt-get] )) && [ -f /var/run/reboot-required ] ); then
+        print -P "${YELLOW}Reboot required${NO_COLOR}"
+  fi
 }
 
 ec () {
