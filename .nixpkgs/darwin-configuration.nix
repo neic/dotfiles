@@ -280,11 +280,7 @@ in {
     };
   };
 
-  security.pam.enableSudoTouchIdAuth = true;
-
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
-  # nix.package = pkgs.nix;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   programs.zsh = {
     enable = true;
