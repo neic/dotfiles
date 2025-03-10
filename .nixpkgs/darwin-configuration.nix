@@ -194,6 +194,8 @@ in {
     sadmin
   ];
 
+  nixpkgs.config.permittedInsecurePackages = [ "emacs-mac-macport-29.4" ];
+
   homebrew.enable = true;
   homebrew.onActivation.autoUpdate = true;
   homebrew.onActivation.cleanup = "zap";
