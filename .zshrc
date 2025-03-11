@@ -253,7 +253,7 @@ turn_on_contexts() {
 
   if [[ "$current_cmd" =~ ^"kubectl|flux|k9s|kubectx" ]]; then
       export CTX_KUBE=true
-  elif [[ "$current_cmd" =~ ^"terraform" ]]; then
+  elif [[ "$current_cmd" =~ ^"terraform|tofu" ]]; then
       export CTX_TF=true
   elif [[ "$current_cmd" =~ ^"colima|docker|podman" ]]; then
       export CTX_DO=true
@@ -273,7 +273,7 @@ set_contexts() {
       fi
     fi
     if [[ $CTX_TF ]]; then
-        eval PR_TF='${YELLOW}󱁢\ $(command terraform workspace show)\ '
+        eval PR_TF='${YELLOW}󱁢\ $(command tofu workspace show)\ '
     fi
     if [[ $CTX_DO ]]; then
       if command colima status &> /dev/null || command docker info &> /dev/null; then
