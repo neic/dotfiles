@@ -205,6 +205,7 @@ function prune_local_branches () {
     git pull -p
     git branch -vv | grep ': gone]' | awk '{print $1}' | xargs --no-run-if-empty git branch -D
     git branch --merged | egrep -v "(^\*|master|main|dev)" | xargs --no-run-if-empty git branch -d
+    git gc
 }
 
 flushdns () {
