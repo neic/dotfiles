@@ -59,7 +59,7 @@ in {
     # repo. This code is combined from parts of default.nix and sources.nix
     # from
     # https://github.com/NixOS/nixpkgs/tree/nixos-unstable/pkgs/applications/editors/emacs
-    (callPackage # default.nix
+    ((callPackage # default.nix
       (import
         "${pkgs.path}/pkgs/applications/editors/emacs/make-emacs.nix" { # sources.nix
           pname = "emacs-mac";
@@ -84,6 +84,9 @@ in {
             OSAKit Quartz QuartzCore WebKit;
           inherit (pkgs.darwin.apple_sdk_11_0.frameworks)
             UniformTypeIdentifiers;
+        }).override {
+          # Disabled due to https://github.com/NixOS/nixpkgs/issues/395169
+          withNativeCompilation = false;
         })
     gnupg
     iterm2
