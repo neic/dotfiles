@@ -1,4 +1,4 @@
-# https://daiderd.com/nix-darwin/manual/index.html
+# https://nix-darwin.github.io/nix-darwin/manual/index.html
 
 { config, pkgs, ... }:
 let
