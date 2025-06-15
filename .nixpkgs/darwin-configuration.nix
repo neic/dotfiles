@@ -1,7 +1,18 @@
 # https://nix-darwin.github.io/nix-darwin/manual/index.html
 
 { config, pkgs, ... }:
-let
+{
+  imports =
+    [
+      (import (builtins.fetchTarball {
+    url =
+      "https://github.com/hraban/mac-app-util/archive/548672d0cb661ce11d08ee8bde92b87d2a75c872.tar.gz";
+    sha256 = "1w80vjcnaysjlzxsp3v4pxq4yswbjvxs8ann2bk0m7rkjljnzz6m";
+  }) { }).darwinModules.default
+      /Users/neic/.nixpkgs/local-configuration.nix
+    ];
+
+  environment.systemPackages = with pkgs; let
   sadmin = pkgs.stdenv.mkDerivation rec {
     pname = "simple-admin";
     version = "v0.0.55";
@@ -40,18 +51,8 @@ let
   ruff_0_1_8 = pkgs.runCommandLocal "ruff_0_1_8" { } ''
     mkdir -p $out/bin
     ln -s ${pkgs_2023-12-26.ruff}/bin/ruff $out/bin/ruff018
-  '';
+  ''; in [
 
-  mac-app-util = import (builtins.fetchTarball {
-    url =
-      "https://github.com/hraban/mac-app-util/archive/548672d0cb661ce11d08ee8bde92b87d2a75c872.tar.gz";
-    sha256 = "1w80vjcnaysjlzxsp3v4pxq4yswbjvxs8ann2bk0m7rkjljnzz6m";
-  }) { };
-in {
-  imports =
-    [ mac-app-util.darwinModules.default ~/.nixpkgs/local-configuration.nix ];
-
-  environment.systemPackages = with pkgs; [
     # Applications
     browserpass
     discord
