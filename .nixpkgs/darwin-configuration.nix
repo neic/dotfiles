@@ -55,36 +55,7 @@ in {
     # Applications
     browserpass
     discord
-    # Install emacs-mac 29.4 from the work branch of Mitsuharu Yamamoto's
-    # repo. This code is combined from parts of default.nix and sources.nix
-    # from
-    # https://github.com/NixOS/nixpkgs/tree/nixos-unstable/pkgs/applications/editors/emacs
-    (callPackage # default.nix
-      (import
-        "${pkgs.path}/pkgs/applications/editors/emacs/make-emacs.nix" { # sources.nix
-          pname = "emacs-mac";
-          version = "29.4";
-          variant = "macport";
-          src = pkgs.fetchFromBitbucket { # New code adapted from sources.nix
-            owner = "mituharu";
-            repo = "emacs-mac";
-            rev = "7cc5e67629363d9e98f65e4e652f83bb4e0ee674";
-            hash = "sha256-Uv0AX0d5JLgxHlBD70OIDOO/ImMA6hH1fs5hCuMxw7c";
-          };
-          meta = {
-            description = "Emacs with macOS-specific patches";
-            license = lib.licenses.gpl3Plus;
-            maintainers = [ ];
-          };
-        }) {
-          # default.nix
-          inherit (pkgs.darwin) sigtool;
-          inherit (pkgs.darwin.apple_sdk.frameworks)
-            Accelerate AppKit Carbon Cocoa GSS ImageCaptureCore ImageIO IOKit
-            OSAKit Quartz QuartzCore WebKit;
-          inherit (pkgs.darwin.apple_sdk_11_0.frameworks)
-            UniformTypeIdentifiers;
-        })
+    emacs-macport
     gnupg
     iterm2
     josm
@@ -193,8 +164,6 @@ in {
     gdal
     sadmin
   ];
-
-  nixpkgs.config.permittedInsecurePackages = [ "emacs-mac-macport-29.4" ];
 
   homebrew.enable = true;
   homebrew.onActivation.autoUpdate = true;
