@@ -152,11 +152,13 @@ in {
         isort
         (buildPythonPackage rec {
           pname = "sadmin-deploy";
-          version = "2.1.0";
+          version = "2.3.2";
           src = builtins.fetchGit {
-            url = "git@git.scalgo.com:scalgo/sadmin-deploy.git";
+            url = "git@git.i.scalgo.com:scalgo/sadmin-deploy.git";
           };
           propagatedBuildInputs = [ requests pyaml ];
+          pyproject = true;
+          build-system = [ setuptools ];
         })
       ]))
 
