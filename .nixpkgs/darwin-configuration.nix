@@ -147,9 +147,10 @@ in {
     docker-client
     (python312.withPackages (ps:
       with ps; [ # Same version as Ubuntu 24.04
+        gdal
+        isort
         openai
         pyflakes
-        isort
         (buildPythonPackage rec {
           pname = "sadmin-deploy";
           version = "2.3.2";
