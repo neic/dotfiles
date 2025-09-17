@@ -174,10 +174,10 @@ in {
   homebrew.onActivation.upgrade = true;
   homebrew.taps = [ "homebrew/cask-versions" ];
   homebrew.casks = [
-    "docker" # not in nixpkg
+    "docker-desktop" # not in nixpkg
     "element" # nixpkg not build for darwin
     "firefox" # nixpkg not build for darwin
-    "flux" # nixpkg not build for darwin
+    "flux-app" # nixpkg not build for darwin
     "google-chrome" # not in nixpkg
     "gpg-suite" # not in nixpkg
     "gramps" # nixpkg does not include .app
