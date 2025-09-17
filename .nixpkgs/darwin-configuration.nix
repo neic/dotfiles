@@ -84,8 +84,8 @@ in {
     yamllint
 
     # LSP
-    clang-tools_17 # clang-format
-    clang_17
+    llvmPackages_18.clang-tools
+    llvmPackages_18.clang-unwrapped
     nodePackages.bash-language-server
     nodePackages.yaml-language-server
     pyright
