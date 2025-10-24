@@ -144,12 +144,15 @@
   )
 (use-package! magit-lfs)
 
-(after! vterm
-  (define-key vterm-mode-map (kbd "C-q") #'vterm-send-next-key)
-  ;; Always use zsh on vterm remote machines.
-  (add-to-list 'vterm-tramp-shells
-               '("ssh" "zsh"))
-  )
+(use-package! eat)
+(after! eat
+  (map! :leader
+        (:prefix-map ("o" . "open")
+         :desc "Open eat at project root"            "t" #'eat-project
+         ))
+  (setq eat-query-before-killing-running-terminal 'auto
+        eat-kill-buffer-on-exit 't )
+)
 
 
 (after! org

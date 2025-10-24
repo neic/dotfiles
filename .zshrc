@@ -286,7 +286,11 @@ set_contexts() {
 precmd_functions+=(set_contexts)
 
 # Return code
-eval PR_RET='%(?..${RED}%?${NO_COLOR} )'
+if [ -n "$EAT_SHELL_INTEGRATION_DIR" ]; then
+  eval PR_RET=''
+else
+  eval PR_RET='%(?..${RED}%?${NO_COLOR} )'
+fi
 
 # set the prompt
 PS1=$'${PR_RET}${PR_LOGIN}${PR_NIX}${PR_KUBE}${PR_TF}${PR_DO}${BLUE}%~${PR_USER_OP}${NO_COLOR} '
@@ -347,13 +351,10 @@ add-zsh-hook precmd __cmdtime_display_cmdtime_precmd
 # END OF `cmdtime.plugin.zsh`
 
 
-# (Emacs) vterm
-#--------------
-
-if [[ "$INSIDE_EMACS" = 'vterm' ]] \
-    && [[ -n ${EMACS_VTERM_PATH} ]] \
-    && [[ -f ${EMACS_VTERM_PATH}/etc/emacs-vterm-zsh.sh ]]; then
-	source ${EMACS_VTERM_PATH}/etc/emacs-vterm-zsh.sh
+# Emacs eat
+#------
+if [ -n "$EAT_SHELL_INTEGRATION_DIR" ]; then
+  source "$EAT_SHELL_INTEGRATION_DIR/zsh"
 fi
 
 # Dumb terminal
