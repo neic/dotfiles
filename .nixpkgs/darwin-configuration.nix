@@ -164,6 +164,7 @@
   homebrew.onActivation.upgrade = true;
   homebrew.taps = [ "homebrew/cask-versions" ];
   homebrew.casks = [
+    "darktable"
     "docker-desktop" # not in nixpkg
     "element" # nixpkg not build for darwin
     "firefox" # nixpkg not build for darwin
@@ -171,12 +172,12 @@
     "google-chrome" # not in nixpkg
     "gpg-suite" # not in nixpkg
     "gramps" # nixpkg does not include .app
+    "home-assistant"
     "little-snitch" # nixpkg not build for darwin
     "nextcloud" # nixpkg not build for darwin
     "qgis" # nixpkg not build for darwin
     "spotify" # Download often breaks in nixpkgs
     "steam" # nixpkg not build for darwin
-    "virtualbox@beta" # nixpkg not build for darwin
     "vlc" # nixpkg not build for darwin
     "wireshark-app" # qt 6 is broken in nixpkgs
   ];
