@@ -43,16 +43,7 @@
       install -D './lib/core.sh' "$out/lib/core.sh"
       install -D './bin/kyrat' "$out/bin/kyrat"
     '';
-  };
-  pkgs_2023-12-26 = import (builtins.fetchTarball {
-    url =
-      "https://github.com/NixOS/nixpkgs/archive/c407032be28ca2236f45c49cfb2b8b3885294f7f.tar.gz";
-    sha256 = "1a95d5g5frzgbywpq7z0az8ap99fljqk3pkm296asrvns8qcv5bv";
-  }) { };
-  ruff_0_1_8 = pkgs.runCommandLocal "ruff_0_1_8" { } ''
-    mkdir -p $out/bin
-    ln -s ${pkgs_2023-12-26.ruff}/bin/ruff $out/bin/ruff018
-  ''; in [
+  }; in [
 
     # Applications
     browserpass
@@ -79,7 +70,6 @@
     nodePackages.stylelint
     pre-commit
     ruff
-    ruff_0_1_8
     rustfmt
     shellcheck
     shfmt
