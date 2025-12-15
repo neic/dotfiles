@@ -35,6 +35,7 @@
     src = builtins.fetchGit {
       url = "git@github.com:fsquillace/kyrat.git";
       ref = "master";
+      rev = "47b57643d4743fe2c1f2bb783ad275e1f0693faf";
     };
     nativeBuildInputs = [ pkgs.installShellFiles ];
 
