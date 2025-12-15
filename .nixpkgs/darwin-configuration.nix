@@ -53,7 +53,7 @@
     iterm2
     josm
     karabiner-elements
-    ollama # There is a launchd.user.agents further down.
+    #ollama # There is a launchd.user.agents further down.
     pass
 
     # Spelling
@@ -133,6 +133,7 @@
 
     # Programming
     colima
+    claude-code
     dive
     docker-client
     (python312.withPackages (ps:
@@ -190,15 +191,15 @@
   fonts.packages = with pkgs; [ nerd-fonts.blex-mono nerd-fonts.symbols-only ];
 
   launchd.user.agents = {
-    ollama-serve = {
-      command = "${pkgs.ollama}/bin/ollama serve";
-      serviceConfig = {
-        KeepAlive = true;
-        RunAtLoad = true;
-        StandardOutPath = "/tmp/ollama-serve.out.log";
-        StandardErrorPath = "/tmp/ollama-serve.err.log";
-      };
-    };
+    # ollama-serve = {
+    #   command = "${pkgs.ollama}/bin/ollama serve";
+    #   serviceConfig = {
+    #     KeepAlive = true;
+    #     RunAtLoad = true;
+    #     StandardOutPath = "/tmp/ollama-serve.out.log";
+    #     StandardErrorPath = "/tmp/ollama-serve.err.log";
+    #   };
+    # };
     org-pull = {
       command = "${pkgs.gitFull}/bin/git -C ~/org pull";
       serviceConfig = {
