@@ -130,11 +130,10 @@ up () {
     sudo apt-get upgrade
   fi
 
-  if [[ $only == *"nix"* ]] && (( $+commands[nix-channel] )) && (( $+commands[darwin-rebuild] )); then
+  if [[ $only == *"nix"* ]] && (( $+commands[nix] )) && (( $+commands[darwin-rebuild] )); then
     print -P "${BLUE}Updating nix${NO_COLOR}"
-    sudo -i nix-channel --update
-    nix-channel --update
-    darwin-rebuild switch
+    nix flake update nixpkgs --flake ~/.config/nix-darwin
+    sudo darwin-rebuild switch
   fi
 
   if [[ $only == *"doom"* ]] && (( $+commands[doom] )); then

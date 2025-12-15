@@ -2,16 +2,6 @@
 
 { config, pkgs, ... }:
 {
-  imports =
-    [
-      (import (builtins.fetchTarball {
-    url =
-      "https://github.com/hraban/mac-app-util/archive/548672d0cb661ce11d08ee8bde92b87d2a75c872.tar.gz";
-    sha256 = "1w80vjcnaysjlzxsp3v4pxq4yswbjvxs8ann2bk0m7rkjljnzz6m";
-  }) { }).darwinModules.default
-      /Users/neic/.nixpkgs/local-configuration.nix
-    ];
-
   environment.systemPackages = with pkgs; let
   sadmin = pkgs.stdenv.mkDerivation rec {
     pname = "simple-admin";
@@ -259,7 +249,13 @@
   environment.variables = { SHELL = "${pkgs.zsh}/bin/zsh"; };
 
   nixpkgs.config.allowUnfree = true;
-  system.stateVersion = 4;
+  nixpkgs.hostPlatform = "aarch64-darwin";
+  system.stateVersion = 6;
+  system.primaryUser = "neic";
+  nix.extraOptions = ''
+    experimental-features = nix-command flakes
+    extra-platforms = x86_64-darwin aarch64-darwin
+  '';
 
   services.yabai = {
     enable = true;

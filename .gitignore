@@ -26,8 +26,6 @@
 /.nix-channels
 /.nix-defexpr
 /.nix-profile
-#/.nixpkgs
-/.nixpkgs/local-configuration.nix
 /.password-store
 /.python_history
 #/.rtorrent.rc
