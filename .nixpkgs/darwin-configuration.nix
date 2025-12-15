@@ -55,8 +55,6 @@
     karabiner-elements
     ollama # There is a launchd.user.agents further down.
     pass
-    spotify
-    wireshark
 
     # Spelling
     (aspellWithDicts (ds: [ ds.en ds.da ]))
@@ -176,9 +174,11 @@
     "little-snitch" # nixpkg not build for darwin
     "nextcloud" # nixpkg not build for darwin
     "qgis" # nixpkg not build for darwin
+    "spotify" # Download often breaks in nixpkgs
     "steam" # nixpkg not build for darwin
     "virtualbox@beta" # nixpkg not build for darwin
     "vlc" # nixpkg not build for darwin
+    "wireshark-app" # qt 6 is broken in nixpkgs
   ];
   homebrew.masApps = {
     "Tailscale" = 1475387142;
