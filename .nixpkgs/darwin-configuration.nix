@@ -15,12 +15,12 @@
   environment.systemPackages = with pkgs; let
   sadmin = pkgs.stdenv.mkDerivation rec {
     pname = "simple-admin";
-    version = "v0.0.55";
+    version = "v0.1.3";
 
     src = pkgs.fetchzip {
       url =
         "https://github.com/antialize/simple-admin/releases/download/${version}/sadmin-client-osx.zip";
-      sha256 = "MGAVq5BD0q5q1gcuTWMPJNaKp4dkaC2uwc/UCvfD8Cc=";
+      sha256 = "sha256-s9XDO67cRVEUfvd5ppSHqYhn9gfmTiY2ej3gDmBrbuI";
     };
     nativeBuildInputs = [ pkgs.installShellFiles ];
 
