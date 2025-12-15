@@ -23,6 +23,11 @@
 ;;
 (setq doom-font (font-spec :family "BlexMono Nerd Font Mono" :size 13)
       doom-variable-pitch-font (font-spec :family "BlexMono Nerd Font" :size 13))
+;; The Apple Color Emoji font give slightly to high glyphs causing uneven
+;; lineheights. This is especially noticeable in the terminal when programs
+;; redraws lines with emoji. We scale it down.
+(add-to-list 'face-font-rescale-alist '("Apple Color Emoji" . 0.8))
+
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
