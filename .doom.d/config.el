@@ -102,16 +102,6 @@
 (setq mac-command-modifier 'meta
       mac-option-modifier 'none)
 
-; Disable everything other than git for version control to speedup TRAMP.
-; https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
-; # How to speed up TRAMP?
-(setq vc-handled-backends '(Git))
-; Reuse the same ssh connection everywhere by inheriting ControlMaster from
-; ~/.ssh/config for TRAMP.
-; https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
-; # TRAMP does not use default ssh ControlPath
-(setq tramp-use-ssh-controlmaster-options nil)
-
 ;; Use lsp on large repos.
 (after! lsp-mode
   (setq lsp-file-watch-threshold 3500)
@@ -135,12 +125,75 @@
   :config
   (ultra-scroll-mode 1))
 
+;; -----
+;; Tramp
+;; -----
+
+; Disable everything other than git for version control to speedup TRAMP.
+;
+; https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
+; # How to speed up TRAMP?
+(setq vc-handled-backends '(Git))
+
+; Reuse the same ssh connection everywhere by inheriting ControlMaster from
+; ~/.ssh/config for TRAMP.
+;
+; https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
+; # TRAMP does not use default ssh ControlPath
+(setq tramp-use-ssh-controlmaster-options nil)
+
+; Disable file locks. Safe if no other Emacs sessions are modifying the same
+; remote file.
+;
+; https://www.gnu.org/software/emacs/manual/html_node/tramp/Frequently-Asked-Questions.html
+; # How to speed up TRAMP?
+; https://coredumped.dev/2025/06/18/making-tramp-go-brrrr./#getting-started
+(setq remote-file-name-inhibit-locks t)
+
+; Even when chosing external methods (scp, rsync), files smaller than
+; tramp-copy-size-limit, use inline methods. The default is 10kB, but
+; experiments posted on coredumped.dev show that the cutoff is around 2MB.
+;
+; https://www.gnu.org/software/tramp/#External-methods-1
+; https://coredumped.dev/2025/06/18/making-tramp-go-brrrr./#getting-started
+(setq tramp-copy-size-limit (* 1024 1024)) ; 1MB
+
+; Set the default method to rsync. The default method is used when accessing
+; files with /-:hostname: . coredumped.dev says rsync is 3-4 times faster than
+; the default scp after the initial transfer.
+;
+; https://coredumped.dev/2025/06/18/making-tramp-go-brrrr./#getting-started
+(customize-set-variable 'tramp-default-method "rsync")
+
+
+; Run remote commands directly instead of wrapping them in a shell. This greatly
+; speeds up magit and git-gutter.
+;
+; https://www.gnu.org/software/tramp/#Improving-performance-of-asynchronous-remote-processes-1
+; https://coredumped.dev/2025/06/18/making-tramp-go-brrrr./#use-direct-async
+(connection-local-set-profile-variables
+ 'remote-direct-async-process
+ '((tramp-direct-async-process . t)))
+(connection-local-set-profiles
+ '(:application tramp :protocol "scp")
+ 'remote-direct-async-process)
+(connection-local-set-profiles
+ '(:application tramp :protocol "rsync")
+ 'remote-direct-async-process)
+; A compatibility setting for magit is set below.
+
+
 ;; -----------
 ;; Major modes
 ;; -----------
 
 (after! magit
   (setq magit-save-repository-buffers 'dontask)
+  ; Get magit to work with the Tramp direct async setting above. This breaks DOS
+  ; line endings.
+  ;
+  ; https://github.com/magit/magit/issues/5220
+  (setq magit-tramp-pipe-stty-settings 'pty)
   (add-hook 'git-commit-setup-hook 'end-of-line)
   (transient-append-suffix 'magit-push "-u"
     '(1 "=s" "Skip gitlab pipeline" "--push-option=ci.skip"))
