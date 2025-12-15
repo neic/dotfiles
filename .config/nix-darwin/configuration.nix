@@ -1,8 +1,7 @@
 # https://nix-darwin.github.io/nix-darwin/manual/index.html
 
-{ config, pkgs,
-# nixpkgs-2023-12-26,
-... }: {
+{ config, pkgs, ... }:
+{
   environment.systemPackages = with pkgs; let
   sadmin = pkgs.stdenv.mkDerivation rec {
     pname = "simple-admin";
