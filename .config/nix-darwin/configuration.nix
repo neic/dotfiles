@@ -3,21 +3,6 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; let
-  sadmin = pkgs.stdenv.mkDerivation rec {
-    pname = "simple-admin";
-    version = "v0.1.3";
-
-    src = pkgs.fetchzip {
-      url =
-        "https://github.com/antialize/simple-admin/releases/download/${version}/sadmin-client-osx.zip";
-      sha256 = "sha256-s9XDO67cRVEUfvd5ppSHqYhn9gfmTiY2ej3gDmBrbuI";
-    };
-    nativeBuildInputs = [ pkgs.installShellFiles ];
-
-    installPhase = ''
-      install -D './sadmin' "$out/bin/sadmin"
-    '';
-  };
   kyrat = pkgs.stdenv.mkDerivation rec {
     pname = "kyrat";
     version = "1";
@@ -143,10 +128,6 @@
         #   build-system = [ setuptools ];
         # })
       ]))
-
-    # Scalgo
-    gdal
-    sadmin
   ];
 
   homebrew.enable = true;
@@ -251,7 +232,6 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.hostPlatform = "aarch64-darwin";
   system.stateVersion = 6;
-  system.primaryUser = "neic";
   nix.extraOptions = ''
     experimental-features = nix-command flakes
     extra-platforms = x86_64-darwin aarch64-darwin
