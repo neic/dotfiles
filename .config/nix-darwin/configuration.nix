@@ -153,6 +153,7 @@
     "vlc" # nixpkg not build for darwin
     "wireshark-app" # qt 6 is broken in nixpkgs
   ];
+  # Use `mas purchase <id>` when this fails.
   homebrew.masApps = {
     "Tailscale" = 1475387142;
     "Windows App" = 1295203466;
