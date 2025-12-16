@@ -51,6 +51,7 @@
     # LSP
     llvmPackages_18.clang-tools
     llvmPackages_18.clang-unwrapped
+    copilot-language-server
     nodePackages.bash-language-server
     nodePackages.yaml-language-server
     pyright
