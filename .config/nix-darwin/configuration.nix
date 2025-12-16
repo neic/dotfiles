@@ -58,6 +58,7 @@
     terraform-lsp
 
     # System utils
+    bash # Newer bash for nix-shell
     colordiff
     coreutils
     coreutils-prefixed # for emacs dired
