@@ -237,6 +237,7 @@
            "* %? [[%:link][%:description]] \nCaptured On: %U")
           ))
   ;; From https://github.com/doomemacs/doomemacs/blob/master/modules/lang/org/config.el
+  ;; Keep in sync with ~/org/init.org
   (setq org-todo-keywords
         '((sequence
            "TODO(t)"  ; A task that needs doing & is ready to do
