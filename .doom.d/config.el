@@ -201,6 +201,9 @@
     '(1 "=m" "Create MR" "--push-option=merge_request.create"))
   )
 (use-package! magit-lfs)
+(use-package! magit-prime)
+(after! magit-prime
+  (add-hook 'magit-pre-refresh-hook 'magit-prime-refresh-cache))
 
 (use-package! eat)
 (after! eat
