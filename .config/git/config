@@ -6,8 +6,6 @@
 	default = simple
 [pull]
 	rebase = true
-[commit]
-	gpgsign = true
 [core]
 	hooksPath = ~/.config/git/hooks
 [remote]
