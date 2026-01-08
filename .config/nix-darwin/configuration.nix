@@ -196,6 +196,7 @@
       ActuationStrength = 0; # Trackpad > Point & Click > Silent clicking = off
       FirstClickThreshold = 0; # Trackpad > Point & Click > Click = Light
       SecondClickThreshold = 0; # Trackpad > Point & Click > Click = Light
+      TrackpadTwoFingerDoubleTapGesture = false; # Trackpad > Scroll & Zoom > Smart zoom = off
     };
 
     dock = {
