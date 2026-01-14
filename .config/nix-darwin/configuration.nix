@@ -30,6 +30,7 @@
     karabiner-elements
     #ollama # There is a launchd.user.agents further down.
     pass
+    sops
 
     # Spelling
     (aspellWithDicts (ds: [ ds.en ds.da ]))
