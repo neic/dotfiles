@@ -209,6 +209,7 @@
       wvous-br-corner = 1; # Disabled
       wvous-tl-corner = 1; # Disabled
       wvous-tr-corner = 1; # Disabled
+      mru-spaces = false;
     };
     finder = {
       AppleShowAllExtensions = true;
