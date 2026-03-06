@@ -24,7 +24,12 @@
       # Applications
       browserpass
       discord
-      emacs-macport
+      (emacs-macport.overrideAttrs (oldAttrs: {
+        env = (oldAttrs.env or { }) // {
+          NIX_CFLAGS_COMPILE = (oldAttrs.env.NIX_CFLAGS_COMPILE or "")
+            + " -DFD_SETSIZE=10000 -D_DARWIN_UNLIMITED_SELECT";
+        };
+      }))
       gnupg
       iterm2
       josm
