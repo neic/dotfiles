@@ -1,138 +1,139 @@
 # https://nix-darwin.github.io/nix-darwin/manual/index.html
 
-{ config, pkgs, ... }:
-{
-  environment.systemPackages = with pkgs; let
-  kyrat = pkgs.stdenv.mkDerivation rec {
-    pname = "kyrat";
-    version = "1";
+{ config, pkgs, ... }: {
+  environment.systemPackages = with pkgs;
+    let
+      kyrat = pkgs.stdenv.mkDerivation rec {
+        pname = "kyrat";
+        version = "1";
 
-    src = builtins.fetchGit {
-      url = "git@github.com:fsquillace/kyrat.git";
-      ref = "master";
-      rev = "47b57643d4743fe2c1f2bb783ad275e1f0693faf";
-    };
-    nativeBuildInputs = [ pkgs.installShellFiles ];
+        src = builtins.fetchGit {
+          url = "git@github.com:fsquillace/kyrat.git";
+          ref = "master";
+          rev = "47b57643d4743fe2c1f2bb783ad275e1f0693faf";
+        };
+        nativeBuildInputs = [ pkgs.installShellFiles ];
 
-    installPhase = ''
-      install -D './lib/core.sh' "$out/lib/core.sh"
-      install -D './bin/kyrat' "$out/bin/kyrat"
-    '';
-  }; in [
+        installPhase = ''
+          install -D './lib/core.sh' "$out/lib/core.sh"
+          install -D './bin/kyrat' "$out/bin/kyrat"
+        '';
+      };
+    in [
 
-    # Applications
-    browserpass
-    discord
-    emacs-macport
-    gnupg
-    iterm2
-    josm
-    karabiner-elements
-    #ollama # There is a launchd.user.agents further down.
-    pass
-    sops
+      # Applications
+      browserpass
+      discord
+      emacs-macport
+      gnupg
+      iterm2
+      josm
+      karabiner-elements
+      #ollama # There is a launchd.user.agents further down.
+      pass
+      sops
 
-    # Spelling
-    (aspellWithDicts (ds: [ ds.en ds.da ]))
-    languagetool
+      # Spelling
+      (aspellWithDicts (ds: [ ds.en ds.da ]))
+      languagetool
 
-    # Linters and formatters
-    black
-    dockfmt
-    jsbeautifier
-    nixfmt-classic
-    nodePackages.stylelint
-    pre-commit
-    ruff
-    rustfmt
-    shellcheck
-    shfmt
-    yamllint
+      # Linters and formatters
+      black
+      dockfmt
+      jsbeautifier
+      nixfmt-classic
+      nodePackages.stylelint
+      pre-commit
+      ruff
+      rustfmt
+      shellcheck
+      shfmt
+      yamllint
 
-    # LSP
-    copilot-language-server
-    llvmPackages_18.clang-tools
-    llvmPackages_18.clang-unwrapped
-    nodePackages.bash-language-server
-    nodePackages.yaml-language-server
-    pyright
-    rust-analyzer
-    terraform-lsp
-    ty
+      # LSP
+      copilot-language-server
+      llvmPackages_18.clang-tools
+      llvmPackages_18.clang-unwrapped
+      nodePackages.bash-language-server
+      nodePackages.yaml-language-server
+      pyright
+      rust-analyzer
+      terraform-lsp
+      ty
 
-    # System utils
-    bash # Newer bash for nix-shell
-    colordiff
-    coreutils
-    coreutils-prefixed # for emacs dired
-    fd # emacs
-    findutils
-    fzf
-    gitFull
-    git-lfs
-    gnugrep # emacs
-    htop
-    jq
-    ncdu_1
-    pv
-    pwgen
-    ripgrep
-    silver-searcher
-    trash-cli
-    tree
-    yq-go
+      # System utils
+      bash # Newer bash for nix-shell
+      colordiff
+      coreutils
+      coreutils-prefixed # for emacs dired
+      fd # emacs
+      findutils
+      fzf
+      gitFull
+      git-lfs
+      gnugrep # emacs
+      htop
+      jq
+      ncdu_1
+      pv
+      pwgen
+      ripgrep
+      silver-searcher
+      trash-cli
+      tree
+      yq-go
 
-    # Network
-    kyrat
-    nmap
-    openssh
-    rsync
-    wget
+      # Network
+      kyrat
+      nmap
+      openssh
+      rsync
+      wget
 
-    # Archiving
-    gzip
-    unrar
-    unzip
-    zstd
+      # Archiving
+      gzip
+      unrar
+      unzip
+      zstd
 
-    # Media
-    atomicparsley
-    ffmpeg
-    imagemagick
-    yt-dlp
+      # Media
+      atomicparsley
+      ffmpeg
+      imagemagick
+      yt-dlp
 
-    # Infrastructure CLIs
-    glab
-    (google-cloud-sdk.withExtraComponents
-      [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
-    k9s
-    kubectl
-    kubectx
-    opentofu
+      # Infrastructure CLIs
+      glab
+      (google-cloud-sdk.withExtraComponents
+        [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
+      k9s
+      kubectl
+      kubectx
+      opentofu
 
-    # Programming
-    colima
-    claude-code
-    dive
-    docker-client
-    (python312.withPackages (ps:
-      with ps; [ # Same version as Ubuntu 24.04
-        gdal
-        isort
-        openai
-        pyflakes
-        # (buildPythonPackage rec {
-        #   pname = "sadmin-deploy";
-        #   version = "2.3.2";
-        #   src = builtins.fetchGit {
-        #     url = "git@git.i.scalgo.com:scalgo/sadmin-deploy.git";
-        #   };
-        #   propagatedBuildInputs = [ requests pyaml ];
-        #   pyproject = true;
-        #   build-system = [ setuptools ];
-        # })
-      ]))
-  ];
+      # Programming
+      colima
+      claude-code
+      dive
+      docker-client
+      (python312.withPackages (ps:
+        with ps; [ # Same version as Ubuntu 24.04
+          gdal
+          isort
+          openai
+          pyflakes
+          # (buildPythonPackage rec {
+          #   pname = "sadmin-deploy";
+          #   version = "2.3.2";
+          #   src = builtins.fetchGit {
+          #     url = "git@git.i.scalgo.com:scalgo/sadmin-deploy.git";
+          #   };
+          #   propagatedBuildInputs = [ requests pyaml ];
+          #   pyproject = true;
+          #   build-system = [ setuptools ];
+          # })
+        ]))
+    ];
 
   homebrew.enable = true;
   homebrew.onActivation.autoUpdate = true;
@@ -198,7 +199,8 @@
       ActuationStrength = 0; # Trackpad > Point & Click > Silent clicking = off
       FirstClickThreshold = 0; # Trackpad > Point & Click > Click = Light
       SecondClickThreshold = 0; # Trackpad > Point & Click > Click = Light
-      TrackpadTwoFingerDoubleTapGesture = false; # Trackpad > Scroll & Zoom > Smart zoom = off
+      TrackpadTwoFingerDoubleTapGesture =
+        false; # Trackpad > Scroll & Zoom > Smart zoom = off
     };
 
     dock = {
