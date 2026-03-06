@@ -117,7 +117,6 @@
       opentofu
 
       # Programming
-      colima
       claude-code
       dive
       docker-client
