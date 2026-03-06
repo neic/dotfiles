@@ -154,6 +154,7 @@
     "gpg-suite" # not in nixpkg
     "gramps" # nixpkg does not include .app
     "home-assistant"
+    "inkscape"
     "little-snitch" # nixpkg not build for darwin
     "nextcloud" # nixpkg not build for darwin
     "qgis" # nixpkg not build for darwin
