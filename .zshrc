@@ -215,6 +215,11 @@ flushdns () {
         print "Cleaning failed: OS is not macOS"
     fi
 }
+
+yabai_top_padding() {
+    yabai -m query --spaces | jq -r ".[] | select(.display == $1) | .index" | xargs -I{} yabai -m config --space {} top_padding $2
+}
+
 if [[ -f ~/.zshplugins/zsh-nix-shell/nix-shell.plugin.zsh ]]; then
     source ~/.zshplugins/zsh-nix-shell/nix-shell.plugin.zsh
 fi
