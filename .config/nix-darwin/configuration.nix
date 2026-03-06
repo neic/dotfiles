@@ -50,14 +50,15 @@
     yamllint
 
     # LSP
+    copilot-language-server
     llvmPackages_18.clang-tools
     llvmPackages_18.clang-unwrapped
-    copilot-language-server
     nodePackages.bash-language-server
     nodePackages.yaml-language-server
     pyright
     rust-analyzer
     terraform-lsp
+    ty
 
     # System utils
     bash # Newer bash for nix-shell
