@@ -169,6 +169,31 @@ gs () {
     fi
 }
 
+sops-k8s() {
+    local FILE_NAME=$1
+
+    if [ -z "$FILE_NAME" ]; then
+        echo "Usage: sops-k8s <filename.yaml>"
+        return 1
+    fi
+
+    if [ ! -f "$FILE_NAME" ]; then
+        cat <<EOF > "$FILE_NAME"
+apiVersion: v1
+kind: Secret
+metadata:
+  name: $(basename "${FILE_NAME%.*}")
+  namespace: default
+type: Opaque
+stringData:
+  my-key: my-value
+EOF
+        sops --encrypt --in-place "$FILE_NAME"
+    fi
+
+    sops "$FILE_NAME"
+}
+
 function prune_local_branches () {
     # Deletes branches locally that no longer exist on remote
     # (eg. after merge + "Delete source branch")
