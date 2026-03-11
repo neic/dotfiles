@@ -102,7 +102,7 @@
       mac-option-modifier 'none)
 
 ;; Use lsp on large repos.
-(after! lsp-mode
+(with-eval-after-load 'lsp-mode
   (setq lsp-file-watch-threshold 3500)
   )
 
@@ -110,7 +110,7 @@
 ;; https://github.com/NixOS/nix/pull/7492
 (setq server-socket-dir "~/.emacs.d/")
 
-(after! git-auto-commit-mode
+(with-eval-after-load 'git-auto-commit-mode
   (setq gac-automatically-push-p t)
   (setq gac-automatically-add-new-files-p t)
   (setq gac-debounce-interval 5)
@@ -186,7 +186,7 @@
 ;; Major modes
 ;; -----------
 
-(after! magit
+(with-eval-after-load 'magit
   (setq magit-save-repository-buffers 'dontask)
   ; Get magit to work with the Tramp direct async setting above. This breaks DOS
   ; line endings.
@@ -199,13 +199,13 @@
   (transient-append-suffix 'magit-push "=s"
     '(1 "=m" "Create MR" "--push-option=merge_request.create"))
   )
-(use-package! magit-lfs)
-(use-package! magit-prime)
-(after! magit-prime
+(use-package magit-lfs)
+(use-package magit-prime)
+(with-eval-after-load 'magit-prime
   (add-hook 'magit-pre-refresh-hook 'magit-prime-refresh-cache))
 
-(use-package! eat)
-(after! eat
+(use-package eat)
+(with-eval-after-load 'eat
   (map! :leader
         (:prefix-map ("o" . "open")
          :desc "Open eat at project root"            "t" #'eat-project
@@ -215,7 +215,7 @@
 )
 
 
-(after! org
+(with-eval-after-load 'org
   (setq org-startup-folded t)
   (setq org-modules '(org-id))
   (setq org-id-link-to-org-use-id t)
@@ -267,12 +267,12 @@
   (add-hook 'auto-save-hook 'org-save-all-org-buffers)
   )
 
-(after! apheleia
+(with-eval-after-load 'apheleia
   (setf (alist-get 'terraform apheleia-formatters)
         '("tofu" "fmt" "-"))
   )
 
-(use-package! copilot
+(use-package copilot
   :hook (prog-mode . copilot-mode)
   :bind (:map copilot-completion-map
               ("<tab>" . 'copilot-accept-completion)
