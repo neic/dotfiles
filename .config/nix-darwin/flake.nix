@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-25.11-darwin";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin = {
       url = "github:nix-darwin/nix-darwin/nix-darwin-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,9 +18,10 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, ... }: {
+  outputs = inputs@{ self, nix-darwin, nixpkgs-unstable, ... }: {
     darwinConfigurations = {
       "mdm2" = nix-darwin.lib.darwinSystem {
+        specialArgs = { inherit nixpkgs-unstable; };
         modules = [
           inputs.mac-app-util.darwinModules.default
           inputs.sops-nix.darwinModules.sops
@@ -28,6 +30,7 @@
         ];
       };
       "mdsc" = nix-darwin.lib.darwinSystem {
+        specialArgs = { inherit nixpkgs-unstable; };
         modules = [
           inputs.mac-app-util.darwinModules.default
           ./configuration.nix

@@ -1,6 +1,12 @@
 # https://nix-darwin.github.io/nix-darwin/manual/index.html
 
-{ config, pkgs, ... }: {
+{ config, pkgs, nixpkgs-unstable, ... }:
+let
+  pkgs-unstable = import nixpkgs-unstable {
+    system = pkgs.stdenv.hostPlatform.system;
+    config.allowUnfree = true;
+  };
+in {
   environment.systemPackages = with pkgs;
     let
       kyrat = pkgs.stdenv.mkDerivation rec {
@@ -120,6 +126,7 @@
       claude-code
       dive
       docker-client
+      pkgs-unstable.gemini-cli-bin
       (python312.withPackages (ps:
         with ps; [ # Same version as Ubuntu 24.04
           gdal

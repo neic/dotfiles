@@ -1,0 +1,28 @@
+{
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "general": {
+    "previewFeatures": true,
+    "sessionRetention": {
+      "warningAcknowledged": true,
+      "enabled": true,
+      "maxAge": "30d"
+    }
+  },
+  "ui": {
+    "hideTips": true,
+    "showShortcutsHint": false,
+    "hideBanner": true,
+    "footer": {
+      "hideContextPercentage": false
+    },
+    "accessibility": {
+      "enableLoadingPhrases": false
+    },
+    "loadingPhrases": "off"
+  },
+  "contextFileName": "AGENTS.md"
+}
