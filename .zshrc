@@ -99,12 +99,6 @@ cle () {
     brew cleanup
   fi
 
-  if [[ $only == *"sys"* ]] && (( $+commands[apt-get] )); then
-    print -P "${BLUE}Cleaning software from apt-get${NO_COLOR}"
-    sudo apt-get autoremove
-    sudo apt-get autoclean
-  fi
-
   if [[ $only == *"nix"* ]] && (( $+commands[nix-collect-garbage] )); then
     print -P "${BLUE}Cleaning nix${NO_COLOR}"
     nix-collect-garbage --delete-older-than 30d
@@ -122,12 +116,6 @@ up () {
   if [[ $only == *"sys"* ]] && (( $+commands[softwareupdate] )); then
     print -P "${BLUE}Updating macOS and App Store software${NO_COLOR}"
     sudo softwareupdate --install --all
-  fi
-
-  if [[ $only == *"sys"* ]] && (( $+commands[apt-get] )); then
-    print -P "${BLUE}Updating software from apt-get${NO_COLOR}"
-    sudo apt-get update
-    sudo apt-get upgrade
   fi
 
   if [[ $only == *"nix"* ]] && (( $+commands[nix] )) && (( $+commands[darwin-rebuild] )); then
