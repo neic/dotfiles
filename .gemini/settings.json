@@ -10,7 +10,8 @@
       "warningAcknowledged": true,
       "enabled": true,
       "maxAge": "30d"
-    }
+    },
+    "preferredEditor": "emacs"
   },
   "ui": {
     "hideTips": true,
