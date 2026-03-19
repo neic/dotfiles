@@ -1,32 +1,22 @@
 # https://nix-darwin.github.io/nix-darwin/manual/index.html
 
-{ config, pkgs, nixpkgs-unstable, ... }:
-let
-  pkgs-unstable = import nixpkgs-unstable {
-    system = pkgs.stdenv.hostPlatform.system;
-    config.allowUnfree = true;
+{ config, pkgs, lib, ... }:
+{
+  options.my.pythonPackages = lib.mkOption {
+    type = lib.types.listOf lib.types.package;
+    default = [ ];
+    description = "List of extra python packages to include in the system python environment.";
   };
-in {
-  environment.systemPackages = with pkgs;
-    let
-      kyrat = pkgs.stdenv.mkDerivation rec {
-        pname = "kyrat";
-        version = "1";
 
-        src = builtins.fetchGit {
-          url = "git@github.com:fsquillace/kyrat.git";
-          ref = "master";
-          rev = "47b57643d4743fe2c1f2bb783ad275e1f0693faf";
-        };
-        nativeBuildInputs = [ pkgs.installShellFiles ];
+  config = {
+    my.pythonPackages = with pkgs.python312Packages; [
+      gdal
+      isort
+      openai
+      pyflakes
+    ];
 
-        installPhase = ''
-          install -D './lib/core.sh' "$out/lib/core.sh"
-          install -D './bin/kyrat' "$out/bin/kyrat"
-        '';
-      };
-    in [
-
+    environment.systemPackages = with pkgs; [
       # Applications
       browserpass
       discord
@@ -124,151 +114,136 @@ in {
 
       # Programming
       claude-code
+      unstable.github-copilot-cli
       dive
       docker-client
-      pkgs-unstable.gemini-cli-bin
-      (python312.withPackages (ps:
-        with ps; [ # Same version as Ubuntu 24.04
-          gdal
-          isort
-          openai
-          pyflakes
-          # (buildPythonPackage rec {
-          #   pname = "sadmin-deploy";
-          #   version = "2.3.2";
-          #   src = builtins.fetchGit {
-          #     url = "git@git.i.scalgo.com:scalgo/sadmin-deploy.git";
-          #   };
-          #   propagatedBuildInputs = [ requests pyaml ];
-          #   pyproject = true;
-          #   build-system = [ setuptools ];
-          # })
-        ]))
+      unstable.gemini-cli-bin
+      (python312.withPackages (_: config.my.pythonPackages))
     ];
 
-  homebrew.enable = true;
-  homebrew.onActivation.autoUpdate = true;
-  homebrew.onActivation.cleanup = "zap";
-  homebrew.onActivation.upgrade = true;
-  homebrew.taps = [ "homebrew/cask-versions" ];
-  homebrew.casks = [
-    "darktable"
-    "docker-desktop" # not in nixpkg
-    "element" # nixpkg not build for darwin
-    "firefox" # nixpkg not build for darwin
-    "flux-app" # nixpkg not build for darwin
-    "google-chrome" # not in nixpkg
-    "gpg-suite" # not in nixpkg
-    "gramps" # nixpkg does not include .app
-    "home-assistant"
-    "inkscape"
-    "little-snitch" # nixpkg not build for darwin
-    "nextcloud" # nixpkg not build for darwin
-    "qgis" # nixpkg not build for darwin
-    "spotify" # Download often breaks in nixpkgs
-    "steam" # nixpkg not build for darwin
-    "vlc" # nixpkg not build for darwin
-    "wireshark-app" # qt 6 is broken in nixpkgs
-  ];
-  # Use `mas purchase <id>` when this fails.
-  homebrew.masApps = {
-    "Tailscale" = 1475387142;
-    "Windows App" = 1295203466;
-    "Xcode" = 497799835;
-  };
+    homebrew.enable = true;
+    homebrew.onActivation.autoUpdate = true;
+    homebrew.onActivation.cleanup = "zap";
+    homebrew.onActivation.upgrade = true;
+    homebrew.taps = [ "homebrew/cask-versions" ];
+    homebrew.casks = [
+      "darktable"
+      "docker-desktop" # not in nixpkg
+      "element" # nixpkg not build for darwin
+      "firefox" # nixpkg not build for darwin
+      "flux-app" # nixpkg not build for darwin
+      "google-chrome" # not in nixpkg
+      "gpg-suite" # not in nixpkg
+      "gramps" # nixpkg does not include .app
+      "home-assistant"
+      "inkscape"
+      "little-snitch" # nixpkg not build for darwin
+      "nextcloud" # nixpkg not build for darwin
+      "qgis" # nixpkg not build for darwin
+      "spotify" # Download often breaks in nixpkgs
+      "steam" # nixpkg not build for darwin
+      "vlc" # nixpkg not build for darwin
+      "wireshark-app" # qt 6 is broken in nixpkgs
+    ];
+    # Use `mas purchase <id>` when this fails.
+    homebrew.masApps = {
+      "Tailscale" = 1475387142;
+      "Windows App" = 1295203466;
+      "Xcode" = 497799835;
+    };
 
-  fonts.packages = with pkgs; [ nerd-fonts.blex-mono nerd-fonts.symbols-only ];
+    fonts.packages = with pkgs; [ nerd-fonts.blex-mono nerd-fonts.symbols-only ];
 
-  launchd.user.agents = {
-    # ollama-serve = {
-    #   command = "${pkgs.ollama}/bin/ollama serve";
-    #   serviceConfig = {
-    #     KeepAlive = true;
-    #     RunAtLoad = true;
-    #     StandardOutPath = "/tmp/ollama-serve.out.log";
-    #     StandardErrorPath = "/tmp/ollama-serve.err.log";
-    #   };
-    # };
-    org-pull = {
-      command = "${pkgs.gitFull}/bin/git -C ~/org pull";
-      serviceConfig = {
-        StartInterval = 60;
-        StandardOutPath = "/tmp/org-pull.out.log";
-        StandardErrorPath = "/tmp/org-pull.err.log";
+    launchd.user.agents = {
+      # ollama-serve = {
+      #   command = "${pkgs.ollama}/bin/ollama serve";
+      #   serviceConfig = {
+      #     KeepAlive = true;
+      #     RunAtLoad = true;
+      #     StandardOutPath = "/tmp/ollama-serve.out.log";
+      #     StandardErrorPath = "/tmp/ollama-serve.err.log";
+      #   };
+      # };
+      org-pull = {
+        command = "${pkgs.gitFull}/bin/git -C ~/org pull";
+        serviceConfig = {
+          StartInterval = 60;
+          StandardOutPath = "/tmp/org-pull.out.log";
+          StandardErrorPath = "/tmp/org-pull.err.log";
+        };
       };
     };
-  };
 
-  system.defaults = {
-    NSGlobalDomain = {
-      # Keyboard
-      InitialKeyRepeat = 10;
-      KeyRepeat = 2;
-      ApplePressAndHoldEnabled = false; # Accent menu
+    system.defaults = {
+      NSGlobalDomain = {
+        # Keyboard
+        InitialKeyRepeat = 10;
+        KeyRepeat = 2;
+        ApplePressAndHoldEnabled = false; # Accent menu
+      };
+
+      trackpad = {
+        ActuationStrength = 0; # Trackpad > Point & Click > Silent clicking = off
+        FirstClickThreshold = 0; # Trackpad > Point & Click > Click = Light
+        SecondClickThreshold = 0; # Trackpad > Point & Click > Click = Light
+        TrackpadTwoFingerDoubleTapGesture =
+          false; # Trackpad > Scroll & Zoom > Smart zoom = off
+      };
+
+      dock = {
+        autohide = true;
+        orientation = "left";
+        tilesize = 24;
+        static-only = true;
+        wvous-bl-corner = 1; # Disabled
+        wvous-br-corner = 1; # Disabled
+        wvous-tl-corner = 1; # Disabled
+        wvous-tr-corner = 1; # Disabled
+        mru-spaces = false;
+      };
+      finder = {
+        AppleShowAllExtensions = true;
+        AppleShowAllFiles = true;
+        FXPreferredViewStyle = "Nlsv";
+        QuitMenuItem = true;
+        ShowPathbar = true;
+      };
+      loginwindow = { GuestEnabled = false; };
+      menuExtraClock = {
+        ShowDate = 0;
+        ShowSeconds = true;
+      };
     };
 
-    trackpad = {
-      ActuationStrength = 0; # Trackpad > Point & Click > Silent clicking = off
-      FirstClickThreshold = 0; # Trackpad > Point & Click > Click = Light
-      SecondClickThreshold = 0; # Trackpad > Point & Click > Click = Light
-      TrackpadTwoFingerDoubleTapGesture =
-        false; # Trackpad > Scroll & Zoom > Smart zoom = off
+    security.pam.services.sudo_local.touchIdAuth = true;
+
+    programs.zsh = {
+      enable = true;
+      enableCompletion = false; # compinit is called from .zshrc
+      enableSyntaxHighlighting = true;
     };
 
-    dock = {
-      autohide = true;
-      orientation = "left";
-      tilesize = 24;
-      static-only = true;
-      wvous-bl-corner = 1; # Disabled
-      wvous-br-corner = 1; # Disabled
-      wvous-tl-corner = 1; # Disabled
-      wvous-tr-corner = 1; # Disabled
-      mru-spaces = false;
-    };
-    finder = {
-      AppleShowAllExtensions = true;
-      AppleShowAllFiles = true;
-      FXPreferredViewStyle = "Nlsv";
-      QuitMenuItem = true;
-      ShowPathbar = true;
-    };
-    loginwindow = { GuestEnabled = false; };
-    menuExtraClock = {
-      ShowDate = 0;
-      ShowSeconds = true;
-    };
-  };
+    environment.variables = { SHELL = "${pkgs.zsh}/bin/zsh"; };
 
-  security.pam.services.sudo_local.touchIdAuth = true;
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = false; # compinit is called from .zshrc
-    enableSyntaxHighlighting = true;
-  };
-
-  environment.variables = { SHELL = "${pkgs.zsh}/bin/zsh"; };
-
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.hostPlatform = "aarch64-darwin";
-  system.stateVersion = 6;
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-    extra-platforms = x86_64-darwin aarch64-darwin
-  '';
-
-  services.yabai = {
-    enable = true;
-    config = {
-      window_border = "off";
-      layout = "bsp";
-    };
-
-    extraConfig = ''
-      yabai -m rule --add app='System Settings' manage=off
-      yabai -m rule --add title='.*Gramps' manage=off
-      yabai -m rule --add app=josm manage=off
+    nixpkgs.config.allowUnfree = true;
+    system.stateVersion = 6;
+    nix.extraOptions = ''
+      experimental-features = nix-command flakes
+      extra-platforms = x86_64-darwin aarch64-darwin
     '';
+
+    services.yabai = {
+      enable = true;
+      config = {
+        window_border = "off";
+        layout = "bsp";
+      };
+
+      extraConfig = ''
+        yabai -m rule --add app='System Settings' manage=off
+        yabai -m rule --add title='.*Gramps' manage=off
+        yabai -m rule --add app=josm manage=off
+      '';
+    };
   };
 }

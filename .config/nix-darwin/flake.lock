@@ -53,6 +53,24 @@
         "type": "indirect"
       }
     },
+    "kyrat-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1601634994,
+        "narHash": "sha256-K8GYOIFTJUokgE2p8CU+2cZpMGrjF/YnS8yrATQSsrk=",
+        "ref": "master",
+        "rev": "47b57643d4743fe2c1f2bb783ad275e1f0693faf",
+        "revCount": 61,
+        "type": "git",
+        "url": "ssh://git@github.com/fsquillace/kyrat"
+      },
+      "original": {
+        "ref": "master",
+        "rev": "47b57643d4743fe2c1f2bb783ad275e1f0693faf",
+        "type": "git",
+        "url": "ssh://git@github.com/fsquillace/kyrat"
+      }
+    },
     "mac-app-util": {
       "inputs": {
         "cl-nix-lite": "cl-nix-lite",
@@ -163,11 +181,31 @@
     },
     "root": {
       "inputs": {
+        "kyrat-src": "kyrat-src",
         "mac-app-util": "mac-app-util",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable",
+        "sadmin-deploy-src": "sadmin-deploy-src",
         "sops-nix": "sops-nix"
+      }
+    },
+    "sadmin-deploy-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1742384946,
+        "narHash": "sha256-6x7dbGI9YOuNK5VIz7nZkIo5695PUPF0u7znPblu1qQ=",
+        "ref": "refs/tags/v2.3.2",
+        "rev": "0eb98a457fb643f3a9d6d18214215dcb4b3605ef",
+        "revCount": 86,
+        "type": "git",
+        "url": "ssh://git@git.i.scalgo.com/scalgo/sadmin-deploy.git"
+      },
+      "original": {
+        "ref": "refs/tags/v2.3.2",
+        "rev": "0eb98a457fb643f3a9d6d18214215dcb4b3605ef",
+        "type": "git",
+        "url": "ssh://git@git.i.scalgo.com/scalgo/sadmin-deploy.git"
       }
     },
     "sops-nix": {
