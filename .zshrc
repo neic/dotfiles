@@ -132,7 +132,7 @@ up () {
 
   if [[ $only == *"nix"* ]] && (( $+commands[nix] )) && (( $+commands[darwin-rebuild] )); then
     print -P "${BLUE}Updating nix${NO_COLOR}"
-    nix flake update nixpkgs --flake ~/.config/nix-darwin
+    nix flake update --flake ~/.config/nix-darwin
     sudo darwin-rebuild switch
   fi
 
