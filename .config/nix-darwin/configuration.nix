@@ -97,6 +97,7 @@ in {
       # Network
       kyrat
       nmap
+      ntfy-sh
       openssh
       rsync
       wget
@@ -190,9 +191,10 @@ in {
     #   };
     # };
     org-pull = {
-      command = "${pkgs.gitFull}/bin/git -C ~/org pull";
+      command = "${pkgs.ntfy-sh}/bin/ntfy subscribe https://ntfy.neic.dk/org-updates '${pkgs.gitFull}/bin/git -C ~/org pull'";
       serviceConfig = {
-        StartInterval = 60;
+        KeepAlive = true;
+        RunAtLoad = false;
         StandardOutPath = "/tmp/org-pull.out.log";
         StandardErrorPath = "/tmp/org-pull.err.log";
       };
