@@ -52,6 +52,8 @@
 (package! wkt-mode
   :recipe (:host github :repo "orontee/wkt-mode"))
 (package! magit-lfs)
+(package! ecard
+  :recipe (:host github :repo "jwiegley/ecard"))
 (package! git-auto-commit-mode)
 (package! ultra-scroll
   :recipe (:host github :repo "jdtsmith/ultra-scroll"))

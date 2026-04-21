@@ -234,6 +234,15 @@
            "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?")
           ("L" "Protocol Link" entry (file "")
            "* %? [[%:link][%:description]] \nCaptured On: %U")
+          ;;
+          ("c" "Contacts" entry (file+headline "~/org/personer.org" "Ukategoriseret")
+           "* %(org-contacts-template-name) %^{EMAIL}p %^{PHONE}p
+           :PROPERTIES:
+           :ADDRESS: ;;%{Vej og nummer};%{By};;%{Postnummer};
+           :VCARD: t
+           :ID: %(org-id-new)
+           :END:
+           Added on: %U")
           ))
   ;; From https://github.com/doomemacs/doomemacs/blob/master/modules/lang/org/config.el
   ;; Keep in sync with ~/org/init.org
@@ -265,7 +274,98 @@
   (setq org-agenda-files (directory-files-recursively org-directory "\\.org$"))
   ;; Auto save all org mode buffers after inactivity
   (add-hook 'auto-save-hook 'org-save-all-org-buffers)
-  )
+
+  (setq org-contacts-files '("~/org/contacts.org"))
+  (require 'ecard)
+  (require 'ecard-org)
+  (setq ecard-org-require-ecard-property t)  ; Optional: auto-detect contacts
+  (setq ecard-org-import-unmapped-properties t) ; Optional: keep all properties
+
+  (defconst ecard-org--multivalued-slots '(email tel url impp)
+    "vCard slots where a single Org property may contain multiple comma-separated values.")
+
+  (defun ecard-org--split-property-value (value ecard-slot)
+    "Split VALUE into a list if ECARD-SLOT supports multiple values, else return list of VALUE."
+    (if (memq ecard-slot ecard-org--multivalued-slots)
+        (split-string value "[,;]+" t "[ \t]+")
+      (list value)))
+
+  (defun ecard-org-entry-to-ecard ()
+    "Convert current Org entry at point to ecard object.
+Like the original, but splits comma/semicolon-separated values into
+multiple vCard properties for slots in `ecard-org--multivalued-slots'."
+    (save-excursion
+      (org-back-to-heading t)
+      (when (ecard-org--is-contact-p)
+        (let* ((properties (org-entry-properties))
+               (heading (org-get-heading t t t t))
+               (vc (ecard-create :fn heading)))
+
+          (when-let ((n-value (cdr (assoc "N" properties))))
+            (ecard-set-property vc 'n (split-string n-value ";" t)))
+
+          (dolist (mapping ecard-org-property-mappings)
+            (let* ((org-prop (nth 0 mapping))
+                   (ecard-slot (nth 1 mapping))
+                   (params (nth 2 mapping))
+                   (org-value (cdr (assoc org-prop properties))))
+              (when org-value
+                (dolist (v (ecard-org--split-property-value org-value ecard-slot))
+                  (ecard-add-property vc ecard-slot
+                                      (ecard-org--parse-org-value v ecard-slot)
+                                      params)))))
+
+          (when ecard-org-export-unknown-properties
+            (let ((mapped-props (mapcar #'car ecard-org-property-mappings)))
+              (dolist (prop properties)
+                (let ((prop-name (car prop))
+                      (prop-value (cdr prop)))
+                  (unless (or (member prop-name mapped-props)
+                              (member prop-name '("CATEGORY" "ITEM" "VCARD" "N")))
+                    (ecard-add-property vc
+                                        (intern (concat "x-org-" (downcase prop-name)))
+                                        prop-value
+                                        nil))))))
+          vc))))
+
+  (defun ecard-org--entry-body ()
+    "Return body text of current Org entry, excluding heading and properties drawer.
+Returns nil if the body is empty or whitespace-only."
+    (save-excursion
+      (org-back-to-heading t)
+      (let ((end (org-entry-end-position)))
+        (forward-line 1)
+        (when (looking-at "[ \t]*:PROPERTIES:")
+          (re-search-forward ":END:[ \t]*\n?" end t))
+        (let ((body (string-trim (buffer-substring-no-properties (point) end))))
+          (unless (string-empty-p body) body)))))
+
+  (defun ecard-org-export-buffer-with-body-note (file)
+    "Export all contacts in current buffer to FILE (.vcf), using heading body as NOTE.
+Like `ecard-org-export-buffer', but uses the text body of each Org heading
+as the vCard NOTE property instead of the :NOTE: org property."
+    (interactive "FExport contacts to vCard file: ")
+    (let ((vcards '()))
+      (org-map-entries
+       (lambda ()
+         (when-let ((vc (ecard-org-entry-to-ecard)))
+           (ecard--set-slot-value vc 'note nil)
+           (when-let ((body (ecard-org--entry-body)))
+             (ecard-set-property vc 'note body))
+           (push vc vcards)))
+       nil nil)
+      (setq vcards (nreverse vcards))
+      (let ((count (length vcards)))
+        (if (zerop count)
+            (progn (message "No contacts found to export") nil)
+          (with-temp-file file
+            (dolist (vc vcards)
+              (insert (ecard-serialize vc))
+              (insert "\n")))
+          (message "Exported %d contact%s to %s"
+                   count (if (= count 1) "" "s") file)
+          count))))
+)
 
 (with-eval-after-load 'apheleia
   (setf (alist-get 'terraform apheleia-formatters)
