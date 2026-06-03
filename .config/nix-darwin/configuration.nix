@@ -33,6 +33,7 @@
       #ollama # There is a launchd.user.agents further down.
       pass
       sops
+      texliveFull
 
       # Spelling
       (aspellWithDicts (ds: [ ds.en ds.da ]))
