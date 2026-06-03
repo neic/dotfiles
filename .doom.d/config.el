@@ -272,43 +272,16 @@
         '("tofu" "fmt" "-"))
   )
 
-(use-package copilot
-  :hook (prog-mode . copilot-mode)
-  :bind (:map copilot-completion-map
-              ("<tab>" . 'copilot-accept-completion)
-              ("TAB" . 'copilot-accept-completion)
-              ("C-TAB" . 'copilot-accept-completion-by-word)
-              ("C-<tab>" . 'copilot-accept-completion-by-word)))
 
-(use-package ellama
-  :demand t
-  :bind ("C-c g" . ellama-transient-main-menu)
+;; -----------
+;; Agent Shell
+;; -----------
+
+(use-package! agent-shell
+  :defer t
   :init
-  (setopt ellama-auto-scroll t)
-  (require 'llm-ollama)
-  (setopt ellama-provider
-          (make-llm-ollama
-           :chat-model "llama3.2:3b"
-           :embedding-model "nomic-embed-text"
-           :default-chat-non-standard-params '(("num_ctx" . 8192))))
-  (setopt ellama-summarization-provider
-          (make-llm-ollama
-           :chat-model "llama3.2:3b"
-           :embedding-model "nomic-embed-text"
-           :default-chat-non-standard-params '(("num_ctx" . 32768))))
-  (setopt ellama-coding-provider
-          (make-llm-ollama
-           :chat-model "qwen2.5-coder:14b-instruct-q6_K"
-           :embedding-model "nomic-embed-text"
-           :default-chat-non-standard-params '(("num_ctx" . 32768))))
-  (setopt ellama-naming-provider
-          (make-llm-ollama
-           :chat-model "llama3.2:3b"
-           :embedding-model "nomic-embed-text"
-           :default-chat-non-standard-params '(("stop" . ("\n")))))
-  (setopt ellama-naming-scheme 'ellama-generate-name-by-llm)
-  (setopt ellama-translation-provider
-          (make-llm-ollama
-           :chat-model "llama3.2:3b"
-           :embedding-model "nomic-embed-text"
-           :default-chat-non-standard-params '(("num_ctx" . 32768)))))
+  (require 'acp)
+  (require 'agent-shell)
+  (require 'agent-shell-google)
+  :config
+  (setq agent-shell-show-welcome-message nil))

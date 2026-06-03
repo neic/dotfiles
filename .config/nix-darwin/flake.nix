@@ -20,6 +20,11 @@
       url = "git+ssh://git@github.com/fsquillace/kyrat?ref=master&rev=47b57643d4743fe2c1f2bb783ad275e1f0693faf";
       flake = false;
     };
+    claude-agent-acp-src = {
+      url =
+        "git+ssh://git@github.com/agentclientprotocol/claude-agent-acp?ref=0.40.0&rev=f1736a9371bd2d33e10b2a0b31c65d9c0cf4a18b";
+      flake = false;
+    };
     sadmin-deploy-src = {
       url = "git+ssh://git@git.i.scalgo.com/scalgo/sadmin-deploy.git?ref=refs/tags/v2.3.2&rev=0eb98a457fb643f3a9d6d18214215dcb4b3605ef";
       flake = false;
@@ -46,6 +51,22 @@
               install -D './lib/core.sh' "$out/lib/core.sh"
               install -D './bin/kyrat' "$out/bin/kyrat"
             '';
+          };
+
+          claude-agent-acp = final.buildNpmPackage rec {
+            pname = "claude-agent-acp";
+            version = "0.40.0";
+            src = inputs.claude-agent-acp-src;
+            npmDepsHash = "sha256-sEZHjBgGUSd37IJV44NYKldyPKRHPfiXz0SPw2W6Zps=";
+
+            meta = {
+              description =
+                "ACP-compatible coding agent powered by the Claude Agent SDK";
+              homepage =
+                "https://github.com/agentclientprotocol/claude-agent-acp";
+              license = final.lib.licenses.asl20;
+              mainProgram = "claude-agent-acp";
+            };
           };
 
           python312 = prev.python312.override {

@@ -49,11 +49,9 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
 
-(package! gptai)
 (package! wkt-mode
   :recipe (:host github :repo "orontee/wkt-mode"))
 (package! magit-lfs)
-(package! ellama)
 (package! git-auto-commit-mode)
 (package! ultra-scroll
   :recipe (:host github :repo "jdtsmith/ultra-scroll"))
@@ -67,8 +65,7 @@
                    (:exclude ".dir-locals.el" "*-tests.el"))))
 (package! magit-prime)
 
-
-(package! copilot
-  :recipe (:host github :repo "copilot-emacs/copilot.el" :files ("*.el")))
-(package! copilot-chat
-  :recipe (:host github :repo "chep/copilot-chat.el" :files ("*.el")))
+;; AI
+(package! shell-maker)
+(package! acp)
+(package! agent-shell)

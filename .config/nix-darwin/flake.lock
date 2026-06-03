@@ -16,6 +16,24 @@
         "type": "github"
       }
     },
+    "claude-agent-acp-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1780434601,
+        "narHash": "sha256-EM81RLqwpqGMqlXx0nx17dEgtgDx6aK885z6A1+wHXk=",
+        "ref": "0.40.0",
+        "rev": "f1736a9371bd2d33e10b2a0b31c65d9c0cf4a18b",
+        "revCount": 487,
+        "type": "git",
+        "url": "ssh://git@github.com/agentclientprotocol/claude-agent-acp"
+      },
+      "original": {
+        "ref": "0.40.0",
+        "rev": "f1736a9371bd2d33e10b2a0b31c65d9c0cf4a18b",
+        "type": "git",
+        "url": "ssh://git@github.com/agentclientprotocol/claude-agent-acp"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -181,6 +199,7 @@
     },
     "root": {
       "inputs": {
+        "claude-agent-acp-src": "claude-agent-acp-src",
         "kyrat-src": "kyrat-src",
         "mac-app-util": "mac-app-util",
         "nix-darwin": "nix-darwin",

@@ -52,7 +52,6 @@
       yamllint
 
       # LSP
-      copilot-language-server
       llvmPackages_18.clang-tools
       llvmPackages_18.clang-unwrapped
       nodePackages.bash-language-server
@@ -114,10 +113,11 @@
       opentofu
 
       # Programming
+      claude-agent-acp
       claude-code
       dive
       docker-client
-      unstable.gemini-cli-bin
+      unstable.github-copilot-cli
       (python312.withPackages (_: config.my.pythonPackages))
     ];
 
