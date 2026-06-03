@@ -272,6 +272,16 @@
         '("tofu" "fmt" "-"))
   )
 
+(with-eval-after-load 'lsp-clangd
+  (setq lsp-clients-clangd-args
+        '("-j=3"
+          "--background-index"
+          "--clang-tidy"
+          "--completion-style=detailed"
+          "--header-insertion=never"
+          "--header-insertion-decorators=0"))
+  (set-lsp-priority! 'clangd 2))
+
 
 ;; -----------
 ;; Agent Shell
