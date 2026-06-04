@@ -126,6 +126,7 @@
     homebrew.onActivation.autoUpdate = true;
     homebrew.onActivation.cleanup = "zap";
     homebrew.onActivation.upgrade = true;
+    homebrew.onActivation.extraFlags = [ "--force-cleanup" ];
     homebrew.taps = [ "homebrew/cask-versions" ];
     homebrew.casks = [
       "darktable"
