@@ -69,6 +69,11 @@
             };
           };
 
+          browserpass = import ./browserpass-native-passage.nix {
+            pkgs = prev;
+            age-with-plugins = import ./age-with-plugins.nix { pkgs = prev; };
+          };
+
           python312 = prev.python312.override {
             packageOverrides = pfinal: pprev: {
               sadmin-deploy = pfinal.buildPythonPackage rec {

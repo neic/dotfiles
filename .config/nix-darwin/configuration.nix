@@ -18,7 +18,6 @@
 
     environment.systemPackages = with pkgs; [
       # Applications
-      browserpass
       discord
       (emacs-macport.overrideAttrs (oldAttrs: {
         env = (oldAttrs.env or { }) // {
@@ -26,14 +25,21 @@
             + " -DFD_SETSIZE=10000 -D_DARWIN_UNLIMITED_SELECT";
         };
       }))
-      gnupg
       iterm2
       josm
       karabiner-elements
       #ollama # There is a launchd.user.agents further down.
-      pass
-      sops
       texliveFull
+
+      # Crypto
+      age
+      age-plugin-se
+      browserpass
+      gnupg
+      oath-toolkit
+      passage
+      qrencode
+      sops
 
       # Spelling
       (aspellWithDicts (ds: [ ds.en ds.da ]))
