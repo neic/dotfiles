@@ -26,7 +26,7 @@
       flake = false;
     };
     sadmin-deploy-src = {
-      url = "git+ssh://git@git.i.scalgo.com/scalgo/sadmin-deploy.git?ref=refs/tags/v2.3.2&rev=0eb98a457fb643f3a9d6d18214215dcb4b3605ef";
+      url = "git+ssh://git@git.i.scalgo.com/scalgo/sadmin-deploy.git?ref=refs/tags/v2.3.3&rev=c03e9964eb002dd7ee1aa5cfabf6fe6ef6dc2ef6";
       flake = false;
     };
   };
@@ -78,7 +78,7 @@
             packageOverrides = pfinal: pprev: {
               sadmin-deploy = pfinal.buildPythonPackage rec {
                 pname = "sadmin-deploy";
-                version = "2.3.2";
+                version = "2.3.3";
                 src = inputs.sadmin-deploy-src;
                 propagatedBuildInputs = [ pfinal.requests pfinal.pyaml ];
                 pyproject = true;

@@ -212,17 +212,17 @@
     "sadmin-deploy-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1742384946,
-        "narHash": "sha256-6x7dbGI9YOuNK5VIz7nZkIo5695PUPF0u7znPblu1qQ=",
-        "ref": "refs/tags/v2.3.2",
-        "rev": "0eb98a457fb643f3a9d6d18214215dcb4b3605ef",
-        "revCount": 86,
+        "lastModified": 1771862158,
+        "narHash": "sha256-Mv2QaVDs5osSSPlLx+ZaQ12Vidzjy6iosP2taWCG8lE=",
+        "ref": "refs/tags/v2.3.3",
+        "rev": "c03e9964eb002dd7ee1aa5cfabf6fe6ef6dc2ef6",
+        "revCount": 90,
         "type": "git",
         "url": "ssh://git@git.i.scalgo.com/scalgo/sadmin-deploy.git"
       },
       "original": {
-        "ref": "refs/tags/v2.3.2",
-        "rev": "0eb98a457fb643f3a9d6d18214215dcb4b3605ef",
+        "ref": "refs/tags/v2.3.3",
+        "rev": "c03e9964eb002dd7ee1aa5cfabf6fe6ef6dc2ef6",
         "type": "git",
         "url": "ssh://git@git.i.scalgo.com/scalgo/sadmin-deploy.git"
       }
