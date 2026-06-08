@@ -25,6 +25,7 @@
             + " -DFD_SETSIZE=10000 -D_DARWIN_UNLIMITED_SELECT";
         };
       }))
+      gdal
       iterm2
       josm
       karabiner-elements
@@ -118,6 +119,7 @@
       kubectl
       kubectx
       opentofu
+      sadmin
 
       # Programming
       claude-agent-acp
