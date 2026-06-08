@@ -29,6 +29,10 @@
       url = "git+ssh://git@git.i.scalgo.com/scalgo/sadmin-deploy.git?ref=refs/tags/v2.3.3&rev=c03e9964eb002dd7ee1aa5cfabf6fe6ef6dc2ef6";
       flake = false;
     };
+    simple-admin-src = {
+      url = "https://github.com/antialize/simple-admin/releases/download/v0.1.5/sadmin-client-osx.zip";
+      flake = false;
+    };
   };
 
   outputs = inputs@{ self, nix-darwin, nixpkgs-unstable, ... }: {
@@ -67,6 +71,16 @@
               license = final.lib.licenses.asl20;
               mainProgram = "claude-agent-acp";
             };
+          };
+
+          sadmin = prev.stdenv.mkDerivation {
+            pname = "simple-admin";
+            version = "v0.1.5";
+            src = inputs.simple-admin-src;
+            nativeBuildInputs = [ prev.installShellFiles ];
+            installPhase = ''
+              install -D './sadmin' "$out/bin/sadmin"
+            '';
           };
 
           browserpass = import ./browserpass-native-passage.nix {
