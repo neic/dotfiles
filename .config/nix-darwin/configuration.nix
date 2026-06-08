@@ -123,7 +123,7 @@
       claude-agent-acp
       claude-code
       dive
-      docker-client
+      (pkgs.docker_29.override { clientOnly = true; })
       unstable.github-copilot-cli
       (python312.withPackages (_: config.my.pythonPackages))
     ];
