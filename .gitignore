@@ -34,6 +34,7 @@
 /.ruff_cache
 /.ssh
 !/.ssh/config
+!/.ssh/load_key.sh
 /.terraform.d
 /.zcompdump
 /.zprofile
