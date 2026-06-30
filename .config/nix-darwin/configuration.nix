@@ -51,23 +51,23 @@
       dockfmt
       jsbeautifier
       nixfmt-classic
-      nodePackages.stylelint
       pre-commit
       ruff
       rustfmt
       shellcheck
       shfmt
+      stylelint
       yamllint
 
       # LSP
-      llvmPackages_18.clang-tools
-      llvmPackages_18.clang-unwrapped
-      nodePackages.bash-language-server
-      nodePackages.yaml-language-server
+      bash-language-server
+      llvmPackages_19.clang-tools
+      llvmPackages_19.clang-unwrapped
       pyright
       rust-analyzer
       terraform-lsp
       ty
+      yaml-language-server
 
       # System utils
       bash # Newer bash for nix-shell
@@ -94,7 +94,7 @@
       # Network
       kyrat
       nmap
-      ntfy-sh
+      unstable.ntfy-sh
       openssh
       rsync
       wget
@@ -179,7 +179,7 @@
       # };
       org-pull = {
         command =
-          "${pkgs.ntfy-sh}/bin/ntfy subscribe https://ntfy.neic.dk/org-updates '${pkgs.gitFull}/bin/git -C ~/org pull'";
+          "${pkgs.unstable.ntfy-sh}/bin/ntfy subscribe https://ntfy.neic.dk/org-updates '${pkgs.gitFull}/bin/git -C ~/org pull'";
         serviceConfig = {
           KeepAlive = true;
           RunAtLoad = false;
