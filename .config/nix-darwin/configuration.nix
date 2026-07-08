@@ -232,6 +232,7 @@
         ShowSeconds = true;
       };
     };
+    power.sleep.computer = 10; # min
 
     security.pam.services.sudo_local.touchIdAuth = true;
 
