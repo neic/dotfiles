@@ -370,6 +370,10 @@ as the vCard NOTE property instead of the :NOTE: org property."
 (with-eval-after-load 'apheleia
   (setf (alist-get 'terraform apheleia-formatters)
         '("tofu" "fmt" "-"))
+  (setf (alist-get 'ruff-check apheleia-formatters)
+        '("ruff" "check" "-n" "--fix" "--fix-only" "--stdin-filename" filepath "-"))
+  (setf (alist-get 'python-ts-mode apheleia-mode-alist)
+        '(ruff-check ruff))
   )
 
 (with-eval-after-load 'lsp-clangd
