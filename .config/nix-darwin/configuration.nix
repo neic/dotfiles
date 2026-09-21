@@ -18,19 +18,25 @@
 
     environment.systemPackages = with pkgs; [
       # Applications
+      darktable
       discord
+      element-desktop
       (emacs-macport.overrideAttrs (oldAttrs: {
         env = (oldAttrs.env or { }) // {
           NIX_CFLAGS_COMPILE = (oldAttrs.env.NIX_CFLAGS_COMPILE or "")
             + " -DFD_SETSIZE=10000 -D_DARWIN_UNLIMITED_SELECT";
         };
       }))
+      firefox
       gdal
+      google-chrome
+      inkscape
       iterm2
       josm
       karabiner-elements
       #ollama # There is a launchd.user.agents further down.
       texliveFull
+      wireshark
 
       # Crypto
       age
@@ -137,23 +143,17 @@
     homebrew.onActivation.extraFlags = [ "--force-cleanup" ];
     homebrew.taps = [ "homebrew/cask-versions" ];
     homebrew.casks = [
-      "darktable"
       "docker-desktop" # not in nixpkg
-      "element" # nixpkg not build for darwin
-      "firefox" # nixpkg not build for darwin
       "flux-app" # nixpkg not build for darwin
-      "google-chrome" # not in nixpkg
       "gpg-suite" # not in nixpkg
       "gramps" # nixpkg does not include .app
       "home-assistant"
-      "inkscape"
       "little-snitch" # nixpkg not build for darwin
       "nextcloud" # nixpkg not build for darwin
-      "qgis" # nixpkg not build for darwin
+      "qgis" # is broken in nixpkgs https://github.com/NixOS/nixpkgs/issues/514179
       "spotify" # Download often breaks in nixpkgs
       "steam" # nixpkg not build for darwin
       "vlc" # nixpkg not build for darwin
-      "wireshark-app" # qt 6 is broken in nixpkgs
     ];
     # Use `mas purchase <id>` when this fails.
     homebrew.masApps = {
