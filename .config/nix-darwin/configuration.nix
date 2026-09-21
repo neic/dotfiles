@@ -58,7 +58,7 @@
       jsbeautifier
       nixfmt-classic
       pre-commit
-      ruff
+      unstable.ruff
       rustfmt
       shellcheck
       shfmt
@@ -73,6 +73,7 @@
       rust-analyzer
       terraform-lsp
       ty
+      unstable.cargo
       yaml-language-server
 
       # System utils
@@ -128,8 +129,8 @@
       sadmin
 
       # Programming
-      claude-agent-acp
-      claude-code
+      unstable.claude-agent-acp
+      unstable.claude-code
       dive
       (pkgs.docker_29.override { clientOnly = true; })
       unstable.github-copilot-cli
