@@ -34,7 +34,6 @@
       iterm2
       josm
       karabiner-elements
-      #ollama # There is a launchd.user.agents further down.
       texliveFull
       wireshark
 
@@ -170,15 +169,6 @@
     ];
 
     launchd.user.agents = {
-      # ollama-serve = {
-      #   command = "${pkgs.ollama}/bin/ollama serve";
-      #   serviceConfig = {
-      #     KeepAlive = true;
-      #     RunAtLoad = true;
-      #     StandardOutPath = "/tmp/ollama-serve.out.log";
-      #     StandardErrorPath = "/tmp/ollama-serve.err.log";
-      #   };
-      # };
       org-pull = {
         command =
           "${pkgs.unstable.ntfy-sh}/bin/ntfy subscribe https://ntfy.neic.dk/org-updates '${pkgs.gitFull}/bin/git -C ~/org pull'";
