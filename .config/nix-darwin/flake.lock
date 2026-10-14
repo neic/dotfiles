@@ -301,14 +301,14 @@
     "simple-admin-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1780922513,
-        "narHash": "sha256-iR9qyj72KmUtM/1WyV8ILG/bzJnVow4ZUOlCuVoqMOU=",
+        "lastModified": 1792142814,
+        "narHash": "sha256-rMkkiBE56xTvIwUrpX/Wheh7kUQB8988q38r7pWBw2s=",
         "type": "tarball",
-        "url": "https://github.com/antialize/simple-admin/releases/download/v0.1.5/sadmin-client-osx.zip"
+        "url": "https://github.com/antialize/simple-admin/releases/download/v0.1.13/sadmin-client-osx.zip"
       },
       "original": {
         "type": "tarball",
-        "url": "https://github.com/antialize/simple-admin/releases/download/v0.1.5/sadmin-client-osx.zip"
+        "url": "https://github.com/antialize/simple-admin/releases/download/v0.1.13/sadmin-client-osx.zip"
       }
     },
     "sops-nix": {

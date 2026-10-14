@@ -27,7 +27,7 @@
       flake = false;
     };
     simple-admin-src = {
-      url = "https://github.com/antialize/simple-admin/releases/download/v0.1.5/sadmin-client-osx.zip";
+      url = "https://github.com/antialize/simple-admin/releases/download/v0.1.13/sadmin-client-osx.zip";
       flake = false;
     };
   };
@@ -72,7 +72,7 @@
 
           sadmin = prev.stdenv.mkDerivation {
             pname = "simple-admin";
-            version = "v0.1.5";
+            version = "v0.1.13";
             src = inputs.simple-admin-src;
             nativeBuildInputs = [ prev.installShellFiles ];
             installPhase = ''
