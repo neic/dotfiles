@@ -2,5 +2,5 @@
   system.primaryUser = "md";
   nixpkgs.hostPlatform = "aarch64-darwin";
 
-  my.pythonPackages = [ pkgs.python312Packages.sadmin-deploy ];
+  my.pythonPackages = [ pkgs.python314Packages.sadmin-deploy ];
 }

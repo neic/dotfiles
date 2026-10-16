@@ -9,7 +9,7 @@
   };
 
   config = {
-    my.pythonPackages = with pkgs.python312Packages; [
+    my.pythonPackages = with pkgs.python314Packages; [
       gdal
       isort
       openai
@@ -134,7 +134,7 @@
       dive
       (pkgs.docker_29.override { clientOnly = true; })
       unstable.github-copilot-cli
-      (python312.withPackages (_: config.my.pythonPackages))
+      (python314.withPackages (_: config.my.pythonPackages))
     ];
 
     homebrew.enable = true;

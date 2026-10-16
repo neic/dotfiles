@@ -85,7 +85,7 @@
             age-with-plugins = import ./age-with-plugins.nix { pkgs = prev; };
           };
 
-          python312 = prev.python312.override {
+          python314 = prev.python314.override {
             packageOverrides = pfinal: pprev: {
               sadmin-deploy = pfinal.buildPythonPackage rec {
                 pname = "sadmin-deploy";
