@@ -1,5 +1,9 @@
 # https://nix-darwin.github.io/nix-darwin/manual/index.html
 
+# Update macOS with:
+# softwareupdate --list-full-installers
+# softwareupdate --fetch-full-installer --full-installer-version
+
 { config, pkgs, lib, ... }: {
   options.my.pythonPackages = lib.mkOption {
     type = lib.types.listOf lib.types.package;
