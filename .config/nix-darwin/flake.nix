@@ -22,10 +22,6 @@
         "git+ssh://git@github.com/agentclientprotocol/claude-agent-acp?ref=0.40.0&rev=f1736a9371bd2d33e10b2a0b31c65d9c0cf4a18b";
       flake = false;
     };
-    sadmin-deploy-src = {
-      url = "git+ssh://git@git.i.scalgo.com/scalgo/sadmin-deploy.git?ref=refs/tags/v2.3.3&rev=c03e9964eb002dd7ee1aa5cfabf6fe6ef6dc2ef6";
-      flake = false;
-    };
     simple-admin-src = {
       url = "https://github.com/antialize/simple-admin/releases/download/v0.1.13/sadmin-client-osx.zip";
       flake = false;
@@ -83,19 +79,6 @@
           browserpass = import ./browserpass-native-passage.nix {
             pkgs = prev;
             age-with-plugins = import ./age-with-plugins.nix { pkgs = prev; };
-          };
-
-          python314 = prev.python314.override {
-            packageOverrides = pfinal: pprev: {
-              sadmin-deploy = pfinal.buildPythonPackage rec {
-                pname = "sadmin-deploy";
-                version = "2.3.3";
-                src = inputs.sadmin-deploy-src;
-                propagatedBuildInputs = [ pfinal.requests pfinal.pyaml ];
-                pyproject = true;
-                build-system = [ pfinal.setuptools ];
-              };
-            };
           };
         };
 

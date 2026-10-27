@@ -275,27 +275,8 @@
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs_5",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "sadmin-deploy-src": "sadmin-deploy-src",
         "simple-admin-src": "simple-admin-src",
         "sops-nix": "sops-nix"
-      }
-    },
-    "sadmin-deploy-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1771862158,
-        "narHash": "sha256-Mv2QaVDs5osSSPlLx+ZaQ12Vidzjy6iosP2taWCG8lE=",
-        "ref": "refs/tags/v2.3.3",
-        "rev": "c03e9964eb002dd7ee1aa5cfabf6fe6ef6dc2ef6",
-        "revCount": 90,
-        "type": "git",
-        "url": "ssh://git@git.i.scalgo.com/scalgo/sadmin-deploy.git"
-      },
-      "original": {
-        "ref": "refs/tags/v2.3.3",
-        "rev": "c03e9964eb002dd7ee1aa5cfabf6fe6ef6dc2ef6",
-        "type": "git",
-        "url": "ssh://git@git.i.scalgo.com/scalgo/sadmin-deploy.git"
       }
     },
     "simple-admin-src": {
